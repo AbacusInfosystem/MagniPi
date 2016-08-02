@@ -9,19 +9,19 @@
 
         <section class="content-header">
             <h1>
-                Customer
+                Corporate
             </h1>
             <ol class="breadcrumb">
                 <li>Admin</li>
-                <li class="active">Customer</li>
+                <li class="active">Corporate</li>
             </ol>
         </section>
 
-        <form id="frmCustomerListing">
+        <form id="frmCorporateListing">
             <section class="content">
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Customer Listing</h2>
+                        <h2 id="" class="page-header">Corporate Listing</h2>
 
                         <div class="box box-default">
                             <div class="box-body">
@@ -29,8 +29,8 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="txtFirstName" style="color: #333" class="">Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Customer Name"/>
+                                            <label for="txtCorporateName" style="color: #333" class="">Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtCorporateName" value="" placeholder="Corporate Name" />
                                         </div>
                                     </div>
                                 </div>
@@ -40,13 +40,12 @@
                                         <div class="col-md-6">
                                             <div class="btn-group">
                                                 <button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>
-                                                <a href="@Url.Action("Index", "Customer")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
+                                                <a href="@Url.Action("Index", "Corporate")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="btn-group pull-right">
-                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm">Edit</button>
-                                                <a href="@Url.Action("CustomerEventMapping", "Customer")" type="button" id="btnAssignedEvent" class="btn btn-success btn-sm">Assigned Event</a>
+                                                <a href="@Url.Action("Index", "Corporate")" type="button" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
                                             </div>
                                         </div>
                                     </div>
@@ -60,17 +59,27 @@
                                                 <table class="table table-striped" id="tblCustomer">
                                                     <tr id="subhead">
                                                         <th></th>
-                                                        <th>Customer Name</th>
-                                                        <th>Email</th>
-                                                        <th>Contact</th>
+                                                        <th>Corporate Name</th>
+                                                        <th>Description</th>
                                                         <th>Address</th>
+                                                        <th>Contact</th>
+                                                        <th>No of members</th>
                                                     </tr>
                                                     <tr>
                                                         <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>fsdfsd sdfds</td>
-                                                        <td>sfdf@addf.fdg</td>
-                                                        <td>34534534534</td>
-                                                        <td>sdgdsg, setesfe</td>
+                                                        <td>India's Council Union</td>
+                                                        <td>jfgsydg dfuds</td>
+                                                        <td>Dehli</td>
+                                                        <td>044-369258</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="radio" name="r1" id="" class='' /></td>
+                                                        <td>Professional Corporate</td>
+                                                        <td>fgsdgoihtuir ieurhtiergbj xfvc</td>
+                                                        <td>Mumbai</td>
+                                                        <td>022-369258</td>
+                                                        <td>8</td>
                                                     </tr>
 
                                                 </table>

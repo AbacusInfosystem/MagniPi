@@ -191,6 +191,7 @@
     <Compile Include="Common\CustomRazorViewEngine.cs" />
     <Compile Include="Controllers\PostLogin\AboutUs\AboutUsController.cs" />
     <Compile Include="Controllers\PostLogin\Blog\BlogController.cs" />
+    <Compile Include="Controllers\PostLogin\Corporate\CorporateController.cs" />
     <Compile Include="Controllers\PostLogin\Customer\CustomerController.cs" />
     <Compile Include="Controllers\PostLogin\Event\EventController.cs" />
     <Compile Include="Controllers\PostLogin\Feedback\FeedbackController.cs" />
@@ -1216,6 +1217,9 @@
     <Content Include="Views\PostLogin\Event\EventAttendance.cshtml" />
     <Content Include="Views\PreLogin\Home\Login.cshtml" />
     <Content Include="Views\PostLogin\UploadFile\Index.cshtml" />
+    <Content Include="Views\PostLogin\Event\AssignEvent.cshtml" />
+    <Content Include="Views\PostLogin\Corporate\Index.cshtml" />
+    <Content Include="Views\PostLogin\Corporate\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

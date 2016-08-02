@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MagniPi.Controllers.PostLogin.Event
+namespace MagniPi.Controllers.PostLogin.Corporate
 {
-    public class EventController : Controller
+    public class CorporateController : Controller
     {
         //
-        // GET: /Event/
+        // GET: /Corporate/
 
         public ActionResult Search()
         {
@@ -17,16 +17,6 @@ namespace MagniPi.Controllers.PostLogin.Event
         }
 
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult EventAttendance()
-        {
-            return View();
-        }
-
-        public ActionResult AssignEvent()
         {
             return View();
         }

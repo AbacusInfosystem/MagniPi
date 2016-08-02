@@ -9,19 +9,19 @@
 
         <section class="content-header">
             <h1>
-                Customer
+                Assign Customer
             </h1>
             <ol class="breadcrumb">
                 <li>Admin</li>
-                <li class="active">Customer</li>
+                <li class="active">Assign Customer</li>
             </ol>
         </section>
 
-        <form id="frmCustomerListing">
+        <form id="frmAssignCustomer">
             <section class="content">
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Customer Listing</h2>
+                        <h2 id="" class="page-header">Assign Customer</h2>
 
                         <div class="box box-default">
                             <div class="box-body">
@@ -30,7 +30,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtFirstName" style="color: #333" class="">Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Customer Name"/>
+                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Customer Name" />
                                         </div>
                                     </div>
                                 </div>
@@ -40,13 +40,6 @@
                                         <div class="col-md-6">
                                             <div class="btn-group">
                                                 <button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>
-                                                <a href="@Url.Action("Index", "Customer")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="btn-group pull-right">
-                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm">Edit</button>
-                                                <a href="@Url.Action("CustomerEventMapping", "Customer")" type="button" id="btnAssignedEvent" class="btn btn-success btn-sm">Assigned Event</a>
                                             </div>
                                         </div>
                                     </div>
@@ -66,9 +59,23 @@
                                                         <th>Address</th>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
+                                                        <td><input type="checkbox" name="" id="" class='' /></td>
+                                                        <td>Sanchita Sawant</td>
+                                                        <td>sanchita@gmail.com</td>
+                                                        <td>1234567890</td>
+                                                        <td>Andheri, Mumbai</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="" id="" class='' /></td>
+                                                        <td>abc xyz</td>
+                                                        <td>abc@gmail.com</td>
+                                                        <td>1472583690</td>
+                                                        <td>loadadad, rtgfgdf</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="" id="" class='' /></td>
                                                         <td>fsdfsd sdfds</td>
-                                                        <td>sfdf@addf.fdg</td>
+                                                        <td>sfdf@gmail.com</td>
                                                         <td>34534534534</td>
                                                         <td>sdgdsg, setesfe</td>
                                                     </tr>
@@ -86,6 +93,15 @@
                                         <!-- /.box -->
                                     </div>
                                     <!-- /.col (left) -->
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                            <a href="@Url.Action("Search", "Event")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

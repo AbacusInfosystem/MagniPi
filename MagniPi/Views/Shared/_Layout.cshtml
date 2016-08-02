@@ -142,3 +142,23 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        // get all checkboxes other than those which are added in .non-iCheck
+        $('input:not(.non-iCheck input:checkbox)').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+            increaseArea: '20%' // optional
+        });
+
+        //$.getScript("/Content/AdminLTE/plugins/iCheck/icheck.js", function () {
+
+        //    $("body").append(Initialize_ICheck());
+        //});
+
+
+    });
+</script>

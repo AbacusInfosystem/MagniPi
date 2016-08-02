@@ -28,125 +28,187 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <h4>Assign Event</h4>
+                                        <div class="dropdown pull-right">
+                                            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">
+                                                Show  &nbsp;<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li class="active"><a href="#Pending">Pending Events</a></li>
+                                                <li><a href="#NonAttended">Non Attended Events</a></li>
+                                                <li><a href="#Attended">Attended Events</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="chkEvent" style="color: #333" class="">
-                                                <input type="checkbox" class="icheck" id="chkEvent" name="" value="" />
-                                                &nbsp;&nbsp; New Event &nbsp;&nbsp;
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="chkEvent" style="color: #333" class="">
-                                                <input type="checkbox" class="" id="chkEvent" name="" value="" />
-                                                &nbsp;&nbsp; New Event &nbsp;&nbsp;
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="chkEvent" style="color: #333" class="">
-                                                <input type="checkbox" class="" id="chkEvent" name="" value="" />
-                                                &nbsp;&nbsp; New Event &nbsp;&nbsp;
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="chkEvent" style="color: #333" class="">
-                                                <input type="checkbox" class="" id="chkEvent" name="" value="" />
-                                                &nbsp;&nbsp; New Event &nbsp;&nbsp;
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="chkEvent" style="color: #333" class="">
-                                                <input type="checkbox" class="" id="chkEvent" name="" value="" />
-                                                &nbsp;&nbsp; New Event &nbsp;&nbsp;
-                                            </label>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
-                                            <a href="@Url.Action("Search", "Customer")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <h4>Attended Events</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="box box-solid">
-
-                                            <div class="box-body table-responsive no-padding mdm-table">
-                                                <table class="table table-striped" id="tblEvent">
-                                                    <tr id="subhead">
-                                                        <th>Name</th>
-                                                        <th>Description</th>
-                                                        <th>Type</th>
-                                                        <th>Location</th>
-                                                        <th>Start Date Time</th>
-                                                        <th>End Date Time</th>
-                                                        <th>Duration</th>
-                                                    </tr>
-                                                    <tr id="subhead">
-                                                        <td>Bright Yoga Event</td>
-                                                        <td>sdgsdghsdg dfhsdyfs isdhfgisdhgs sdifuhudsf</td>
-                                                        <td>abc</td>
-                                                        <td>sdgdsg, setesfe</td>
-                                                        <td>01/08/2016 11:00</td>
-                                                        <td>05/08/2016 05:00</td>
-                                                        <td>5 days</td>
-                                                    </tr>
-                                                    <tr id="subhead">
-                                                        <td>Personality Development Event</td>
-                                                        <td>xbkxfb  dfhsdyfs  sdifuhudsf isdfdssfsdf sgfsd</td>
-                                                        <td>abc</td>
-                                                        <td>sdgdsg, setesfe</td>
-                                                        <td>28/07/2016 09:00</td>
-                                                        <td>28/07/2016 06:00</td>
-                                                        <td>1 day</td>
-                                                    </tr>
-
-                                                </table>
+                                <div id="Pending">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h4>Pending Events</h4>
                                             </div>
+                                        </div>
+                                    </div>
 
-                                            <!-- /.box-body -->
-                                            <div class="box-footer clearfix">
-                                                <div id="divSearchGridOverlay" class="overlay">
-                                                    <i class="fa fa-refresh fa-spin"></i>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="box box-solid">
+
+                                                <div class="box-body table-responsive no-padding mdm-table">
+                                                    <table class="table table-striped" id="tblEvent">
+                                                        <tr id="subhead">
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Type</th>
+                                                            <th>Location</th>
+                                                            <th>Start Date Time</th>
+                                                            <th>End Date Time</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Abc Event</td>
+                                                            <td>sdgsdghsdg dfhsdyfs isdhfgisdhgs sdifuhudsf</td>
+                                                            <td>abc</td>
+                                                            <td>sdgdsg, setesfe</td>
+                                                            <td>11/08/2016 11:00</td>
+                                                            <td>15/08/2016 05:00</td>
+                                                            <td>2 days</td>
+                                                        </tr>
+
+
+                                                    </table>
+                                                </div>
+
+                                                <!-- /.box-body -->
+                                                <div class="box-footer clearfix">
+                                                    <div id="divSearchGridOverlay" class="overlay">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!-- /.box -->
                                         </div>
-                                        <!-- /.box -->
+                                        <!-- /.col (left) -->
                                     </div>
-                                    <!-- /.col (left) -->
+                                </div>
+                                
+                                <div id="Attended">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h4>Attended Events</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="box box-solid">
+
+                                                <div class="box-body table-responsive no-padding mdm-table">
+                                                    <table class="table table-striped" id="tblEvent">
+                                                        <tr id="subhead">
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Type</th>
+                                                            <th>Location</th>
+                                                            <th>Start Date Time</th>
+                                                            <th>End Date Time</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bright Yoga Event</td>
+                                                            <td>sdgsdghsdg dfhsdyfs isdhfgisdhgs sdifuhudsf</td>
+                                                            <td>abc</td>
+                                                            <td>sdgdsg, setesfe</td>
+                                                            <td>01/08/2016 11:00</td>
+                                                            <td>05/08/2016 05:00</td>
+                                                            <td>5 days</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Personality Development Event</td>
+                                                            <td>xbkxfb  dfhsdyfs  sdifuhudsf isdfdssfsdf sgfsd</td>
+                                                            <td>abc</td>
+                                                            <td>sdgdsg, setesfe</td>
+                                                            <td>28/07/2016 09:00</td>
+                                                            <td>28/07/2016 06:00</td>
+                                                            <td>1 day</td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+
+                                                <!-- /.box-body -->
+                                                <div class="box-footer clearfix">
+                                                    <div id="divSearchGridOverlay" class="overlay">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!-- /.col (left) -->
+                                    </div>
                                 </div>
 
+                                <div id="NonAttended">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h4>Non Attended Events</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="box box-solid">
+
+                                                <div class="box-body table-responsive no-padding mdm-table">
+                                                    <table class="table table-striped" id="tblEvent">
+                                                        <tr id="subhead">
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Type</th>
+                                                            <th>Location</th>
+                                                            <th>Start Date Time</th>
+                                                            <th>End Date Time</th>
+                                                            <th>Duration</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bdsfhsuy hfb Event</td>
+                                                            <td>sdgsdghsdg dfhsdyfs isdhfgisdhgs sdifuhudsf</td>
+                                                            <td>dsfdsf</td>
+                                                            <td>sdgdsg, setesfe</td>
+                                                            <td>01/07/2016 09:00</td>
+                                                            <td>01/07/2016 05:00</td>
+                                                            <td>1 days</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>dfsbhsdhdf Event</td>
+                                                            <td>xbkxfb  dfhsdyfs  sdifuhudsf isdfdssfsdf sgfsd</td>
+                                                            <td>eyery</td>
+                                                            <td>sdgdsg, setesfe</td>
+                                                            <td>28/07/2016 09:00</td>
+                                                            <td>29/07/2016 06:00</td>
+                                                            <td>2 day</td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+
+                                                <!-- /.box-body -->
+                                                <div class="box-footer clearfix">
+                                                    <div id="divSearchGridOverlay" class="overlay">
+                                                        <i class="fa fa-refresh fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.box -->
+                                        </div>
+                                        <!-- /.col (left) -->
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
