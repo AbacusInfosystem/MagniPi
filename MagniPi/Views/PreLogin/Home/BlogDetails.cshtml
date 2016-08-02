@@ -1,0 +1,95 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Blog
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Blog</li>
+            </ol>
+        </section>
+
+        <form id="frmBlogDetails">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Blog Details</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="article">
+                                            <div class="article_head">
+                                                <div class="article_date">
+                                                    <span>12 Jul</span>
+                                                    <span>2016</span>
+                                                </div>
+                                                <div class="article_title">
+
+                                                    <h3 class="readblog">Blog Title</h3>
+
+                                                    <p class="sub_head">Posted by <a href="#">User Name</a> </p>
+
+                                                </div>
+                                            </div>
+                                            <div class="article_body">
+                                                <div class="row">
+                                                    <div class="col-md-12" style="text-align:center">
+
+                                                        <a href="~/Images/default.jpg">
+                                                            <img src="~/Images/default.jpg" style="height:250px; width:250px" />
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+
+                                                <p>I enjoy the Planet Money blog for the same reasons that the Planet Money specials on National Public Radio on the financial crisis were fabulously successful. The Planet Money crowd doesn't think jargon equals analysis. They write in English, not econospeak, which means they're willing to ask their sources probing questions, like, "What do you mean by that?" and "I'm sorry, I don't understand — can you explain it again?"
+
+                                                    There's also a whimsical nature to the blog. The headline on a recent post managed to contain perhaps the single best summary of the current obsession with inflation — and to do so in exactly five words: "Inflation! (Is Still Pretty Low)"
+
+                                                    You don't have to agree with all of Planet Money's calls — I don't — to feel as if you usually leave the site smarter than when you arrived. What else can you want from a blog?
+
+                                                    Leonhardt is an economics columnist for the New York Times and a contributor to its blog Economix.</p>
+
+                                                <p>It’s been an interesting first year as a full-time freelance writer. For starters, I didn’t even know that I’d still be out on my own, at this point. My last day of work was June 26th, 2015 and all I knew was that I had a bunch of cash saved up and at least six months of client work ahead of me. What would happen after six months, I could only imagine. Maybe I’d have another six months of work ahead of me, but maybe I wouldn’t. Maybe all my clients would drop me. In that case, if I had to use a little bit of my savings, I would. And if I had to get a job, I would. Even if I just needed a little bit of stable income and I had to get a job at Starbucks, I would and was prepared to do that. But I haven’t had to do any of that yet, which is one way I can measure my “success”.
+
+                                                    In all my jobs before this, I would have, instead, measured my success by the size of the raise I got every year. When I was a teenager, I loved getting $0.25/hour and $0.50/hour raises; they proved I worked hard and deserved a little more money for my efforts. Once, I even told the owner of the coffee shop/bakery I worked at that I was going to quit and go work somewhere I could make more money. She offered me $1.00/hour more to stay, because she couldn’t afford to lose me. I was on top of the world. When I stepped into my first management position, I got a $4.00/hour raise that made me feel like a freaking boss (rightly so, I suppose, since I was one). In all the positions I earned hourly wages, getting a raise made me feel good; like people knew I was doing a good job and I was worth more money. But that mindset had to shift, when I worked for the government</p>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+
+                                                        <a href="@Url.Action("Index", "Blog")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

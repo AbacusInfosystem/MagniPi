@@ -1,0 +1,119 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Event Attendance
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Event Attendance</li>
+            </ol>
+        </section>
+
+        <form id="frmEventAttendance">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+
+                        <div class="box box-default">
+                            <div class="box-body">
+                                <h2 id="" class="page-header">Pokemon Scrap-2016 Event</h2>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="txtName" style="color: #333" class="">Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtName" value="" placeholder="Customer Name"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-footer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="btn-group">
+                                                <button type="button" id="btnFilter" class="btn btn-instagram btn-sm">Filter</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="box box-solid">
+
+                                            <div class="box-body table-responsive no-padding mdm-table">
+                                                <table class="table table-striped" id="tblAttendance">
+                                                    <tr id="subhead">
+                                                        @*<th></th>*@
+                                                        <th>Customer Name</th>
+                                                        <th>Day</th>
+                                                        <th>Present</th>
+                                                        <th>Absent</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    <tr id="subhead">
+                                                        @*<td><input type="radio" name="r1" id="" class='' /></td>*@
+                                                        <td>Sanchita Sawant</td>
+                                                        <td>01/08/2016</td>
+                                                        <td><input type="radio" name="rAttendance1" id="" class='' /></td>
+                                                        <td><input type="radio" name="rAttendance1" id="" class='' /></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr id="subhead">
+                                                        @*<td><input type="radio" name="r1" id="" class='' /></td>*@
+                                                        <td>Sanchita Sawant</td>
+                                                        <td>01/08/2016</td>
+                                                        <td><input type="radio" name="rAttendance2" id="" class='' /></td>
+                                                        <td><input type="radio" name="rAttendance2" id="" class='' /></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr id="subhead">
+                                                        @*<td><input type="radio" name="r1" id="" class='' /></td>*@
+                                                        <td>Sanchita Sawant</td>
+                                                        <td>01/08/2016</td>
+                                                        <td><input type="radio" name="rAttendance3" id="" class='' /></td>
+                                                        <td><input type="radio" name="rAttendance3" id="" class='' /></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+
+                                            <!-- /.box-body -->
+                                            <div class="box-footer clearfix">
+                                                <div id="divSearchGridOverlay" class="overlay">
+                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                    <!-- /.col (left) -->
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

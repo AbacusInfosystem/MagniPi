@@ -1,0 +1,72 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Feedback
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Feedback</li>
+            </ol>
+        </section>
+
+        <form id="frmFeedbackForm">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+
+                        <div class="box box-default">
+                            <div class="box-body">
+                                <h2 id="" class="page-header">Feedback Form</h2>
+
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-offset-1">
+                                        <div class="form-group">
+                                            <h4>Feedback for event "Pokemon Scrap-2016 Event"</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-offset-1">
+                                        <div class="form-group">
+                                            <label for="txtFeedback" style="color: #333" class="">Enter your feedback</label>
+                                            <textarea class="form-control input-sm" id="txtFeedback" name="" placeholder="Enter Feedback"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-offset-1">
+                                        <div class="form-group">
+                                            <label for="txtName" style="color: #333" class="">Name</label>
+                                            <input type="text" class="form-control input-sm" id="txtName" name="" value="" placeholder="Enter Name" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10 col-lg-offset-1">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

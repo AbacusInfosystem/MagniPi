@@ -1,0 +1,75 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Testimonial
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Testimonial</li>
+            </ol>
+        </section>
+
+        <form id="frmTestimonialListing">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Testimonial Listing</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="btn-group pull-right">
+                                            @*<button type="button" id="btnAdd" class="btn btn-success btn-sm">Add New Testimonial</button>*@
+                                            <a href="@Url.Action("Index", "Testimonial")" class="btn btn-success btn-sm">Add New Testimonial</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="col-md-12">
+
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-2">
+                                                <img src="http://www.kitachinderwaelt.ch/wp-content/uploads/2013/02/dummy_portrait.jpg" style="height:180px;width:180px;">
+                                            </div>
+                                            <div class="col-md-10 col-sm-10">
+                                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   1 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making</p>
+                                                <h4>Wes Anderson</h4>
+                                                <h5>Blue Bottle keffiyeh<br>Sartorial locavore Schlitz ennui</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-10 col-sm-10">
+                                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   1 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making</p>
+                                                <h4>Wes Anderson</h4>
+                                                <h5>Blue Bottle keffiyeh<br>Sartorial locavore Schlitz ennui</h5>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2">
+                                                <img src="http://www.kitachinderwaelt.ch/wp-content/uploads/2013/02/dummy_portrait.jpg" style="height:180px;width:180px;">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

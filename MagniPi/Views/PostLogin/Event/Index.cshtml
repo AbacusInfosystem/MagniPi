@@ -1,0 +1,132 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Event
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Event</li>
+            </ol>
+        </section>
+
+        <form id="frmAddEditCustomer">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Add Edit Event</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtName" style="color: #333" class="">Event Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtName" value="" placeholder="Enter Event Name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtType" style="color: #333" class="">Event Type</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtType" value="" placeholder="Enter Event Type" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDescription" style="color: #333" class="">Description</label>
+                                            <textarea class="form-control input-sm" name="" id="txtDescription" placeholder="Enter Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtLocation" style="color: #333" class="">Location</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtLocation" value="" placeholder="Enter Location" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtStartDate" style="color: #333" class="">Start Date</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtStartDate" value="" placeholder="Enter Start Date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtStartTime" style="color: #333" class="">Start Time</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtStartTime" value="" placeholder="Enter Start Time" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtEndDate" style="color: #333" class="">End Date</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtEndDate" value="" placeholder="Enter End Date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtEndTime" style="color: #333" class="">End Time</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtEndTime" value="" placeholder="Enter End Time" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDuration" style="color: #333" class="">Duration</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtDuration" value="" placeholder="Enter Duration" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                            <a href="@Url.Action("Search", "Event")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

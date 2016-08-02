@@ -1,0 +1,66 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Login
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Login</li>
+            </ol>
+        </section>
+
+        <form id="frmLogin">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-6 col-lg-offset-3">
+
+                        <div class="box box-default">
+                            <div class="box-body">
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-offset-2">
+                                        <div class="form-group">
+                                            <label for="txtUsername" style="color: #333" class="">User name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtUsername" value="" placeholder="Enter User Name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-offset-2">
+                                        <div class="form-group">
+                                            <label for="txtPassword" style="color: #333" class="">Password</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtPassword" value="" placeholder="Enter Password" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-offset-2">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Submit</button>
+                                            <button type="button" id="btnReset" class="btn btn-warning btn-sm">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </form>
+
+    </div>
+</div>
+

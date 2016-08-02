@@ -1,0 +1,115 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Customer
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Customer</li>
+            </ol>
+        </section>
+
+        <form id="frmAddEditCustomer">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Add Edit Customer</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtFirstName" style="color: #333" class="">Fisrt Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Enter Fisrt Name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtLastName" style="color: #333" class="">Last Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtLastName" value="" placeholder="Enter Last Name" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtEmail" style="color: #333" class="">Email</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtEmail" value="" placeholder="Enter Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtContact" style="color: #333" class="">Contact</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Enter Contact" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtAddress" style="color: #333" class="">Address</label>
+                                            <textarea class="form-control input-sm" id="txtAddress" name="" placeholder="Enter Address"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="rGender" style="color: #333" class="">Gender</label>
+                                            <div class="form-group">
+                                                <input type='radio' name="Gender" id='rMale' class='iradio-list' />
+                                                <label for="rGender" style="color: #333">Male</label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <input type='radio' name="Gender" id='rFemale' class='iradio-list' />
+                                                <label for="rFemale" style="color: #333">Female</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                            <a href="@Url.Action("Search", "Customer")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

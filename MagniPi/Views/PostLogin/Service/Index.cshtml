@@ -1,0 +1,92 @@
+﻿<script src="~/Content/ckeditor/ckeditor.js"></script>
+
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Service
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Service</li>
+            </ol>
+        </section>
+
+        <form id="frmAddEditService">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Create Service</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="txtTitle" style="color: #333" class="">Title</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtTitle" value="" placeholder="Enter Blog Title" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="txtServiceContent" style="color: #333" class="">Service Content</label>
+                                            <textarea class="form-control input-sm" id="txtServiceContent" name="ServiceContent" placeholder="Enter Service Content"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="btn-group">
+                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                            <a href="@Url.Action("ServiceListing", "Home")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>
+
+
+<script>
+
+    CKEDITOR.replace('ServiceContent', {
+        "extraPlugins": 'imagebrowser',
+        "imageBrowser_listUrl": "/BlogListingImages/" + $("#hdnUserID").val() + ".json",
+        toolbar: [
+          ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
+          ['Scayt'],
+          ['Image'],
+          ['Maximize'],
+            '/',
+          ['Bold', 'Italic'],
+          ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+          ['Format']
+        ],
+        allowedContent:
+    'img[!src,alt,width,height]{float};' + // Note no {width,height}
+    'h1 h2 div'
+    });
+
+    CKEDITOR.replace('ServiceContent');
+
+
+</script>

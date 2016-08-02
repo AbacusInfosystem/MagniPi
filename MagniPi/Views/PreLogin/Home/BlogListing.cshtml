@@ -1,0 +1,184 @@
+﻿
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @*@{Html.RenderPartial("_ServerMessage");}*@
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Blog
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Blog</li>
+            </ol>
+        </section>
+
+        <form id="frmBlogListing">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Blog Listing</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <div class="blog">
+
+                                    <div class="container">
+
+                                        <div class="row">
+
+                                            <div class="row">
+
+                                                <div class="col-md-10">
+
+                                                    <div class="article">
+
+                                                        <div class="article_head">
+
+                                                            <div class="article_date">
+
+                                                                <span>
+                                                                    15 Jul
+                                                                </span>
+
+                                                                <span>
+                                                                    2016
+                                                                </span>
+
+                                                            </div>
+
+                                                            <div class="article_title">
+
+                                                                <h1><a class="readblog">Top 50 Financial Advisor Blogs And Bloggers</a></h1>
+
+                                                                <p class="sub_head">
+
+                                                                    Posted by <a href="#">User Name</a>
+
+                                                                    <a href="@Url.Action("BlogDatail", "Home")"  >with &nbsp; </a>
+                                                                    <a href="@Url.Action("BlogDatail", "Home")" style="color: #A8A8A8; ">with &nbsp; </a>
+
+                                                                </p>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="article_body">
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-12 col-sm-12">
+
+                                                                    <a href="~/Images/default.jpg">
+                                                                        <img src="~/Images/default.jpg" style="height:180px; width:180px" />
+                                                                    </a>
+
+                                                                    <p>  The rankings for this list of the top 50 financial advisor blogs and bloggers are determined using website metrics measured by Moz Analytics, including Page Authority and MozRank, as well as additional traffic metrics measured by Alexa. (See here for the exact scoring formula that was used to determine who’s “best of the best!”) Blogs must operate on a standalone advisor-controlled domain or subdo </p>
+
+                                                                    <a href="@Url.Action("Index", "Blog")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
+
+                                                                    <a href="@Url.Action("BlogDetails", "Home")" id="btnReadMore" class="btn btn-instagram btn-sm">Read More</a>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-2">
+
+                                                    <a href="@Url.Action("Index", "Blog")" class="btn btn-success btn-sm">Create New Blog</a>
+
+                                                    @*<h4>Archives</h4>*@
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-10">
+
+                                                <div class="article">
+
+                                                    <div class="article_head">
+
+                                                        <div class="article_date">
+
+                                                            <span>
+                                                                15 Jul
+                                                            </span>
+
+                                                            <span>
+                                                                2016
+                                                            </span>
+
+                                                        </div>
+
+                                                        <div class="article_title">
+
+                                                            <h1><a class="readblog">Top 50 Financial Advisor Blogs And Bloggers</a></h1>
+
+                                                            <p class="sub_head">
+
+                                                                Posted by <a href="#">User Name</a>
+
+                                                                <a href="@Url.Action("BlogDatail", "Home")">with &nbsp; </a>
+                                                                <a href="@Url.Action("BlogDatail", "Home")" style="color: #A8A8A8; ">with &nbsp; </a>
+
+                                                            </p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="article_body">
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-12 col-sm-12">
+
+                                                                <a href="~/Images/default.jpg">
+                                                                    <img src="~/Images/default.jpg" style="height:180px; width:180px" />
+                                                                </a>
+
+                                                                <p>  The rankings for this list of the top 50 financial advisor blogs and bloggers are determined using website metrics measured by Moz Analytics, including Page Authority and MozRank, as well as additional traffic metrics measured by Alexa. (See here for the exact scoring formula that was used to determine who’s “best of the best!”) Blogs must operate on a standalone advisor-controlled domain or subdo </p>
+
+                                                                <a href="@Url.Action("Index", "Blog")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
+
+                                                                <a href="@Url.Action("BlogDetails", "Home")" id="btnReadMore" class="btn btn-instagram btn-sm">Read More</a>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                      </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>
