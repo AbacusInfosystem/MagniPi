@@ -1,4 +1,22 @@
-﻿
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('[name="CustType"]').on('ifChecked', function (event) {
+
+            if ($(this).val() == "rIndivisual") {
+                $("#Indivisual").show();
+                $("#Corporate").hide();
+            }
+            else if ($(this).val() == "rCorporate") {
+                $("#Corporate").show();
+                $("#Indivisual").hide();
+            }
+
+        });
+
+    });
+</script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
@@ -24,92 +42,326 @@
                         <h2 id="" class="page-header">Add Edit Customer</h2>
 
                         <div class="box box-default">
+
+                            @*<ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#Indivisual" data-toggle="tab" id="" name=""><input type="radio" name="CustType" checked /> Indivisual </a>
+                                        <input type="radio" name="CustType" value="rIndivisual" checked /> Indivisual
+                                    </li>
+                                    <li>
+                                        <a href="#Corporate" data-toggle="tab" id="" name=""><input type="radio" name="CustType" /> Corporate </a>
+                                        <input type="radio" name="CustType" value="rCorporate" /> Corporate
+                                    </li>
+                                </ul>*@
+
                             <div class="box-body">
-
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="box box-solid">
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtFirstName" style="color: #333" class="">Fisrt Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Enter Fisrt Name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtLastName" style="color: #333" class="">Last Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtLastName" value="" placeholder="Enter Last Name" />
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtEmail" style="color: #333" class="">Email</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtEmail" value="" placeholder="Enter Email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtContact" style="color: #333" class="">Contact</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Enter Contact" />
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtAddress" style="color: #333" class="">Address</label>
-                                            <textarea class="form-control input-sm" id="txtAddress" name="" placeholder="Enter Address"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="rGender" style="color: #333" class="">Gender</label>
-                                            <div class="form-group">
-                                                <input type='radio' name="Gender" id='rMale' class='iradio-list' />
-                                                <label for="rGender" style="color: #333">Male</label>
-                                                &nbsp;&nbsp;&nbsp;
-                                                <input type='radio' name="Gender" id='rFemale' class='iradio-list' />
-                                                <label for="rFemale" style="color: #333">Female</label>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="box-header">
+                                                        <div class="form-group">
+                                                            <input type="radio" class='iradio-list' name="CustType" value="rIndivisual" checked />
+                                                            <label for="rIndivisual" style="color: #333">Indivisual</label>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="radio" class='iradio-list' name="CustType" value="rCorporate" />
+                                                            <label for="rCorporate" style="color: #333">Corporate</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
+                                            <div id="Indivisual">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtFirstName" style="color: #333" class="">Fisrt Name</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Enter Fisrt Name" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtLastName" style="color: #333" class="">Last Name</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtLastName" value="" placeholder="Enter Last Name" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtEmail" style="color: #333" class="">Email</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtEmail" value="" placeholder="Enter Email" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtContact" style="color: #333" class="">Contact</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Enter Contact" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtAddress" style="color: #333" class="">Address</label>
+                                                            <textarea class="form-control input-sm" id="txtAddress" name="" placeholder="Enter Address"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="rGender" style="color: #333" class="">Gender</label>
+                                                            <div class="form-group">
+                                                                <input type='radio' name="Gender" id='rMale' class='iradio-list' />
+                                                                <label for="rGender" style="color: #333">Male</label>
+                                                                &nbsp;&nbsp;&nbsp;
+                                                                <input type='radio' name="Gender" id='rFemale' class='iradio-list' />
+                                                                <label for="rFemale" style="color: #333">Female</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="btn-group">
+                                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                                            <a href="@Url.Action("Search", "Customer")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div id="Corporate" style="display:none">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtCorporateName" style="color: #333" class="">Corporate Name</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtCorporateName" value="" placeholder="Enter Corporate Name" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtDescription" style="color: #333" class="">Description</label>
+                                                            <textarea class="form-control input-sm" id="txtDescription" name="" placeholder="Enter Description"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtAddress" style="color: #333" class="">Address</label>
+                                                            <textarea class="form-control input-sm" id="txtAddress" name="" placeholder="Enter Address"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtContact" style="color: #333" class="">Contact</label>
+                                                            <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Enter Contact" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    @*<div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="txtNoOfMembers" style="color: #333" class="">No. of members</label>
+                                                                <input type="text" class="form-control input-sm" id="txtNoOfMembers" name="" placeholder="Enter No. of members" />
+                                                            </div>
+                                                        </div>*@
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="btn-group">
+                                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                                            <button type="button" id="btnAddMember" class="btn btn-success btn-sm" data-toggle="modal" data-target="#AddMemberModal">Add Member</button>
+                                                            <a href="@Url.Action("Search", "Customer")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="btn-group pull-right">
+                                                            <button type="button" id="btnEditMember" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#AddMemberModal">Edit</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="box box-solid">
+
+                                                            <div class="box-body table-responsive no-padding mdm-table">
+                                                                <table class="table table-striped" id="tblCustomer">
+                                                                    <tr id="subhead">
+                                                                        <th></th>
+                                                                        <th>Member Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>Contact</th>
+                                                                        <th>Address</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><input type="radio" name="r1" id="" class='' /></td>
+                                                                        <td>fsdfsd sdfds</td>
+                                                                        <td>sfdf@addf.fdg</td>
+                                                                        <td>34534534534</td>
+                                                                        <td>sdgdsg, setesfe</td>
+                                                                    </tr>
+
+                                                                </table>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- /.box -->
+                                                    </div>
+                                                    <!-- /.col (left) -->
+                                                </div>
+
+                                            </div>
+
                                         </div>
+                                        <!-- /.box -->
                                     </div>
-
+                                    <!-- /.col (left) -->
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
-                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="btn-group">
-                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
-                                            <a href="@Url.Action("Search", "Customer")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
                             </div>
+
                         </div>
 
                     </div>
                 </div>
             </section>
         </form>
+
+        <div class="modal fade" id="AddMemberModal" role="dialog">
+            <div class="modal-dialog" style="width:800px">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Member Details</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtFirstName" style="color: #333" class="">Fisrt Name</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Enter Fisrt Name" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtLastName" style="color: #333" class="">Last Name</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtLastName" value="" placeholder="Enter Last Name" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtEmail" style="color: #333" class="">Email</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtEmail" value="" placeholder="Enter Email" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtContact" style="color: #333" class="">Contact</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Enter Contact" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtAddress" style="color: #333" class="">Address</label>
+                                    <textarea class="form-control input-sm" id="txtAddress" name="" placeholder="Enter Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="rGender" style="color: #333" class="">Gender</label>
+                                    <div class="form-group">
+                                        <input type='radio' name="Gender" id='rMale' class='iradio-list' />
+                                        <label for="rGender" style="color: #333">Male</label>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <input type='radio' name="Gender" id='rFemale' class='iradio-list' />
+                                        <label for="rFemale" style="color: #333">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                    <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6 pull-right">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-success btn-sm" id="btnSaveMember" data-dismiss="modal">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

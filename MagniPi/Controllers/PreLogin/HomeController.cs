@@ -1,4 +1,6 @@
-﻿using MagniPiHelper.Logging;
+﻿using MagniPi.Common;
+using MagniPi.Models.PreLogin;
+using MagniPiHelper.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,45 @@ namespace MagniPi.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Logger.Debug("");
-            return View();
+            HomeViewModel homeViewModel = new HomeViewModel();
+
+            try
+            {
+                if (TempData["FriendlyMessage"] != null)
+                {
+                    homeViewModel.FriendlyMessage.Add((FriendlyMessage)TempData["FriendlyMessage"]);
+                }
+            }
+            catch(Exception ex)
+            {
+                Logger.Error("Error : "+ex.ToString());
+            }
+
+            return View("Index", homeViewModel);
         }
+
+        //public ActionResult Login()
+        //{
+        //    HomeViewModel homeViewModel = new HomeViewModel();
+
+        //    try
+        //    {
+        //        if (TempData["FriendlyMessage"] != null)
+        //        {
+        //            homeViewModel.FriendlyMessage.Add((FriendlyMessage)TempData["FriendlyMessage"]);
+        //        }
+
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        Logger.Error("Error : " + ex.ToString());
+
+        //        homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+        //    }
+
+        //    return View("Login", homeViewModel);
+        //}
+
 
         public ActionResult BlogListing()
         {
@@ -46,10 +83,7 @@ namespace MagniPi.Controllers
             return View();
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
+        
         
     }
 }

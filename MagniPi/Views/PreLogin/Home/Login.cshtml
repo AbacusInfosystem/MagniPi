@@ -1,66 +1,110 @@
 ﻿
-<div class="content-wrapper">
+<script type="text/javascript">
+    $(document).ready(function () {
 
-    <div class="container-fluid">
+        $("#frmLogin").validate({
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+            rules: {
 
-        <!-- Content Header (Page header) -->
+                "Session.User_Name": { required: true },
 
-        <section class="content-header">
-            <h1>
-                Login
-            </h1>
-            <ol class="breadcrumb">
-                <li>Admin</li>
-                <li class="active">Login</li>
-            </ol>
-        </section>
+                "Session.Password": { required: true },
 
-        <form id="frmLogin">
-            <section class="content">
-                <div class="row">
-                    <div id="divScrollContainer" class="col-md-6 col-lg-offset-3">
+            },
+            messages: {
 
-                        <div class="box box-default">
-                            <div class="box-body">
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-offset-2">
-                                        <div class="form-group">
-                                            <label for="txtUsername" style="color: #333" class="">User name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtUsername" value="" placeholder="Enter User Name" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-offset-2">
-                                        <div class="form-group">
-                                            <label for="txtPassword" style="color: #333" class="">Password</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtPassword" value="" placeholder="Enter Password" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-offset-2">
-                                        <div class="btn-group">
-                                            <button type="button" id="btnSave" class="btn btn-success btn-sm">Submit</button>
-                                            <button type="button" id="btnReset" class="btn btn-warning btn-sm">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                            </div>
-                        </div>
+                "Session.User_name": { required: "Username is required field." },
 
-                    </div>
-                </div>
+                "Session.Password": { required: "Password is required field." },
+
+            }
+        });
+
+        $("#btnSignIn").click(function (event) {
+            alert('hi');
+            if ($("#frmLogin").valid()) {
+
+                $('#frmLogin').attr("action", "/Authentication/AuthenticateUser");
+                $('#frmLogin').attr("method", "POST");
+                $('#frmLogin').submit();
+            }
+
+        });
+
+        $("#btnReset").click(function (event) {
+
+            $("#txtUsername").val("");
+            $("#txtPassword").val("");
+
+        });
+
+    });
+</script>
+
+    <div class="content-wrapper">
+
+        <div class="container-fluid">
+
+            @{Html.RenderPartial("_ServerMessage");}
+
+            <!-- Content Header (Page header) -->
+
+            <section class="content-header">
+                <h1>
+                    Login
+                </h1>
+                <ol class="breadcrumb">
+                    <li>Admin</li>
+                    <li class="active">Login</li>
+                </ol>
             </section>
 
-        </form>
+            <form id="frmLogin" >
+            @*<form id="frmLogin" action="@Url.Action("AuthenticateUser", "Authentication")" method="post">*@
+                <section class="content">
+                    <div class="row">
+                        <div id="divScrollContainer" class="col-md-6 col-lg-offset-3">
 
+                            <div class="box box-default">
+                                <div class="box-body">
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-offset-2">
+                                            <div class="form-group">
+                                                <label for="txtUsername" style="color: #333" class="">User name</label>
+                                                <input type="text" class="form-control input-sm" name="Session.User_Name" id="txtUsername" value="" placeholder="Enter User Name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-offset-2">
+                                            <div class="form-group">
+                                                <label for="txtPassword" style="color: #333" class="">Password</label>
+                                                <input type="password" class="form-control input-sm" name="Session.Password" id="txtPassword" value="" placeholder="Enter Password" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-offset-2">
+                                            <div class="btn-group">
+                                                <button type="button" id="btnSignIn" class="btn btn-success btn-sm">Sign In</button>
+                                                <button type="button" id="btnReset" class="btn btn-warning btn-sm">Reset</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </form>
+
+        </div>
     </div>
-</div>
 
+ 

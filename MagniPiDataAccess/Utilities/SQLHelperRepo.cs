@@ -15,7 +15,8 @@ namespace MagniPiDataAccess.Utilities
 
         public SQLHelperRepo()
         {
-            _sqlCon = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            //_sqlCon = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+            _sqlCon = ConfigurationManager.ConnectionStrings["MagniPiConnection"].ToString();
         }
 
 		public DataSet ExecuteDataSet(List<SqlParameter> sqlParams, string sqlQuery, CommandType cmdType)

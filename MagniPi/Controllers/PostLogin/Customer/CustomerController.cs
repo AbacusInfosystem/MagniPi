@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagniPiHelper.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,15 @@ namespace MagniPi.Controllers.PostLogin.Customer
 
         public ActionResult Index()
         {
+            try
+            {
+               
+               
+            }
+            catch(Exception ex)
+            {
+                Logger.Error("Exception : " + ex.ToString());
+            }
             return View();
         }
 

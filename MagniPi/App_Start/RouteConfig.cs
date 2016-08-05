@@ -13,6 +13,16 @@ namespace MagniPi
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region
+
+            routes.MapRoute(
+                name: "Login",
+                url: "home/magnipi-admin",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            #endregion
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

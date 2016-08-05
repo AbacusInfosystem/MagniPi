@@ -39,7 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs\AboutUsInfo.cs" />
+    <Compile Include="Attachment\AttachmentsInfo.cs" />
+    <Compile Include="Blog\BlogInfo.cs" />
+    <Compile Include="Common\EnumCollection.cs" />
+    <Compile Include="Common\PaginationInfo.cs" />
+    <Compile Include="Common\SessionInfo.cs" />
+    <Compile Include="Common\StoredProcedures.cs" />
+    <Compile Include="Customer\CustomerInfo.cs" />
+    <Compile Include="Event\EventInfo.cs" />
+    <Compile Include="Feedback\FeedbackInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ServiceInfo.cs" />
+    <Compile Include="Testimonial\TestimonialInfo.cs" />
+    <Compile Include="User\UsersInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

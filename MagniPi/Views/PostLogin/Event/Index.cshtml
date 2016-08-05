@@ -36,8 +36,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtType" style="color: #333" class="">Event Type</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtType" value="" placeholder="Enter Event Type" />
+                                            <label for="drtEventType" style="color: #333" class="">Event Type</label>
+                                            @*<input type="text" class="form-control input-sm" name="" id="txtType" value="" placeholder="Enter Event Type" />*@
+                                            <select class="form-control input-sm" name="" id="drtEventType">
+                                                <option value="">-select type-</option>
+                                                <option value="1">Picture</option>
+                                                <option value="1">Sound</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -54,13 +59,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtLocation" style="color: #333" class="">Location</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtLocation" value="" placeholder="Enter Location" />
+                                            @*<input type="text" class="form-control input-sm" name="" id="txtLocation" value="" placeholder="Enter Location" />*@
+                                            <textarea class="form-control input-sm" name="" id="txtLocation" placeholder="Enter Location"></textarea>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <div class="row">
+                                @*<div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -92,16 +98,16 @@
                                         </div>
                                     </div>
 
-                                </div>
+                                </div>*@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    @*<div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtDuration" style="color: #333" class="">Duration</label>
                                             <input type="text" class="form-control input-sm" name="" id="txtDuration" value="" placeholder="Enter Duration" />
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
@@ -115,9 +121,50 @@
                                     <div class="col-md-6">
                                         <div class="btn-group">
                                             <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
+                                            <button type="button" id="btnAddDate" class="btn btn-success btn-sm" data-toggle="modal" data-target="#AddEventDateModal">Add Date</button>
                                             <a href="@Url.Action("Search", "Event")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="btn-group pull-right">
+                                            <button type="button" id="btnEditDate" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#AddEventDateModal">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="box box-solid">
+
+                                            <div class="box-body table-responsive no-padding mdm-table">
+                                                <table class="table table-striped" id="tblEventDates">
+                                                    <tr id="subhead">
+                                                        <th></th>
+                                                        <th>Day</th>
+                                                        <th>Start Time</th>
+                                                        <th>End Time</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="radio" name="r1" id="" class='' /></td>
+                                                        <td>03 August 2016</td>
+                                                        <td>9.30 AM</td>
+                                                        <td>5.30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="radio" name="r1" id="" class='' /></td>
+                                                        <td>05 August 2016</td>
+                                                        <td>11.00 AM</td>
+                                                        <td>7.30 PM</td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                    <!-- /.col (left) -->
                                 </div>
 
                             </div>
@@ -127,6 +174,71 @@
                 </div>
             </section>
         </form>
+
+        <div class="modal fade" id="AddEventDateModal" role="dialog">
+            <div class="modal-dialog" style="width:800px">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Event Date</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtDate" style="color: #333" class="">Date</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtDate" value="" placeholder="Enter Date" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtStartTime" style="color: #333" class="">Start Time</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtStartTime" value="" placeholder="Enter Start Time" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtEndTime" style="color: #333" class="">End Time</label>
+                                    <input type="text" class="form-control input-sm" name="" id="txtEndTime" value="" placeholder="Enter End Time" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                    <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6 pull-right">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-success btn-sm" id="btnSaveDate" data-dismiss="modal">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>
