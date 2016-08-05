@@ -26,6 +26,10 @@ namespace MagniPi.Controllers.PostLogin.Event
             return View();
         }
 
+        public ActionResult AssignEvent()
+        {
+            return View();
+        }
 
     }
 }

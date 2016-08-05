@@ -20,7 +20,7 @@ namespace MagniPiHelper.Logging
             _fileLogger = LogManager.GetLogger("FileLogger");
 
             // This property reads information from Log4Net.config setting for MSMQLogger.
-            _msmqLogger = LogManager.GetLogger("MSMQLogger");
+            //_msmqLogger = LogManager.GetLogger("MSMQLogger");
 
             // Important.
             log4net.Config.XmlConfigurator.Configure();
