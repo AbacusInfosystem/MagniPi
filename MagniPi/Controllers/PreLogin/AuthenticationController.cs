@@ -94,7 +94,7 @@ namespace MagniPi.Controllers.PreLogin
             }
             catch (Exception ex)
             {
-                Logger.Error("Authentication : " + ex.Message);
+                Logger.Error("Logout : " + ex.Message);
 
                 TempData["FriendlyMessage"] = MessageStore.Get("SYS01");
             }

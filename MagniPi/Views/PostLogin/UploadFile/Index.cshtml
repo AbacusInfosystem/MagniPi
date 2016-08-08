@@ -1,9 +1,16 @@
-﻿
+﻿@model MagniPi.Models.PostLogin.UploadFile.UploadFileViewModel
+@using System.Configuration;
+@using MagniPiHelper.PageHelper;
+@using MagniPiBusinessEntities.Common;
+
+<script src="~/Scripts/Modules/UploadFile/upload-file-event.js"></script>
+<script src="~/Scripts/Modules/UploadFile/upload-file-validation.js"></script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_ServerMessage");}
 
         <!-- Content Header (Page header) -->
 
@@ -30,16 +37,20 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="flUpload_File" style="color: #333" class="">Select File</label>
-                                            <input type="file" class="btn btn-default btn-sm" name="" id="flUpload_File" value="" />
+                                            <input type="file" class="btn btn-default btn-sm" name="attachment.Upload_Image" id="flUpload_File" value="" multiple/>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="drpFileType" style="color: #333" class="">File Type</label>
-                                            <select class="form-control input-sm" id="drpFileType" name="">
+                                            <select class="form-control input-sm" id="drpFileType" name="attachment.File_Type">
                                                 <option value="">-select file type-</option>
-                                                <option value="1">Image</option>
-                                                <option value="2">Video</option>
+
+                                                @foreach (var item in LookUps.Get_File_Type())
+                                                {
+                                                    <option value="@item.Key">@item.Value</option>
+                                                }
+
                                             </select>
                                         </div>
                                     </div>
@@ -55,12 +66,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="btn-group pull-right">
-                                                <button type="button" id="btnView" class="btn btn-instagram btn-sm" data-toggle="modal" data-target="#ViewImageModal">View</button>
+                                                <button type="button" id="btnView" class="btn btn-instagram btn-sm" style="display:none;">View</button>
+                                                <button type="button" id="btnDelete" class="btn btn-warning btn-sm" style="display:none;">Delete</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 
+                                <input type="hidden" id="hdnAttachmentId" name="attachment.Attachment_Id" />
+                                <input type="hidden" id="hdnUnique_Id" name="attachment.Unique_Id" />
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="box box-solid">
@@ -69,38 +84,43 @@
                                                 <table class="table table-striped" id="tblCustomer">
                                                     <tr id="subhead">
                                                         <th></th>
+                                                        <th>Image</th>
                                                         <th>Attachment Name</th>
                                                         <th>Unique Name</th>
                                                         <th>Type</th>
                                                         <th>Is Active</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' checked/></td>
-                                                        <td>image.png</td>
-                                                        <td>image020820160119.png</td>
-                                                        <td>Image</td>
-                                                        <td>Yes</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>video.mp4</td>
-                                                        <td>video020820160120.mp4</td>
-                                                        <td>Video</td>
-                                                        <td>Yes</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>video.mng</td>
-                                                        <td>video020820160122.mng</td>
-                                                        <td>Video</td>
-                                                        <td>Yes</td>
-                                                    </tr>
+                                                    @if (Model.attachments !=null && Model.attachments.Count > 0)
+                                                    {
+                                                        foreach (var item in Model.attachments)
+                                                        {
+                                                            <tr>
+                                                                <td><input type="radio" name="r1" id="@item.Attachment_Id" class=''/></td>
+                                                                <td>
+                                                                    <img src="@(ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + item.File_Type + @"\" + item.Unique_Id)" style="height:50px;width:50px;" />
+                                                                </td>
+                                                                <td>@item.File_Name</td>
+                                                                <td id="Unique_@item.Attachment_Id">@item.Unique_Id</td>
+                                                                <td id="Type_@item.Attachment_Id">@item.File_Type_Str</td>
+                                                                <td>@(item.Is_Active == true ? "Yes" : "No")</td>
+                                                            </tr>
+                                                        }
+                                                    }
                                                     
                                                 </table>
                                             </div>
 
                                             <!-- /.box-body -->
                                             <div class="box-footer clearfix">
+                                                <input type="hidden" id="hdfCurrentPage" name="@Model.Pager.CurrentPage" />
+                                                <div class="pagination pagination-sm no-margin pull-right">
+                                   
+                                                        @if (Model.attachments != null && Model.attachments.Count > 0)
+                                                        {
+                                                            @Html.Raw(Html.NumericPager("javascript:PageMore({0})", Model.Pager.TotalRecords, Model.Pager.CurrentPage + 1, Model.Pager.PageSize, 10, true));
+                                                        }
+                                
+                                                </div>
                                                 <div id="divSearchGridOverlay" class="overlay">
                                                     <i class="fa fa-refresh fa-spin"></i>
                                                 </div>
@@ -134,11 +154,11 @@
                         <div class="row">
                             <div class="col-md-12" id="ShowImages">
                                 <div class="form-group">
-                                    <label for="imgName" style="color: #333" class="">image.png</label>
+                                    <label id="imgName" style="color: #333" class=""></label>
                                 </div>
                                 <div class="form-group">
                                     <div class="ImagePreviewBox">
-                                        <img src="~/Images/default.jpg" style="border: 1px solid; height:400px; width:570px;">
+                                        <img src="" id="imgPreview" style="border: 1px solid; height:400px; width:570px;">
                                     </div>
                                 </div>
                             </div>

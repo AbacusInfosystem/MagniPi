@@ -13,7 +13,7 @@ namespace MagniPi
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            #region
+            #region Login
 
             routes.MapRoute(
                 name: "Login",
@@ -22,6 +22,35 @@ namespace MagniPi
             );
 
             #endregion
+
+            #region Upload File
+
+            routes.MapRoute(
+                name: "upload-file-1",
+                url: "upload-file/index",
+                defaults: new { controller = "UploadFile", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "upload-file-2",
+                url: "upload-file/save-file",
+                defaults: new { controller = "UploadFile", action = "Upload_File", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "upload-file-3",
+                url: "upload-file/view-attachment",
+                defaults: new { controller = "UploadFile", action = "View_Attachment_By_Id", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "upload-file-4",
+                url: "upload-file/delete-attachment",
+                defaults: new { controller = "UploadFile", action = "Delete_Attachment_By_Id", id = UrlParameter.Optional }
+            );
+
+            #endregion
+
 
             routes.MapRoute(
                 name: "Default",

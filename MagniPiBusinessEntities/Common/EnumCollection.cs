@@ -15,4 +15,12 @@ namespace MagniPiBusinessEntities.Common
         Warning = 4,
     }
 
+    public enum FileType
+    {
+        Image = 1,
+        Video = 2,
+        
+    }
+
+
 }

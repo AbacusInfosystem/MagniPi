@@ -40,9 +40,17 @@ namespace MagniPi.Common
 
             #endregion
 
-            
-            
-		}
+            #region Attachment
+
+            FriendlyMessage ATS01 = new FriendlyMessage("ATS01", MessageType.Success, "Files uploaded successfully.");
+            hash.Add("ATS01", ATS01);
+
+            FriendlyMessage ATS02 = new FriendlyMessage("ATS02", MessageType.Success, "Files deleted successfully.");
+            hash.Add("ATS02", ATS02);
+
+            #endregion
+
+        }
 
         public static FriendlyMessage Get(string code)
         {

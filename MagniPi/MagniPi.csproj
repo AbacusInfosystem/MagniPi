@@ -216,6 +216,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\PostLogin\Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Models\PostLogin\UploadFile\UploadFileViewModel.cs" />
     <Compile Include="Models\PreLogin\AuthenticationViewModel.cs" />
     <Compile Include="Models\PreLogin\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1180,6 +1181,8 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Modules\UploadFile\upload-file-event.js" />
+    <Content Include="Scripts\Modules\UploadFile\upload-file-validation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

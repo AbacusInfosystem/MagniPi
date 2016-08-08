@@ -25,6 +25,8 @@ namespace MagniPi.Controllers
             catch(Exception ex)
             {
                 Logger.Error("Error : "+ex.ToString());
+
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
 
             return View("Index", homeViewModel);

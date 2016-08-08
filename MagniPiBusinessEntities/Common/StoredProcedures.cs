@@ -15,6 +15,18 @@ namespace MagniPiBusinessEntities.Common
 
         #endregion
 
+        #region Attachment
+
+        Insert_Attachments_Sp,
+        Get_Attachments_Sp,
+        Get_Attachment_By_Id_Sp,
+        Delete_Attachment_By_Id_Sp,
+        
+
+        #endregion
+
+        
+
         #region Event
 
         Insert_Event_Sp,

@@ -16,20 +16,22 @@ namespace MagniPi.Controllers.PostLogin.Dashboard
 
         public ActionResult Index()
         {
-            DashboardViewModel dashboardViewModel = new DashboardViewModel();
+            DashboardViewModel dViewModel = new DashboardViewModel();
 
             try
             {
                 if (TempData["FriendlyMessage"] != null)
                 {
-                    dashboardViewModel.FriendlyMessage.Add((FriendlyMessage)TempData["FriendlyMessage"]);
+                    dViewModel.FriendlyMessage.Add((FriendlyMessage)TempData["FriendlyMessage"]);
                 }
             }
             catch(Exception ex)
             {
                 Logger.Error("Error : " + ex.ToString());
+
+                dViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
-            return View("Index", dashboardViewModel);
+            return View("Index", dViewModel);
         }
 
     }
