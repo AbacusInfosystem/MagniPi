@@ -18,6 +18,7 @@
     <link href="/Content/css/ionicons.min.css" rel="stylesheet" />
 
     <link href="/Content/AdminLTE/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
     <link href="/Content/AdminLTE/bootstrap/js/bootstrap.js" rel="stylesheet" />
 
     <!-- Theme style -->
@@ -26,7 +27,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="~/Content/AdminLTE/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
+   
+	 <!-- iCheck -->
     <link href="~/Content/AdminLTE/plugins/iCheck/skins/square/green.css" rel="stylesheet" />
 
     <!-- Date Picker -->
@@ -39,6 +41,7 @@
     <script src="/Content/AdminLTE/plugins/jQuery/jQuery-2.1.3.min.js"></script>
 
     <script src="/scripts/generic.ajax.js"></script>
+
     <script src="/Scripts/jquery.validate.js"></script>
     <script src="/Scripts/generic.custom.validation.js"></script>
 
@@ -47,13 +50,17 @@
 
     <!-- datepicker -->
     <script src="/Content/AdminLTE/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
-    <!-- timepicker -->
+    
+	<!-- timepicker -->
     <script src="/Content/AdminLTE/plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
-    <!-- Bootstrap WYSIHTML5 -->
+    
+	<!-- Bootstrap WYSIHTML5 -->
     <script src="/Content/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
-    <!-- AdminLTE App -->
+    
+	<!-- AdminLTE App -->
     <script src="/Content/AdminLTE/dist/js/app.min.js" type="text/javascript"></script>
-    <!-- iCheck -->
+    
+	<!-- iCheck -->
     <script src="/Content/AdminLTE/plugins/iCheck/icheck.js"></script>
     
 
@@ -63,19 +70,15 @@
 
     <div class="wrapper">
 
-        @{Html.RenderPartial("_Header");}
+        @{Html.RenderPartial("_AdminHeader");}
 
-        @{Html.RenderPartial("_Sidebar");}
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_AdminSidebar");}
+
         @RenderBody()
 
-        @{Html.RenderPartial("_Footer");}
+        @{Html.RenderPartial("_AdminFooter");}
 
     </div>
-
-
-
-
 
     <div class="modal fade" id="div_Parent_Modal_Fade" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
