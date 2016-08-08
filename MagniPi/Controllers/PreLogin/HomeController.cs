@@ -83,6 +83,11 @@ namespace MagniPi.Controllers
             return View();
         }
 
+		public ActionResult Home()
+		{
+			return View();
+		}
+
         
         
     }
