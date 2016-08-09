@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Attachment\AttachmentManager.cs" />
     <Compile Include="Authentication\AuthenticationManager.cs" />
+    <Compile Include="Blog\BlogManager.cs" />
     <Compile Include="Event\EventManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

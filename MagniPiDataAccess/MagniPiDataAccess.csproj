@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Attachment\AttachmentRepo.cs" />
     <Compile Include="Authentication\AuthenticationRepo.cs" />
+    <Compile Include="Blog\BlogRepo.cs" />
     <Compile Include="Common\CommonMethods.cs" />
     <Compile Include="Event\EventRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

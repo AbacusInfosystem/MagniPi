@@ -49,8 +49,52 @@ namespace MagniPi
                 defaults: new { controller = "UploadFile", action = "Delete_Attachment_By_Id", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+                name: "upload-file-5",
+                url: "upload-file/get-browsed-images",
+                defaults: new { controller = "UploadFile", action = "Get_Attachment_By_Type", id = UrlParameter.Optional }
+            );
+
             #endregion
 
+            #region Blog
+
+            routes.MapRoute(
+                name: "blog-1",
+                url: "blog/search-blogs",
+                defaults: new { controller = "Blog", action = "Search", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "blog-2",
+                url: "blog/get-blogs",
+                defaults: new { controller = "Blog", action = "Get_Blogs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "blog-3",
+                url: "blog/save-blog",
+                defaults: new { controller = "Blog", action = "Save_Blog", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "blog-4",
+                url: "blog/get-blog-by-id",
+                defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
+            );
+
+
+            #endregion
+
+            #region home
+
+            routes.MapRoute(
+                name: "home-1",
+                url: "home/view-blog-details-by-id",
+                defaults: new { controller = "Home", action = "BlogDetails", id = UrlParameter.Optional }
+            );
+
+            #endregion
 
             routes.MapRoute(
                 name: "Default",

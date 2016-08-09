@@ -1,8 +1,10 @@
 ﻿using MagniPi.Common;
 using MagniPi.Models.PreLogin;
 using MagniPiHelper.Logging;
+using MagniPiManager.Blog;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -60,9 +62,28 @@ namespace MagniPi.Controllers
             return View();
         }
 
-        public ActionResult BlogDetails()
+        public ActionResult BlogDetails(HomeViewModel homeViewModel)
         {
-            return View();
+            try
+            {
+                if (homeViewModel.blog.Blog_Id != 0)
+                {
+                    BlogManager _blogMan = new BlogManager();
+
+                    homeViewModel.blog = _blogMan.Get_Blog_By_Id(homeViewModel.blog.Blog_Id);
+
+                    homeViewModel.blog.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.blog.File_Type_Str + @"\" + homeViewModel.blog.Header_Image_Url;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Logger.Error("Error : " + ex.ToString());
+
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+            }
+
+            return View("BlogDetails", homeViewModel);
         }
 
         public ActionResult TestimonialListing()

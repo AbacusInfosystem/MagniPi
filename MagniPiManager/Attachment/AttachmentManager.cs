@@ -38,7 +38,10 @@ namespace MagniPiManager.Attachment
             _attachmentsRepo.Delete_Attachment_By_Id(Attachment_Id);
         }
 
-       
+        public List<AttachmentsInfo> Get_Attachment_By_Type(ref PaginationInfo pager, int File_Type)
+        {
+            return _attachmentsRepo.Get_Attachment_By_Type(ref pager, File_Type);
+        }
 
 
     }

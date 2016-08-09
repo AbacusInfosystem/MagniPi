@@ -1,0 +1,126 @@
+﻿@model MagniPi.Models.PostLogin.Blog.BlogViewModel
+@*@using MagniPiHelper.PageHelper;*@
+
+@*<script src="~/Content/AdminLTE/plugins/datepicker/bootstrap-datepicker.js"></script>
+<link href="~/Content/AdminLTE/plugins/datepicker/datepicker3.css" rel="stylesheet" />*@
+
+<script src="~/Scripts/generic.message.js"></script>
+<script src="~/Scripts/generic-methods.js"></script>
+
+<script src="~/Scripts/Modules/Blog/blog-search-event.js"></script>
+<script src="~/Scripts/Modules/Blog/blog-search-method.js"></script>
+
+
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @{Html.RenderPartial("_ServerMessage");}
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Blog
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Blog</li>
+            </ol>
+        </section>
+
+        <form id="frmBlogListing">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Blogs Listing</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <input type="hidden" id="hdnBlogId" value="" name="blog.Blog_Id" />
+                                <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
+
+                                <div class="row">
+                                    @*<div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtBlogName" style="color: #333" class="">Blog Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtBlogName" value="" placeholder="Enter Blog Name" />
+                                        </div>
+                                    </div>*@
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="txtMonth" style="color: #333" class="">Month</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtMonth" value="" placeholder="Enter Month" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-footer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="btn-group">
+                                                <button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>
+                                                <a href="@Url.Action("Index", "Blog")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="btn-group pull-right">
+                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm" style="display:none">Edit</button>
+                                                <button type="button" id="btnPreview" class="btn btn-instagram btn-sm" style="display:none">Preview</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="box box-solid">
+
+                                            <div class="box-body table-responsive no-padding mdm-table">
+                                                <table class="table table-striped" id="tblBlog">
+                                                    <tr id="subhead">
+                                                        <th></th>
+                                                        <th>Blog Name</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                    @*@if(Model.blogs.Count > 0)
+                                                    {
+                                                        foreach(var item in Model.blogs)
+                                                        {
+                                                            <tr>
+                                                                <td><input type="radio" name="r1" id="@item.Blog_Id" class='' /></td>
+                                                                <td>@item.Title</td>
+                                                                <td>@(item.Created_On == null ? "" : Convert.ToDateTime(item.Created_On).ToString("dd/MM/yyyy"))</td>
+                                                            </tr>
+                                                        }
+                                                    }*@
+                                                    
+                                                </table>
+                                            </div>
+
+                                            <!-- /.box-body -->
+                                            <div class="box-footer clearfix">
+                                                <input type="hidden" id="hdfCurrentPage" name="@Model.Pager.CurrentPage" />
+                                                <div class="pagination pagination-sm no-margin pull-right">
+                                                </div>
+                                                <div id="divSearchGridOverlay" class="overlay">
+                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                    <!-- /.col (left) -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

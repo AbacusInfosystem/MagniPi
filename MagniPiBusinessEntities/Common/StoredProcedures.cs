@@ -9,7 +9,7 @@ namespace MagniPiBusinessEntities.Common
     public enum StoredProcedures
     {
 
-        #region Event
+        #region Login
 
         sp_AuthenticateUser,
 
@@ -22,10 +22,23 @@ namespace MagniPiBusinessEntities.Common
         Get_Attachment_By_Id_Sp,
         Delete_Attachment_By_Id_Sp,
         
+        Get_Attachments_By_File_Type_Sp,
 
         #endregion
 
-        
+        #region Blog
+
+        Insert_Blog_Sp,
+        Update_Blog_Sp,
+        Get_Blogs_Sp,
+        Get_Blog_By_Id_Sp,
+        Delete_Blog_By_Id_Sp,
+        Get_Blogs_By_Month_Sp,
+
+        #endregion
+
+
+
 
         #region Event
 

@@ -50,6 +50,17 @@ namespace MagniPi.Common
 
             #endregion
 
+            #region Attachment
+
+            FriendlyMessage BLG01 = new FriendlyMessage("BLG01", MessageType.Success, "Blog added successfully.");
+            hash.Add("BLG01", BLG01);
+
+            FriendlyMessage BLG02 = new FriendlyMessage("BLG02", MessageType.Success, "Blog updated successfully.");
+            hash.Add("BLG02", BLG02);
+
+            #endregion
+
+
         }
 
         public static FriendlyMessage Get(string code)

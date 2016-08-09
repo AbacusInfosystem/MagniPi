@@ -4,6 +4,7 @@ using MagniPiDataAccess.Utilities;
 using MagniPiRepo.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -46,13 +47,14 @@ namespace MagniPiDataAccess.Attachment
 
         public List<AttachmentsInfo> Get_Attachments(ref PaginationInfo pager)
         {
-            List<AttachmentsInfo> attachmentss = new List<AttachmentsInfo>();
+            List<AttachmentsInfo> attachments = new List<AttachmentsInfo>();
+
             DataTable dt = _sqlRepo.ExecuteDataTable(null, StoredProcedures.Get_Attachments_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt,ref pager))
             {
-                attachmentss.Add(Get_Attachments_Values(dr));
+                attachments.Add(Get_Attachments_Values(dr));
             }
-            return attachmentss;
+            return attachments;
         }
 
         private AttachmentsInfo Get_Attachments_Values(DataRow dr)
@@ -89,7 +91,6 @@ namespace MagniPiDataAccess.Attachment
             return attachment;
         }
 
-
         public void Delete_Attachment_By_Id(int Attachment_Id)
         {
             List<SqlParameter> sqlParams = new List<SqlParameter>();
@@ -97,6 +98,27 @@ namespace MagniPiDataAccess.Attachment
             _sqlRepo.ExecuteNonQuery(sqlParams, StoredProcedures.Delete_Attachment_By_Id_Sp.ToString(), CommandType.StoredProcedure);
         }
 
+
+        public List<AttachmentsInfo> Get_Attachment_By_Type(ref PaginationInfo pager, int File_Type)
+        {
+            List<AttachmentsInfo> attachments = new List<AttachmentsInfo>();
+
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("@File_Type", File_Type));
+
+            DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Attachments_By_File_Type_Sp.ToString(), CommandType.StoredProcedure);
+            foreach (DataRow dr in CommonMethods.GetRows(dt, ref pager))
+            {
+                AttachmentsInfo attachment = new AttachmentsInfo();
+
+                attachment = Get_Attachments_Values(dr);
+                attachment.Unique_Id = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + attachment.File_Type_Str + @"\" + attachment.Unique_Id;
+
+                //attachments.Add(Get_Attachments_Values(dr));
+                attachments.Add(attachment);
+            }
+            return attachments;
+        }
 
 
 

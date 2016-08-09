@@ -3,6 +3,7 @@ using MagniPi.Models.PostLogin.UploadFile;
 using MagniPiBusinessEntities.Attachment;
 using MagniPiBusinessEntities.Common;
 using MagniPiHelper.Logging;
+using MagniPiHelper.PageHelper;
 using MagniPiManager.Attachment;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,11 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
                 pager = ufViewModel.Pager;
                 
                 ufViewModel.attachments = _attachmentsMan.Get_Attachments(ref pager);
+                //
+                //ufViewModel.Pager = pager;
 
-
+                //ufViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", ufViewModel.Pager.TotalRecords, ufViewModel.Pager.CurrentPage + 1, ufViewModel.Pager.PageSize, 10, true);
+                //
             }
             catch (Exception ex)
             {
@@ -64,7 +68,7 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
 
                 if (ufViewModel.attachment.Upload_Image != null)
                 {
-                    string folder_Name = Path.Combine(Server.MapPath(ConfigurationManager.AppSettings["Upload_Image_Path"].ToString()), ufViewModel.attachment.File_Type.ToString());
+                    string folder_Name = Path.Combine(Server.MapPath(ConfigurationManager.AppSettings["Upload_Image_Path"].ToString()), ufViewModel.attachment.File_Type_Str);
 
                     if (!System.IO.Directory.Exists(folder_Name))
                     {
@@ -124,7 +128,7 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
             try
             {
                 attachment = _attachmentsMan.Get_Attachment_By_Id(Attachment_Id);
-                attachment.Unique_Id = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + attachment.File_Type + @"\" + attachment.Unique_Id;
+                attachment.Unique_Id = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + attachment.File_Type_Str + @"\" + attachment.Unique_Id;
             }
             catch(Exception ex)
             {
@@ -155,6 +159,27 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
             }
             return RedirectToRoute("upload-file-1");
         }
+
+        //
+        public JsonResult Get_Attachment_By_Type(int File_Type)
+        {
+            List<AttachmentsInfo> attachments = new List<AttachmentsInfo>();
+            PaginationInfo pager = new PaginationInfo();
+
+            try
+            {
+                //pager = ufViewModel.Pager;
+                attachments = _attachmentsMan.Get_Attachment_By_Type(ref pager, File_Type);
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error : " + ex.ToString());
+            }
+
+            return Json(attachments, JsonRequestBehavior.AllowGet);
+        }
+        //
 
 
     }
