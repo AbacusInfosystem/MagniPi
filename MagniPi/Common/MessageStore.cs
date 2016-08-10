@@ -80,6 +80,13 @@ namespace MagniPi.Common
 
             #endregion
 
+            #region Testimonial
+
+            FriendlyMessage ABT01 = new FriendlyMessage("ABT01", MessageType.Success, "About us updated successfully.");
+            hash.Add("ABT01", ABT01);
+
+            #endregion
+
 
         }
 

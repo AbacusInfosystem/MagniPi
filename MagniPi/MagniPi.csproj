@@ -214,6 +214,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\PostLogin\AboutUs\AboutUsViewModel.cs" />
     <Compile Include="Models\PostLogin\Blog\BlogViewModel.cs" />
     <Compile Include="Models\PostLogin\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Models\PostLogin\Service\ServiceViewModel.cs" />
@@ -1352,6 +1353,8 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Modules\AboutUs\about-us-event.js" />
+    <Content Include="Scripts\Modules\AboutUs\about-us-validation.js" />
     <Content Include="Scripts\Modules\Blog\blog-event.js" />
     <Content Include="Scripts\Modules\Blog\blog-method.js" />
     <Content Include="Scripts\Modules\Blog\blog-search-event.js" />

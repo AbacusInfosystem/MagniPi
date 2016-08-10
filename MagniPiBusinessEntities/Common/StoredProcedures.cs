@@ -57,6 +57,12 @@ namespace MagniPiBusinessEntities.Common
 
         #endregion
 
+        #region Testimonial
+
+        Update_About_Us_Sp,
+        Get_About_Us_By_Id_Sp,
+
+        #endregion
 
         #region Event
 

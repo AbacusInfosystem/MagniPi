@@ -142,6 +142,22 @@ namespace MagniPi
 
             #endregion
 
+            #region
+
+            routes.MapRoute(
+                name: "about-us-1",
+                url: "about-us/get-about-us-by-id",
+                defaults: new { controller = "AboutUs", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "about-us-2",
+                url: "about-us/save-about-us",
+                defaults: new { controller = "AboutUs", action = "Save_About_Us", id = UrlParameter.Optional }
+            );
+
+            #endregion
+
             #region home
 
             routes.MapRoute(
