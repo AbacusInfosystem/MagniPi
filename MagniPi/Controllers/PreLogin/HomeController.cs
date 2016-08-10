@@ -2,6 +2,7 @@
 using MagniPi.Models.PreLogin;
 using MagniPiHelper.Logging;
 using MagniPiManager.Blog;
+using MagniPiManager.Service;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -104,6 +105,30 @@ namespace MagniPi.Controllers
         public ActionResult ServiceListing()
         {
             return View();
+        }
+
+        public ActionResult ServiceDetails(HomeViewModel homeViewModel)
+        {
+            try
+            {
+                if (homeViewModel.service.Service_Id != 0)
+                {
+                    ServiceManager _serviceMan = new ServiceManager();
+
+                    homeViewModel.service = _serviceMan.Get_Service_By_Id(homeViewModel.service.Service_Id);
+
+                    homeViewModel.service.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.service.File_Type_Str + @"\" + homeViewModel.service.Header_Image_Url;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error : " + ex.ToString());
+
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+            }
+
+            return View("ServiceDetails", homeViewModel);
         }
 
 		public ActionResult Home()

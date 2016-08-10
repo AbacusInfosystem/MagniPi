@@ -38,10 +38,10 @@ namespace MagniPiManager.Blog
             return _blogRepo.Get_Blog_By_Id(Blog_Id);
         }
 
-        public void Delete_Blog_By_Id(int Blog_Id)
-        {
-            _blogRepo.Delete_Blog_By_Id(Blog_Id);
-        }
+        //public void Delete_Blog_By_Id(int Blog_Id)
+        //{
+        //    _blogRepo.Delete_Blog_By_Id(Blog_Id);
+        //}
 
         public List<BlogInfo> Get_Blogs_By_Month(ref PaginationInfo Pager, string Month)
         {

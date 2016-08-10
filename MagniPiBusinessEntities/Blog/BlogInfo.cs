@@ -46,6 +46,8 @@ namespace MagniPiBusinessEntities.Blog
         }
 
         public string Header_Image_Url { get; set; }
+
+        public string User_Name { get; set; }
         //
 
     }

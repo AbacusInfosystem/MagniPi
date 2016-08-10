@@ -1,5 +1,6 @@
 ﻿using MagniPi.Common;
 using MagniPiBusinessEntities.Blog;
+using MagniPiBusinessEntities.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,17 @@ namespace MagniPi.Models.PreLogin
 
             blog = new BlogInfo();
 
+            service = new ServiceInfo();
+
 
         }
 
         public List<FriendlyMessage> FriendlyMessage { get; set; }
 
         public BlogInfo blog { get; set; }
+
+        public ServiceInfo service { get; set; }
+
 
     }
 }

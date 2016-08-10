@@ -1,4 +1,5 @@
 ﻿@model MagniPi.Models.PreLogin.HomeViewModel
+@using MagniPiBusinessEntities.Common;
 
 <div class="content-wrapper">
 
@@ -10,19 +11,19 @@
 
         <section class="content-header">
             <h1>
-                Blog
+                Service
             </h1>
             <ol class="breadcrumb">
                 <li>Admin</li>
-                <li class="active">Blog</li>
+                <li class="active">Service</li>
             </ol>
         </section>
 
-        <form id="frmBlogDetails">
+        <form id="frmServiceDetails">
             <section class="content">
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Blog Details</h2>
+                        <h2 id="" class="page-header">Service Details</h2>
 
                         <div class="box box-default">
                             <div class="box-body">
@@ -33,14 +34,14 @@
                                         <div class="article">
                                             <div class="article_head">
                                                 <div class="article_date">
-                                                    <span>@(Model.blog.Created_On == null ? "" : Convert.ToDateTime(Model.blog.Created_On).ToString("dd-MM-yyyy"))</span>
-                                                    
+                                                    <span>@(Model.service.Created_On == null ? "" : Convert.ToDateTime(Model.service.Created_On).ToString("dd-MM-yyyy"))</span>
+
                                                 </div>
                                                 <div class="article_title">
 
-                                                    <h2 class="readblog">@Model.blog.Title</h2>
+                                                    <h2 class="readblog">@Model.service.Title</h2>
 
-                                                    <p class="sub_head">Posted by <a href="#">@Model.blog.User_Name</a> </p>
+                                                    <p class="sub_head">Posted by <a href="#">@Model.service.User_Name</a> </p>
 
                                                 </div>
                                             </div>
@@ -48,14 +49,14 @@
                                                 <div class="row">
                                                     <div class="col-md-12" style="text-align:center">
 
-                                                        <a href="@Model.blog.Header_Image_Url">
-                                                            <img src="@Model.blog.Header_Image_Url" style="height:250px; width:250px" />
+                                                        <a href="@Model.service.Header_Image_Url">
+                                                            <img src="@Model.service.Header_Image_Url" style="height:250px; width:250px" />
                                                         </a>
 
                                                     </div>
                                                 </div>
 
-                                                <p>@Html.Raw(Model.blog.Blog_Template)</p>
+                                                <p>@Html.Raw(Model.service.Service_Template)</p>
 
                                                 <div class="row">
 

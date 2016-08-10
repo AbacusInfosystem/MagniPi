@@ -216,6 +216,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\PostLogin\Blog\BlogViewModel.cs" />
     <Compile Include="Models\PostLogin\Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Models\PostLogin\Service\ServiceViewModel.cs" />
     <Compile Include="Models\PostLogin\UploadFile\UploadFileViewModel.cs" />
     <Compile Include="Models\PreLogin\AuthenticationViewModel.cs" />
     <Compile Include="Models\PreLogin\HomeViewModel.cs" />
@@ -1356,6 +1357,10 @@
     <Content Include="Scripts\Modules\Blog\blog-search-method.js" />
     <Content Include="Scripts\generic.ajax.js" />
     <Content Include="Scripts\Modules\Blog\blog-validation.js" />
+    <Content Include="Scripts\Modules\Service\service-event.js" />
+    <Content Include="Scripts\Modules\Service\service-search-event.js" />
+    <Content Include="Scripts\Modules\Service\service-search-method.js" />
+    <Content Include="Scripts\Modules\Service\service-validation.js" />
     <Content Include="Scripts\Modules\UploadFile\upload-file-event.js" />
     <Content Include="Scripts\Modules\UploadFile\upload-file-validation.js" />
     <Content Include="UploadFile\Image\146fcfec-627b-4fbc-ab04-20f338f84214.jpg" />
@@ -1428,6 +1433,8 @@
     <Content Include="Views\Shared\_FrontFooter.cshtml" />
     <Content Include="Views\PostLogin\Blog\Search.cshtml" />
     <Content Include="UploadFile\Image.json" />
+    <Content Include="Views\PostLogin\Service\Search.cshtml" />
+    <Content Include="Views\PreLogin\Home\ServiceDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

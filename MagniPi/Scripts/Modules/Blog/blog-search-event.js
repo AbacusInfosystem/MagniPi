@@ -25,6 +25,8 @@
 
     $("#btnEdit").click(function (event) {
 
+        $("#frmBlogListing").attr("target", "_self");
+
         $('#frmBlogListing').attr("action", "/blog/get-blog-by-id");
         $('#frmBlogListing').attr("method", "POST");
         $('#frmBlogListing').submit();

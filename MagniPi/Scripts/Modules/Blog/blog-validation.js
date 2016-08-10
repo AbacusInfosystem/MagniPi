@@ -13,7 +13,7 @@
                 }
             },
 
-            "blog.Header_Image": { required: true },
+            //"blog.Header_Image": { required: true },
 
         },
         messages: {
@@ -22,7 +22,7 @@
 
             "blog.Blog_Template": { required: "Required field." },
 
-            "blog.Header_Image": { required: "Required field." },
+            //"blog.Header_Image": { required: "Required field." },
 
         }
     });

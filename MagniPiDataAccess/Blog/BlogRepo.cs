@@ -145,15 +145,17 @@ namespace MagniPiDataAccess.Blog
                 blog.Header_Image_Url = Convert.ToString(dr["Unique_Id"]);
             }
 
+            blog.User_Name = Convert.ToString(dr["First_Name"]) + " " + Convert.ToString(dr["Last_Name"]);
+
             return blog;
         }
 
-        public void Delete_Blog_By_Id(int blog_id)
-        {
-            List<SqlParameter> sqlParams = new List<SqlParameter>();
-            sqlParams.Add(new SqlParameter("@Blog_Id", blog_id));
-            _sqlRepo.ExecuteNonQuery(sqlParams, StoredProcedures.Delete_Blog_By_Id_Sp.ToString(), CommandType.StoredProcedure);
-        }
+        //public void Delete_Blog_By_Id(int blog_id)
+        //{
+        //    List<SqlParameter> sqlParams = new List<SqlParameter>();
+        //    sqlParams.Add(new SqlParameter("@Blog_Id", blog_id));
+        //    _sqlRepo.ExecuteNonQuery(sqlParams, StoredProcedures.Delete_Blog_By_Id_Sp.ToString(), CommandType.StoredProcedure);
+        //}
 
     }
 }

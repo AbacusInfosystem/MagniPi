@@ -86,12 +86,46 @@ namespace MagniPi
 
             #endregion
 
+            #region Service
+
+            routes.MapRoute(
+                name: "service-1",
+                url: "service/search-services",
+                defaults: new { controller = "Service", action = "Search", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "service-2",
+                url: "service/get-services",
+                defaults: new { controller = "Service", action = "Get_Services", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "service-3",
+                url: "service/save-service",
+                defaults: new { controller = "Service", action = "Save_Service", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "service-4",
+                url: "service/get-service-by-id",
+                defaults: new { controller = "Service", action = "Index", id = UrlParameter.Optional }
+            );
+            
+            #endregion
+
             #region home
 
             routes.MapRoute(
                 name: "home-1",
                 url: "home/view-blog-details-by-id",
                 defaults: new { controller = "Home", action = "BlogDetails", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-2",
+                url: "home/view-service-details-by-id",
+                defaults: new { controller = "Home", action = "ServiceDetails", id = UrlParameter.Optional }
             );
 
             #endregion

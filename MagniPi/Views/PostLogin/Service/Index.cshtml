@@ -1,4 +1,10 @@
-﻿<script src="~/Content/ckeditor/ckeditor.js"></script>
+﻿@model MagniPi.Models.PostLogin.Service.ServiceViewModel
+@using MagniPiBusinessEntities.Common;
+
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+
+<script src="~/Scripts/Modules/Service/service-validation.js"></script>
+<script src="~/Scripts/Modules/Service/service-event.js"></script>
 
 <div class="content-wrapper">
 
@@ -27,11 +33,13 @@
                         <div class="box box-default">
                             <div class="box-body">
 
+                                <input type="hidden" id="hdnServiceId" name="service.Service_Id" value="@Model.service.Service_Id" />
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtTitle" style="color: #333" class="">Title</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtTitle" value="" placeholder="Enter Blog Title" />
+                                            <input type="text" class="form-control input-sm" name="service.Title" id="txtTitle" value="@Model.service.Title" placeholder="Enter Service Title" />
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +48,48 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtServiceContent" style="color: #333" class="">Service Content</label>
-                                            <textarea class="form-control input-sm" id="txtServiceContent" name="ServiceContent" placeholder="Enter Service Content"></textarea>
+                                            <textarea class="form-control input-sm" id="txtServiceContent" name="service.Service_Template" placeholder="Enter Service Content">@Model.service.Service_Template</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="hdnAttachmentId" class="control-label blog_title">Blog Header Image</label>
+                                            <div class="input-group">
+                                                <a id="BtnBrowse" class="btn btn-default btn-sm" role="button">
+                                                    <i class="fa fa-camera-retro fa-lg"></i> Browse Image
+                                                </a>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="ImagePreviewBox">
+                                                    <img src="@Model.service.Header_Image_Url" id="imgHeaderImage" style="height:180px;width:180px;" />
+                                                    <input type="hidden" id="hdnAttachmentId" name="service.Header_Image" value="@Model.service.Header_Image" />
+                                                    <input type="hidden" id="hdnHeader_Image_Url" name="service.Header_Image_Url" value="@Model.service.Header_Image_Url" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtAlternativeTxt" style="color: #333" class="">Alternative Text</label>
+                                            <input type="text" class="form-control input-sm" name="service.Alternative_Text" id="txtAlternativeTxt" value="@Model.service.Alternative_Text" placeholder="Enter Alternative Text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                            @if (Model.service.Is_Active)
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" />
+                                            }
+                                            <input type="hidden" id="hdnIs_Active" name="service.Is_Active" value="@Model.service.Is_Active.ToString()" />
                                         </div>
                                     </div>
                                 </div>
@@ -49,7 +98,7 @@
                                     <div class="col-md-6">
                                         <div class="btn-group">
                                             <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
-                                            <a href="@Url.Action("ServiceListing", "Home")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                            <a href="@Url.Action("Search", "Service")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,15 +111,47 @@
             </section>
         </form>
 
+        <div class="modal fade" id="ImageModal" role="dialog">
+            <div class="modal-dialog" style="width:700px">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Images</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="" id="hdnFileType" value="@((int)FileType.Image)" />
+                        <div class="row">
+                            <div class="col-md-12" id="ShowImages">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6 pull-right">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </div>
 
 
 <script>
 
-    CKEDITOR.replace('ServiceContent', {
+    CKEDITOR.replace('service.Service_Template', {
         "extraPlugins": 'imagebrowser',
-        "imageBrowser_listUrl": "/BlogListingImages/" + $("#hdnUserID").val() + ".json",
+        "imageBrowser_listUrl": "/UploadFile/Image.json",
         toolbar: [
           ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
           ['Scayt'],
@@ -86,7 +167,7 @@
     'h1 h2 div'
     });
 
-    CKEDITOR.replace('ServiceContent');
+    CKEDITOR.replace('service.Service_Template');
 
 
 </script>

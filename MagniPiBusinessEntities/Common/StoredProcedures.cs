@@ -37,7 +37,16 @@ namespace MagniPiBusinessEntities.Common
 
         #endregion
 
+        #region Service
 
+        Insert_Service_Sp,
+        Update_Service_Sp,
+        Get_Services_Sp,
+        Get_Service_By_Id_Sp,
+        Delete_Service_By_Id_Sp,
+        Get_Services_By_Sertice_Title_Sp,
+
+        #endregion
 
 
         #region Event

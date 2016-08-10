@@ -89,7 +89,7 @@ namespace MagniPi.Controllers.PostLogin.Blog
             }
             catch(Exception ex)
             {
-                Logger.Error("Error : " + ex.ToString());
+                Logger.Error("BlogController - Index: " + ex.ToString());
 
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
