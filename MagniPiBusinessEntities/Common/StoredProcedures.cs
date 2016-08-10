@@ -48,6 +48,15 @@ namespace MagniPiBusinessEntities.Common
 
         #endregion
 
+        #region Testimonial
+
+        Insert_Testimonial_Sp,
+        Update_Testimonial_Sp,
+        Get_Testimonials_Sp,
+        Get_Testimonial_By_Id_Sp,
+
+        #endregion
+
 
         #region Event
 

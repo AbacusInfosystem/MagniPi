@@ -1,11 +1,7 @@
-﻿@model MagniPi.Models.PostLogin.Blog.BlogViewModel
+﻿@model MagniPi.Models.PostLogin.Testimonial.TestimonialViewModel
 
-@*<script src="~/Scripts/generic.message.js"></script>
-<script src="~/Scripts/generic-methods.js"></script>*@
-
-<script src="~/Scripts/Modules/Blog/blog-search-event.js"></script>
-<script src="~/Scripts/Modules/Blog/blog-search-method.js"></script>
-
+<script src="~/Scripts/Modules/Testimonial/testimonial-search-event.js"></script>
+<script src="~/Scripts/Modules/Testimonial/testimonial-search-method.js"></script>
 
 <div class="content-wrapper">
 
@@ -17,53 +13,47 @@
 
         <section class="content-header">
             <h1>
-                Blog
+                Testimonial
             </h1>
             <ol class="breadcrumb">
                 <li>Admin</li>
-                <li class="active">Blog</li>
+                <li class="active">Testimonial</li>
             </ol>
         </section>
 
-        <form id="frmBlogListing">
+        <form id="frmTestimonialListing">
             <section class="content">
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Blogs Listing</h2>
+                        <h2 id="" class="page-header">Testimonials Listing</h2>
 
                         <div class="box box-default">
                             <div class="box-body">
 
-                                <input type="hidden" id="hdnBlogId" value="" name="blog.Blog_Id" />
+                                <input type="hidden" id="hdnTestimonialId" value="" name="testimonial.Testimonial_Id" />
                                 <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
 
-                                <div class="row">
-                                    @*<div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtBlogName" style="color: #333" class="">Blog Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtBlogName" value="" placeholder="Enter Blog Name" />
-                                        </div>
-                                    </div>*@
+                                @*<div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="txtMonth" style="color: #333" class="">Month</label>
                                             <input type="text" class="form-control input-sm" name="" id="txtMonth" value="" placeholder="Enter Month" />
                                         </div>
                                     </div>
-                                </div>
+                                </div>*@
 
                                 <div class="box-footer">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="btn-group">
-                                                <button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>
-                                                <a href="@Url.Action("Index", "Blog")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
+                                                @*<button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>*@
+                                                <a href="@Url.Action("Index", "Testimonial")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="btn-group pull-right">
                                                 <button type="button" id="btnEdit" class="btn btn-warning btn-sm" style="display:none">Edit</button>
-                                                <button type="button" id="btnPreview" class="btn btn-instagram btn-sm" style="display:none">Preview</button>
+                                                @*<button type="button" id="btnPreview" class="btn btn-instagram btn-sm" style="display:none">Preview</button>*@
                                             </div>
                                         </div>
                                     </div>
@@ -74,25 +64,17 @@
                                         <div class="box box-solid">
 
                                             <div class="box-body table-responsive no-padding mdm-table">
-                                                <table class="table table-striped" id="tblBlog">
+                                                <table class="table table-striped" id="tblTestimonial">
                                                     <tr id="subhead">
                                                         <th></th>
-                                                        <th>Blog Name</th>
+                                                        <th>Title</th>
+                                                        <th>Content</th>
+                                                        <th>Author Name</th>
+                                                        <th>Author Designation</th>
                                                         <th>Date</th>
                                                         <th>Is Active</th>
                                                     </tr>
-                                                    @*@if(Model.blogs.Count > 0)
-                                                    {
-                                                        foreach(var item in Model.blogs)
-                                                        {
-                                                            <tr>
-                                                                <td><input type="radio" name="r1" id="@item.Blog_Id" class='' /></td>
-                                                                <td>@item.Title</td>
-                                                                <td>@(item.Created_On == null ? "" : Convert.ToDateTime(item.Created_On).ToString("dd/MM/yyyy"))</td>
-                                                            </tr>
-                                                        }
-                                                    }*@
-                                                    
+
                                                 </table>
                                             </div>
 

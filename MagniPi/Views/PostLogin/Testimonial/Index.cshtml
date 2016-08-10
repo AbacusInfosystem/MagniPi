@@ -1,9 +1,14 @@
-﻿
+﻿@model MagniPi.Models.PostLogin.Testimonial.TestimonialViewModel
+@using MagniPiBusinessEntities.Common;
+
+<script src="~/Scripts/Modules/Testimonial/testimonial-validation.js"></script>
+<script src="~/Scripts/Modules/Testimonial/testimonial-event.js"></script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_ServerMessage");}
 
         <!-- Content Header (Page header) -->
 
@@ -23,6 +28,8 @@
                     <div id="divScrollContainer" class="col-md-12">
                         <h2 id="" class="page-header">Add Edit Testimonial</h2>
 
+                        <input type="hidden" id="hdnTestimonial_Id" name="testimonial.Testimonial_Id" value="@Model.testimonial.Testimonial_Id" />
+
                         <div class="box box-default">
                             <div class="box-body">
 
@@ -30,29 +37,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtTitle" style="color: #333" class="">Title</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtTitle" value="" placeholder="Enter Title"/>
+                                            <input type="text" class="form-control input-sm" name="testimonial.Title" id="txtTitle" value="@Model.testimonial.Title" placeholder="Enter Title" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtAuthorName" style="color: #333" class="">Author Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtAuthorName" value="" placeholder="Author Name" />
+                                            <input type="text" class="form-control input-sm" name="testimonial.Author_Name" id="txtAuthorName" value="@Model.testimonial.Author_Name" placeholder="Author Name" />
                                         </div>
                                     </div>
-                                    
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtContent" style="color: #333" class="">Content</label>
-                                            <textarea class="form-control input-sm" name="" id="txtContent" placeholder="Enter Content"></textarea>
+                                            <textarea class="form-control input-sm" name="testimonial.Content" id="txtContent" placeholder="Enter Content">@Model.testimonial.Content</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtAuthorDesignation" style="color: #333" class="">Author Designation</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtAuthorDesignation" value="" placeholder="Author Designation" />
+                                            <input type="text" class="form-control input-sm" name="testimonial.Author_Designation" id="txtAuthorDesignation" value="@Model.testimonial.Author_Designation" placeholder="Author Designation" />
                                         </div>
                                     </div>
                                 </div>
@@ -60,22 +66,34 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Image</label>
+                                            <label for="hdnAttachmentId" class="control-label blog_title">Blog Header Image</label>
                                             <div class="input-group">
-                                                <a id="BtnBrowse" class="btn btn-default btn-sm" role="button" data-toggle="modal" data-target="#ImageModal">
+                                                <a id="BtnBrowse" class="btn btn-default btn-sm" role="button">
                                                     <i class="fa fa-camera-retro fa-lg"></i> Browse Image
                                                 </a>
                                             </div>
-                                            <br />
                                             <div class="form-group">
                                                 <div class="ImagePreviewBox">
-                                                    <img src="http://www.kitachinderwaelt.ch/wp-content/uploads/2013/02/dummy_portrait.jpg" style="height:180px;width:180px;" />
+                                                    <img src="@Model.testimonial.Author_Image_Url" id="imgHeaderImage" style="height:180px;width:180px;" />
+                                                    <input type="hidden" id="hdnAttachmentId" name="testimonial.Author_Image" value="@Model.testimonial.Author_Image" />
+                                                    <input type="hidden" id="hdnAuthor_Image_Url" name="testimonial.Author_Image_Url" value="@Model.testimonial.Author_Image_Url" />
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtAlternativeTxt" style="color: #333" class="">Alternative Text</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtAlternativeTxt" value="" placeholder="Enter Alternative Text" />
+                                            <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
+                                            @if (Model.testimonial.Is_Active)
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" />
+                                            }
+                                            <input type="hidden" id="hdnIs_Active" name="testimonial.Is_Active" value="@Model.testimonial.Is_Active.ToString()" />
                                         </div>
                                     </div>
 
@@ -85,7 +103,7 @@
                                     <div class="col-md-6">
                                         <div class="btn-group">
                                             <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
-                                            <a href="@Url.Action("TestimonialListing", "Home")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
+                                            <a href="@Url.Action("Search", "Testimonial")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +119,7 @@
         </form>
 
         <div class="modal fade" id="ImageModal" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width:700px">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -109,22 +127,12 @@
                         <h4 class="modal-title">Images</h4>
                     </div>
                     <div class="modal-body">
+                        <input type="hidden" name="" id="hdnFileType" value="@((int)FileType.Image)" />
                         <div class="row">
                             <div class="col-md-12" id="ShowImages">
-                                <div class="form-group">
 
-                                    <div class="ImagePreviewBox">
-                                        <input type="radio" id="" name="Image">
-                                        <img src="~/Images/default.jpg" style="width:130px; height: 113px;border: 1px solid;">
-
-                                        <input type="radio" id="" name="Image">
-                                        <img src="http://www.kitachinderwaelt.ch/wp-content/uploads/2013/02/dummy_portrait.jpg" style="width:130px; height: 113px;border: 1px solid;">
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="modal-footer">
@@ -136,7 +144,9 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
 

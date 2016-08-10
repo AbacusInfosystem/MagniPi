@@ -47,6 +47,12 @@ function Bind_Service_Grid(data) {
 
             htmlText += "</td>";
 
+            htmlText += "<td>";
+
+            htmlText += data.services[i].Is_Active == true ? "Yes" : "No";
+
+            htmlText += "</td>";
+
             htmlText += "</tr>";
         }
     }

@@ -33,7 +33,7 @@ namespace MagniPi.Controllers.PostLogin.Blog
             }
             catch(Exception ex)
             {
-                Logger.Error("Error : " + ex.ToString());
+                Logger.Error("Blog Controller - Search: " + ex.ToString());
 
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
@@ -66,7 +66,7 @@ namespace MagniPi.Controllers.PostLogin.Blog
             {
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
-                Logger.Error("Blog Controller - Get_Blogs " + ex.ToString());
+                Logger.Error("Blog Controller - Get_Blogs: " + ex.ToString());
             }
             finally
             {
@@ -89,7 +89,7 @@ namespace MagniPi.Controllers.PostLogin.Blog
             }
             catch(Exception ex)
             {
-                Logger.Error("BlogController - Index: " + ex.ToString());
+                Logger.Error("Blog Controller - Index: " + ex.ToString());
 
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
@@ -131,7 +131,7 @@ namespace MagniPi.Controllers.PostLogin.Blog
             }
             catch (Exception ex)
             {
-                Logger.Error("Error : " + ex.ToString());
+                Logger.Error("Blog Controller - Save_Blog: " + ex.ToString());
 
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }

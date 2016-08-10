@@ -36,7 +36,7 @@ namespace MagniPi.Controllers.PostLogin.Service
             }
             catch(Exception ex)
             {
-                Logger.Error("ServiceController - Index : " + ex.ToString());
+                Logger.Error("Service Controller - Index: " + ex.ToString());
 
                 sViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
@@ -51,7 +51,7 @@ namespace MagniPi.Controllers.PostLogin.Service
             }
             catch (Exception ex)
             {
-                Logger.Error("ServiceController - Search : " + ex.ToString());
+                Logger.Error("Service Controller - Search: " + ex.ToString());
 
                 sViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
@@ -83,7 +83,7 @@ namespace MagniPi.Controllers.PostLogin.Service
             {
                 sViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
-                Logger.Error("Service Controller - Get_Services " + ex.ToString());
+                Logger.Error("Service Controller - Get_Services: " + ex.ToString());
             }
             finally
             {
@@ -113,7 +113,7 @@ namespace MagniPi.Controllers.PostLogin.Service
                 {
                     _serviceMan.Update_Service(sViewModel.service);
 
-                    sViewModel.FriendlyMessage.Add(MessageStore.Get("BLG02"));
+                    sViewModel.FriendlyMessage.Add(MessageStore.Get("SRV02"));
 
                 }
                 else
@@ -121,13 +121,13 @@ namespace MagniPi.Controllers.PostLogin.Service
 
                     sViewModel.service.Service_Id = _serviceMan.Insert_Service(sViewModel.service);
 
-                    sViewModel.FriendlyMessage.Add(MessageStore.Get("BLG01"));
+                    sViewModel.FriendlyMessage.Add(MessageStore.Get("SRV01"));
                 }
 
             }
             catch (Exception ex)
             {
-                Logger.Error("Error : " + ex.ToString());
+                Logger.Error("Service Controller - Save_Service: " + ex.ToString());
 
                 sViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }

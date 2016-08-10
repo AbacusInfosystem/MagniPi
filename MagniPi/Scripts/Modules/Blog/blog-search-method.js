@@ -50,6 +50,12 @@ function Bind_Blog_Grid(data) {
 
             htmlText += "</td>";
 
+            htmlText += "<td>";
+
+            htmlText += data.blogs[i].Is_Active == true ? "Yes" : "No";
+
+            htmlText += "</td>";
+
             htmlText += "</tr>";
         }
     }

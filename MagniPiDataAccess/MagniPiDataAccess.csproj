@@ -51,6 +51,7 @@
     <Compile Include="Event\EventRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceRepo.cs" />
+    <Compile Include="Testimonial\TestimonialRepo.cs" />
     <Compile Include="Utilities\SQLHelperRepo.cs" />
   </ItemGroup>
   <ItemGroup />

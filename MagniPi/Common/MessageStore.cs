@@ -50,13 +50,33 @@ namespace MagniPi.Common
 
             #endregion
 
-            #region Attachment
+            #region Blog
 
             FriendlyMessage BLG01 = new FriendlyMessage("BLG01", MessageType.Success, "Blog added successfully.");
             hash.Add("BLG01", BLG01);
 
             FriendlyMessage BLG02 = new FriendlyMessage("BLG02", MessageType.Success, "Blog updated successfully.");
             hash.Add("BLG02", BLG02);
+
+            #endregion
+
+            #region Service
+
+            FriendlyMessage SRV01 = new FriendlyMessage("SRV01", MessageType.Success, "Service added successfully.");
+            hash.Add("SRV01", SRV01);
+
+            FriendlyMessage SRV02 = new FriendlyMessage("SRV02", MessageType.Success, "Service updated successfully.");
+            hash.Add("SRV02", SRV02);
+
+            #endregion
+
+            #region Testimonial
+
+            FriendlyMessage TST01 = new FriendlyMessage("TST01", MessageType.Success, "Testimonial added successfully.");
+            hash.Add("TST01", TST01);
+
+            FriendlyMessage TST02 = new FriendlyMessage("TST02", MessageType.Success, "Testimonial updated successfully.");
+            hash.Add("TST02", TST02);
 
             #endregion
 

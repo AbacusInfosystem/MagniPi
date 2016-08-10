@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagniPiBusinessEntities.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace MagniPiBusinessEntities.Testimonial
 
         public string Content { get; set; }
 
-        public int Attachment_Id { get; set; }
+        public int Author_Image { get; set; }
 
         public string Author_Name { get; set; }
 
@@ -29,6 +30,23 @@ namespace MagniPiBusinessEntities.Testimonial
 
         public DateTime Updated_On { get; set; }
 
+        //
+        public int File_Type { get; set; }
+
+        public string File_Type_Str
+        {
+            get
+            {
+                return ((FileType)File_Type).ToString();
+            }
+            set
+            {
+                value = File_Type_Str;
+            }
+        }
+
+        public string Author_Image_Url { get; set; }
+        //
     }
 
 }

@@ -114,6 +114,34 @@ namespace MagniPi
             
             #endregion
 
+            #region Testimonial
+
+            routes.MapRoute(
+                name: "testimonial-1",
+                url: "testimonial/search-testimonials",
+                defaults: new { controller = "Testimonial", action = "Search", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "testimonial-2",
+                url: "testimonial/get-testimonials",
+                defaults: new { controller = "Testimonial", action = "Get_Testimonials", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "testimonial-3",
+                url: "testimonial/save-testimonial",
+                defaults: new { controller = "Testimonial", action = "Save_Testimonial", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "testimonial-4",
+                url: "testimonial/get-testimonial-by-id",
+                defaults: new { controller = "Testimonial", action = "Index", id = UrlParameter.Optional }
+            );
+
+            #endregion
+
             #region home
 
             routes.MapRoute(
