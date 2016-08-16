@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagniPiBusinessEntities.Event;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,13 @@ namespace MagniPiBusinessEntities.Customer
     {
         public CustomerInfo()
         {
-            Member = new MemberInfo();
+            member = new MemberInfo();
+
+            members = new List<MemberInfo>();
+
+            events = new List<EventInfo>();
+
+
         }
 
         public int Customer_Id { get; set; }
@@ -23,7 +30,7 @@ namespace MagniPiBusinessEntities.Customer
 
         public string Contact { get; set; }
 
-        public bool Is_Corporate { get; set; }
+        public bool Is_Indivisual { get; set; }
 
         public bool Is_Active { get; set; }
 
@@ -35,7 +42,12 @@ namespace MagniPiBusinessEntities.Customer
 
         public DateTime Updated_On { get; set; }
 
-        MemberInfo Member { get; set; }
+        public MemberInfo member { get; set; }
+
+        public List<MemberInfo> members { get; set; }
+
+        public List<EventInfo> events { get; set; }
+
     }
 
     public class MemberInfo
@@ -44,7 +56,7 @@ namespace MagniPiBusinessEntities.Customer
 
         public int Customer_Id { get; set; }
 
-        public string Fisrt_Name { get; set; }
+        public string First_Name { get; set; }
 
         public string Last_Name { get; set; }
 

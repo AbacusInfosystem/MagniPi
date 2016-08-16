@@ -64,6 +64,34 @@ namespace MagniPiBusinessEntities.Common
 
         #endregion
 
+        #region Customer
+
+        Insert_Customer_Sp,
+        Update_Customer_Sp,
+        Get_Customers_Sp,
+        Get_Customer_By_Id_Sp,
+        Get_Customers_By_Customer_Name_And_Contact_Sp,
+        Get_Customers_By_Customer_Name_Sp,
+        Get_Customers_By_Contact_Sp,
+        Get_Customer_By_Name_Autocomplete_Sp,
+
+        #region Member
+
+        Insert_Member_Sp,
+        Update_Member_Sp,
+        Get_Member_Customer_By_Id_Sp,
+        Get_Member_By_Id_Sp,
+
+        #endregion
+
+        #region Event
+
+        Get_Event_By_Customer_Id_Sp,
+
+        #endregion
+
+        #endregion
+
         #region Event
 
         Insert_Event_Sp,

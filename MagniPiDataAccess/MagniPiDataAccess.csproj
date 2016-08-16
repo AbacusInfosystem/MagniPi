@@ -49,6 +49,7 @@
     <Compile Include="Authentication\AuthenticationRepo.cs" />
     <Compile Include="Blog\BlogRepo.cs" />
     <Compile Include="Common\CommonMethods.cs" />
+    <Compile Include="Customer\CustomerRepo.cs" />
     <Compile Include="Event\EventRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ServiceRepo.cs" />

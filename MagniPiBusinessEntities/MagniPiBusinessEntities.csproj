@@ -47,6 +47,7 @@
     <Compile Include="AboutUs\AboutUsInfo.cs" />
     <Compile Include="Attachment\AttachmentsInfo.cs" />
     <Compile Include="Blog\BlogInfo.cs" />
+    <Compile Include="Common\AutocompleteInfo.cs" />
     <Compile Include="Common\EnumCollection.cs" />
     <Compile Include="Common\LookUps.cs" />
     <Compile Include="Common\PaginationInfo.cs" />

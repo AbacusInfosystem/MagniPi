@@ -216,6 +216,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\PostLogin\AboutUs\AboutUsViewModel.cs" />
     <Compile Include="Models\PostLogin\Blog\BlogViewModel.cs" />
+    <Compile Include="Models\PostLogin\Customer\CustomerViewModel.cs" />
     <Compile Include="Models\PostLogin\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Models\PostLogin\Service\ServiceViewModel.cs" />
     <Compile Include="Models\PostLogin\Testimonial\TestimonialViewModel.cs" />
@@ -1337,6 +1338,7 @@
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\default.jpg" />
     <Content Include="Scripts\generic-methods.js" />
+    <Content Include="Scripts\generic.autocomplete.js" />
     <Content Include="Scripts\generic.custom.validation.js" />
     <Content Include="Scripts\generic.message.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -1361,6 +1363,13 @@
     <Content Include="Scripts\Modules\Blog\blog-search-method.js" />
     <Content Include="Scripts\generic.ajax.js" />
     <Content Include="Scripts\Modules\Blog\blog-validation.js" />
+    <Content Include="Scripts\Modules\Customer\customer-event.js" />
+    <Content Include="Scripts\Modules\Customer\customer-member-event.js" />
+    <Content Include="Scripts\Modules\Customer\customer-member-method.js" />
+    <Content Include="Scripts\Modules\Customer\customer-member-validation.js" />
+    <Content Include="Scripts\Modules\Customer\customer-search-event.js" />
+    <Content Include="Scripts\Modules\Customer\customer-search-method.js" />
+    <Content Include="Scripts\Modules\Customer\customer-validation.js" />
     <Content Include="Scripts\Modules\Service\service-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-method.js" />
@@ -1417,7 +1426,6 @@
     <Content Include="Views\PostLogin\Testimonial\Index.cshtml" />
     <Content Include="Views\PostLogin\Event\Index.cshtml" />
     <Content Include="Views\PostLogin\Event\Search.cshtml" />
-    <Content Include="Views\PostLogin\Customer\CustomerEventMapping.cshtml" />
     <Content Include="Views\PreLogin\Home\BlogListing.cshtml" />
     <Content Include="Views\PreLogin\Home\BlogDetails.cshtml" />
     <Content Include="Views\PreLogin\Home\TestimonialListing.cshtml" />
@@ -1444,6 +1452,7 @@
     <Content Include="Views\PostLogin\Service\Search.cshtml" />
     <Content Include="Views\PreLogin\Home\ServiceDetails.cshtml" />
     <Content Include="Views\PostLogin\Testimonial\Search.cshtml" />
+    <Content Include="Views\PostLogin\Customer\AddCustomerMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
