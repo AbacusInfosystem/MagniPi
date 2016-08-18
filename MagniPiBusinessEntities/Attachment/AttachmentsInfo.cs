@@ -43,4 +43,25 @@ namespace MagniPiBusinessEntities.Attachment
 
     }
 
+	public class ImageFile
+	{
+		public string image
+		{
+			get;
+			set;
+		}
+
+		public string thumb
+		{
+			get;
+			set;
+		}
+
+		public string folder
+		{
+			get;
+			set;
+		}
+	}
+
 }

@@ -1,4 +1,5 @@
 ﻿using MagniPi.Common;
+using MagniPi.Filters;
 using MagniPi.Models.PostLogin.Dashboard;
 using MagniPiHelper.Logging;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.Dashboard
 {
+	[SessionExpireAttribute]
     public class DashboardController : Controller
     {
         //

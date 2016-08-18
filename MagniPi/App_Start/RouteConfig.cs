@@ -55,6 +55,17 @@ namespace MagniPi
                 defaults: new { controller = "UploadFile", action = "Get_Attachment_By_Type", id = UrlParameter.Optional }
             );
 
+			routes.MapRoute(
+			   name :"upload-file-6",
+			   url :"upload-file/get-images",
+			   defaults :new
+			   {
+				   controller = "Get_Images",
+				   action = "Get_Attachment_By_Type",
+				   id = UrlParameter.Optional
+			   }
+		   );
+
             #endregion
 
             #region Blog

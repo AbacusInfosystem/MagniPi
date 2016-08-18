@@ -1,4 +1,5 @@
 ﻿using MagniPi.Common;
+using MagniPi.Filters;
 using MagniPi.Models.PostLogin.Testimonial;
 using MagniPiBusinessEntities.Common;
 using MagniPiHelper.Logging;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.Testimonial
 {
+	[SessionExpireAttribute]
     public class TestimonialController : Controller
     {
 
