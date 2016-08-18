@@ -1,9 +1,13 @@
-﻿
+﻿@model MagniPi.Models.PostLogin.Customer.CustomerViewModel
+
+<script src="~/Scripts/Modules/Customer/customer-search-event.js"></script>
+<script src="~/Scripts/Modules/Customer/customer-search-method.js"></script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_ServerMessage");}
 
         <!-- Content Header (Page header) -->
 
@@ -26,11 +30,20 @@
                         <div class="box box-default">
                             <div class="box-body">
 
+                                <input type="hidden" id="hdnCustomer_Id" value="" name="customer.Customer_Id" />
+                                <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
+
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtFirstName" style="color: #333" class="">Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtFirstName" value="" placeholder="Customer Name"/>
+                                            <label for="txtCustomerName" style="color: #333" class="">Name</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtCustomerName" value="" placeholder="Customer Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtContact" style="color: #333" class="">Contact</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtContact" value="" placeholder="Customer Contact" />
                                         </div>
                                     </div>
                                 </div>
@@ -45,8 +58,9 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="btn-group pull-right">
-                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm">Edit</button>
-                                                <a href="@Url.Action("CustomerEventMapping", "Customer")" type="button" id="btnAssignedEvent" class="btn btn-success btn-sm">View subscription</a>
+                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm" style="display:none">Edit</button>
+                                                <button type="button" id="btnAddMember" class="btn btn-instagram btn-sm" style="display:none">Add Member</button>
+                                                @*<a href="@Url.Action("CustomerEventMapping", "Customer")" type="button" id="btnAssignedEvent" class="btn btn-success btn-sm">View subscription</a>*@
                                             </div>
                                         </div>
                                     </div>
@@ -61,16 +75,11 @@
                                                     <tr id="subhead">
                                                         <th></th>
                                                         <th>Customer Name</th>
-                                                        <th>Email</th>
                                                         <th>Contact</th>
                                                         <th>Address</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>fsdfsd sdfds</td>
-                                                        <td>sfdf@addf.fdg</td>
-                                                        <td>34534534534</td>
-                                                        <td>sdgdsg, setesfe</td>
+                                                        <th>Registration Date</th>
+                                                        <th>Is Indivisual</th>
+                                                        <th>Is Active</th>
                                                     </tr>
 
                                                 </table>

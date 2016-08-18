@@ -80,10 +80,26 @@ namespace MagniPi.Common
 
             #endregion
 
-            #region Testimonial
+            #region About Us
 
             FriendlyMessage ABT01 = new FriendlyMessage("ABT01", MessageType.Success, "About us updated successfully.");
             hash.Add("ABT01", ABT01);
+
+            #endregion
+
+            #region Customer
+
+            FriendlyMessage CST01 = new FriendlyMessage("CST01", MessageType.Success, "Customer added successfully.");
+            hash.Add("CST01", CST01);
+
+            FriendlyMessage CST02 = new FriendlyMessage("CST02", MessageType.Success, "Customer updated successfully.");
+            hash.Add("CST02", CST02);
+
+            FriendlyMessage CMEM01 = new FriendlyMessage("CMEM01", MessageType.Success, "Member added successfully.");
+            hash.Add("CMEM01", CMEM01);
+
+            FriendlyMessage CMEM02 = new FriendlyMessage("CMEM02", MessageType.Success, "Member updated successfully.");
+            hash.Add("CMEM02", CMEM02);
 
             #endregion
 

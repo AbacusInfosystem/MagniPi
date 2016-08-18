@@ -98,13 +98,11 @@ function Bind_Service_Grid(data) {
 
             $("#hdnService_Id").val(this.id);
             $("#btnEdit").show();
-            $("#btnDelete").show();
             $("#btnPreview").show();
         }
     });
 
     $("#btnEdit").hide();
-    $("#btnDelete").hide();
     $("#btnPreview").hide();
 }
 
@@ -112,7 +110,6 @@ function Bind_Service_Grid(data) {
 function PageMore(Id) {
 
     $("#btnEdit").hide();
-    $("#btnDelete").hide();
     $("#btnPreview").hide();
 
     $('#hdfCurrent_Page').val((parseInt(Id) - 1));

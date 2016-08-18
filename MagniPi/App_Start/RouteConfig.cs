@@ -153,7 +153,7 @@ namespace MagniPi
 
             #endregion
 
-            #region
+            #region About Us
 
             routes.MapRoute(
                 name: "about-us-1",
@@ -166,6 +166,71 @@ namespace MagniPi
                 url: "about-us/save-about-us",
                 defaults: new { controller = "AboutUs", action = "Save_About_Us", id = UrlParameter.Optional }
             );
+
+            #endregion
+
+            #region Customer
+
+            routes.MapRoute(
+                name: "customer-1",
+                url: "customer/search-customers",
+                defaults: new { controller = "Customer", action = "Search", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-2",
+                url: "customer/get-customers",
+                defaults: new { controller = "Customer", action = "Get_Customers", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-3",
+                url: "customer/save-customer",
+                defaults: new { controller = "Customer", action = "Save_Customer", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-4",
+                url: "customer/get-customer-by-id",
+                defaults: new { controller = "Customer", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-5",
+                url: "customer/add-customer-members",
+                defaults: new { controller = "Customer", action = "Add_Customer_Member", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-6",
+                url: "customer/get-customer-members-by-customer-id",
+                defaults: new { controller = "Customer", action = "Get_Customer_Members", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-7",
+                url: "customer/save-customer-member",
+                defaults: new { controller = "Customer", action = "Save_Customer_Member", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-8",
+                url: "customer/get-member-details-by-id",
+                defaults: new { controller = "Customer", action = "Get_Customer_Member_By_Id", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-9",
+                url: "customer/get-customer-list-by-name/{Customer_Name}",
+                defaults: new { controller = "Customer", action = "Get_Customer_By_Name_Autocomplete", Customer_Name=UrlParameter.Optional, id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "customer-10",
+                url: "customer/get-customer-events-by-customer-id",
+                defaults: new { controller = "Customer", action = "Get_Event_By_Customer_Id", id = UrlParameter.Optional }
+            );
+
 
             #endregion
 
