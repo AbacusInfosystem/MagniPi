@@ -218,6 +218,7 @@
     <Compile Include="Models\PostLogin\Blog\BlogViewModel.cs" />
     <Compile Include="Models\PostLogin\Customer\CustomerViewModel.cs" />
     <Compile Include="Models\PostLogin\Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Models\PostLogin\Event\EventViewModel.cs" />
     <Compile Include="Models\PostLogin\Service\ServiceViewModel.cs" />
     <Compile Include="Models\PostLogin\Testimonial\TestimonialViewModel.cs" />
     <Compile Include="Models\PostLogin\UploadFile\UploadFileViewModel.cs" />
@@ -1370,6 +1371,15 @@
     <Content Include="Scripts\Modules\Customer\customer-search-event.js" />
     <Content Include="Scripts\Modules\Customer\customer-search-method.js" />
     <Content Include="Scripts\Modules\Customer\customer-validation.js" />
+    <Content Include="Scripts\Modules\Event\event-attendance-event.js" />
+    <Content Include="Scripts\Modules\Event\event-attendance-method.js" />
+    <Content Include="Scripts\Modules\Event\event-event.js" />
+    <Content Include="Scripts\Modules\Event\event-method.js" />
+    <Content Include="Scripts\Modules\Event\event-search-event.js" />
+    <Content Include="Scripts\Modules\Event\event-search-method.js" />
+    <Content Include="Scripts\Modules\Event\event-subscribe-event.js" />
+    <Content Include="Scripts\Modules\Event\event-subscribe-method.js" />
+    <Content Include="Scripts\Modules\Event\event-validation.js" />
     <Content Include="Scripts\Modules\Service\service-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-method.js" />
@@ -1438,7 +1448,6 @@
     <Content Include="Views\PostLogin\Event\EventAttendance.cshtml" />
     <Content Include="Views\PreLogin\Home\Login.cshtml" />
     <Content Include="Views\PostLogin\UploadFile\Index.cshtml" />
-    <Content Include="Views\PostLogin\Event\AssignEvent.cshtml" />
     <Content Include="Views\Shared\_ServerMessage.cshtml" />
     <Content Include="Views\PostLogin\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_FrontLayout.cshtml" />
@@ -1453,6 +1462,7 @@
     <Content Include="Views\PreLogin\Home\ServiceDetails.cshtml" />
     <Content Include="Views\PostLogin\Testimonial\Search.cshtml" />
     <Content Include="Views\PostLogin\Customer\AddCustomerMember.cshtml" />
+    <Content Include="Views\PostLogin\Event\EventSubscribe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

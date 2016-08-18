@@ -298,10 +298,10 @@ namespace MagniPi.Controllers.PostLogin.Customer
 
 
 
-        public ActionResult CustomerEventMapping()
-        {
-            return View();
-        }
+        //public ActionResult CustomerEventMapping()
+        //{
+        //    return View();
+        //}
 
         
 

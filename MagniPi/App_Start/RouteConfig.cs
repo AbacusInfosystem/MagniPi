@@ -223,6 +223,113 @@ namespace MagniPi
 
             #endregion
 
+            #region Customer
+
+            routes.MapRoute(
+                name: "event-1",
+                url: "event/search-events",
+                defaults: new { controller = "Event", action = "Search", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-2",
+                url: "event/get-events",
+                defaults: new { controller = "Event", action = "Get_Events", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-3",
+                url: "event/save-event",
+                defaults: new { controller = "Event", action = "Save_Event", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-4",
+                url: "event/get-event-by-id",
+                defaults: new { controller = "Event", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-5",
+                url: "event/get-event-dates-by-event-id",
+                defaults: new { controller = "Event", action = "Get_Event_Dates", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-6",
+                url: "event/save-event-date",
+                defaults: new { controller = "Event", action = "Save_Event_Date", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-7",
+                url: "event/get-event-date-by-id",
+                defaults: new { controller = "Event", action = "Get_Event_Date_By_Id", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-8",
+                url: "event/subscribe-event-details",
+                defaults: new { controller = "Event", action = "Event_Subscribe", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-9",
+                url: "event/get-event-attenance-details",
+                defaults: new { controller = "Event", action = "Event_Attendance", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-10",
+                url: "event/get-event-list-by-name/{Event_Name}",
+                defaults: new { controller = "Event", action = "Get_Event_By_Name_Autocomplete", Event_Name = UrlParameter.Optional, id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-11",
+                url: "event/get-customer-list-by-name/{Customer_Name}/{Event_Id}",
+                defaults: new { controller = "Event", action = "Get_Customer_By_Name_Autocomplete", Customer_Name = UrlParameter.Optional, Event_Id = UrlParameter.Optional, id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-12",
+                url: "event/get-customers-by-event-id",
+                defaults: new { controller = "Event", action = "Get_Event_Customers_By_Event_Id", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-13",
+                url: "event/save-event-customer-mapping",
+                defaults: new { controller = "Event", action = "Save_Customer_Event_Mapping", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "event-14",
+                url: "event/get-member-by-customer-id",
+                defaults: new { controller = "Event", action = "Get_Event_Members", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+               name: "event-15",
+               url: "event/save-event-member-mapping",
+               defaults: new { controller = "Event", action = "Save_Event_Members", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "event-16",
+               url: "event/get-members-attendance",
+               defaults: new { controller = "Event", action = "Get_Event_Member_Attendance", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "event-17",
+               url: "event/save-event-attendance",
+               defaults: new { controller = "Event", action = "Save_Event_Attendance", id = UrlParameter.Optional }
+           );
+
+
+            #endregion
+
             #region home
 
             routes.MapRoute(

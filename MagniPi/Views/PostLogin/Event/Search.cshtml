@@ -1,9 +1,13 @@
-﻿
+﻿@model MagniPi.Models.PostLogin.Event.EventViewModel
+
+<script src="~/Scripts/Modules/Event/event-search-event.js"></script>
+<script src="~/Scripts/Modules/Event/event-search-method.js"></script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_ServerMessage");}
 
         <!-- Content Header (Page header) -->
 
@@ -26,11 +30,20 @@
                         <div class="box box-default">
                             <div class="box-body">
 
+                                <input type="hidden" id="hdnEvent_Id" name="Event.Event_Id" />
+                                <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
+
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtName" style="color: #333" class="">Name</label>
                                             <input type="text" class="form-control input-sm" name="" id="txtName" value="" placeholder="Event Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtMonth" style="color: #333" class="">Month</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtMonth" value="" placeholder="Event Month" />
                                         </div>
                                     </div>
                                 </div>
@@ -45,9 +58,9 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="btn-group pull-right">
-                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm">Edit</button>
-                                                <a href="@Url.Action("AssignEvent", "Event")" type="button" id="btnAssignEvent" class="btn btn-success btn-sm">Assign Event</a>
-                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#DateModal">Attendance</button>
+                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm" style="display:none;">Edit</button>
+                                                <button type="button" id="btnSubscribe" class="btn btn-success btn-sm" style="display:none;">Subscribe</button>
+                                                <button type="button" id="btnAttendance" class="btn btn-success btn-sm" style="display:none;">Attendance</button>
                                             </div>
                                         </div>
                                     </div>
@@ -65,19 +78,8 @@
                                                         <th>Description</th>
                                                         <th>Type</th>
                                                         <th>Location</th>
-                                                        <th>Start Date Time</th>
-                                                        <th>End Date Time</th>
-                                                        <th>Duration</th>
-                                                    </tr>
-                                                    <tr id="subhead">
-                                                        <th><input type="radio" name="r1" id="" class='' /></th>
-                                                        <td>fsdfsd sdfds</td>
-                                                        <td>xbkxfb sdgsdghsdg dfhsdyfs isdhfgisdhgs sdifuhudsf isdfdssfsdf sgfsd</td>
-                                                        <td>abc</td>
-                                                        <td>sdgdsg, setesfe</td>
-                                                        <td>29/07/2016 11:00</td>
-                                                        <td>02/08/2016 05:00</td>
-                                                        <td>5 days</td>
+                                                        <th>Is Stoped</th>
+                                                        <th>Is Active</th>
                                                     </tr>
 
                                                 </table>
@@ -85,6 +87,8 @@
 
                                             <!-- /.box-body -->
                                             <div class="box-footer clearfix">
+                                                <div class="pagination pagination-sm no-margin pull-right">
+                                                </div>
                                                 <div id="divSearchGridOverlay" class="overlay">
                                                     <i class="fa fa-refresh fa-spin"></i>
                                                 </div>
@@ -102,57 +106,6 @@
                 </div>
             </section>
         </form>
-
-        <div class="modal fade" id="DateModal" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Select Event Day</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12" id="ShowEventDates">
-                                
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label><input type="radio" name="rDate" id="" class='' />&nbsp;&nbsp;01/08/2016</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label><input type="radio" name="rDate" id="" class='' />&nbsp;&nbsp;02/08/2016</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label><input type="radio" name="rDate" id="" class='' />&nbsp;&nbsp;03/08/2016</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label><input type="radio" name="rDate" id="" class='' />&nbsp;&nbsp;04/08/2016</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-md-6 pull-right">
-                                <div class="btn-group pull-right">
-                                    <a href="@Url.Action("EventAttendance", "Event")" type="button" id="btnProceed" class="btn btn-success btn-sm">Proceed</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

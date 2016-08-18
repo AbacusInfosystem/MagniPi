@@ -10,10 +10,13 @@ var InitializeAutoComplete = function (elementObject) {
                 urlString = "/customer/get-customer-list-by-name/" + $('#txtCustomerName').val();
             }
 
-            //if ($(elementObject).attr("id") == 'txtCustomer_Name') {
-            //    urlString = "/customer/customer-list/" + $('#txtCustomer_Name').val();
-            //}
+            if ($(elementObject).attr("id") == 'txtEventName') {
+                urlString = "/event/get-event-list-by-name/" + $('#txtEventName').val();
+            }
            
+            if ($(elementObject).attr("id") == 'txtCustomer_Name') {
+                urlString = "/event/get-customer-list-by-name/" + $('#txtCustomer_Name').val() + "/" + $('#hdnEvent_Id').val();
+            }
 
             $.ajax({
                 url: urlString,

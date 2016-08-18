@@ -1,9 +1,15 @@
-﻿
+﻿@model MagniPi.Models.PostLogin.Event.EventViewModel
+@using MagniPiBusinessEntities.Common;
+
+<script src="~/Scripts/Modules/Event/event-validation.js"></script>
+<script src="~/Scripts/Modules/Event/event-event.js"></script>
+<script src="~/Scripts/Modules/Event/event-method.js"></script>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
 
-        @*@{Html.RenderPartial("_ServerMessage");}*@
+        @{Html.RenderPartial("_ServerMessage");}
 
         <!-- Content Header (Page header) -->
 
@@ -17,7 +23,7 @@
             </ol>
         </section>
 
-        <form id="frmAddEditCustomer">
+        <form id="frmAddEditEvent">
             <section class="content">
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
@@ -26,22 +32,34 @@
                         <div class="box box-default">
                             <div class="box-body">
 
+                                <input type="hidden" id="hdnEvent_Id" name="event.Event_Id" value="@Model.Event.Event_Id"/>
+                                <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
+
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtName" style="color: #333" class="">Event Name</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtName" value="" placeholder="Enter Event Name" />
+                                            <label for="txtEventName" style="color: #333" class="">Event Name</label>
+                                            <input type="text" class="form-control input-sm" name="Event.Event_Name" id="txtEventName" value="@Model.Event.Event_Name" placeholder="Enter Event Name" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="drtEventType" style="color: #333" class="">Event Type</label>
-                                            @*<input type="text" class="form-control input-sm" name="" id="txtType" value="" placeholder="Enter Event Type" />*@
-                                            <select class="form-control input-sm" name="" id="drtEventType">
-                                                <option value="">-select type-</option>
-                                                <option value="1">Picture</option>
-                                                <option value="1">Sound</option>
+                                            <select class="form-control input-sm" name="Event.Event_Type" id="drtEventType">
+                                                <option value="">-select event type-</option>
+                                                @foreach (var item in LookUps.Get_Event_Type())
+                                                {
+                                                    if(Model.Event.Event_Type == item.Key)
+                                                    {
+                                                        <option value="@item.Key" selected>@item.Value.Replace("_", " ")</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@item.Key">@item.Value.Replace("_", " ")</option>    
+                                                    }
+                                                    
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -53,81 +71,80 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtDescription" style="color: #333" class="">Description</label>
-                                            <textarea class="form-control input-sm" name="" id="txtDescription" placeholder="Enter Description"></textarea>
+                                            <textarea class="form-control input-sm" name="Event.Description" id="txtDescription" placeholder="Enter Description">@Model.Event.Description</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="txtLocation" style="color: #333" class="">Location</label>
-                                            @*<input type="text" class="form-control input-sm" name="" id="txtLocation" value="" placeholder="Enter Location" />*@
-                                            <textarea class="form-control input-sm" name="" id="txtLocation" placeholder="Enter Location"></textarea>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                @*<div class="row">
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtStartDate" style="color: #333" class="">Start Date</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtStartDate" value="" placeholder="Enter Start Date" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtStartTime" style="color: #333" class="">Start Time</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtStartTime" value="" placeholder="Enter Start Time" />
+                                            <textarea class="form-control input-sm" name="Event.Location" id="txtLocation" placeholder="Enter Location">@Model.Event.Location</textarea>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="row">
-
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="txtEndDate" style="color: #333" class="">End Date</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtEndDate" value="" placeholder="Enter End Date" />
+                                            <label for="hdnAttachmentId" class="control-label blog_title">Header Image</label>
+                                            <div class="input-group">
+                                                <a id="BtnBrowse" class="btn btn-default btn-sm" role="button">
+                                                    <i class="fa fa-camera-retro fa-lg"></i> Browse Image
+                                                </a>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="ImagePreviewBox">
+                                                    <img src="@Model.Event.Attachment_Url" id="imgHeaderImage" style="height:180px;width:180px;" />
+                                                    <input type="hidden" id="hdnAttachmentId" name="Event.Attachment_Id" value="@Model.Event.Attachment_Id" />
+                                                    <input type="hidden" id="hdnHeader_Image_Url" name="Event.Attachment_Url" value="@Model.Event.Attachment_Url" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtEndTime" style="color: #333" class="">End Time</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtEndTime" value="" placeholder="Enter End Time" />
-                                        </div>
-                                    </div>
 
-                                </div>*@
-
-                                <div class="row">
-
-                                    @*<div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="txtDuration" style="color: #333" class="">Duration</label>
-                                            <input type="text" class="form-control input-sm" name="" id="txtDuration" value="" placeholder="Enter Duration" />
-                                        </div>
-                                    </div>*@
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
-                                            <input type="checkbox" class="" id="chkIsActive" name="" checked />
+                                            @if (Model.Event.Is_Active)
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" class="" id="chkIsActive" name="chkIs_Active" />
+                                            }
+                                            <input type="hidden" id="hdnIs_Active" name="Event.Is_Active" value="@Model.Event.Is_Active.ToString()" />
                                         </div>
                                     </div>
-                                  
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="chkIsActive" style="color: #333" class="">Is Stoped</label><br />
+                                            @if (Model.Event.Is_Stoped)
+                                            {
+                                                <input type="checkbox" class="" id="chkIsStoped" name="chkIs_Stoped" checked />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" class="" id="chkIsStoped" name="chkIs_Stoped" />
+                                            }
+                                            <input type="hidden" id="hdnIs_Stoped" name="Event.Is_Stoped" value="@Model.Event.Is_Stoped.ToString()" />
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="btn-group">
                                             <button type="button" id="btnSave" class="btn btn-success btn-sm">Save</button>
-                                            <button type="button" id="btnAddDate" class="btn btn-success btn-sm" data-toggle="modal" data-target="#AddEventDateModal">Add Date</button>
+                                            <button type="button" id="btnAddDate" class="btn btn-success btn-sm">Add Date</button>
                                             <a href="@Url.Action("Search", "Event")" type="button" id="btnCancel" class="btn btn-warning btn-sm">Cancel</a>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="btn-group pull-right">
-                                            <button type="button" id="btnEditDate" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#AddEventDateModal">Edit</button>
+                                            <button type="button" id="btnEditDate" class="btn btn-warning btn-sm" style="display:none;">Edit Date</button>
                                         </div>
                                     </div>
                                 </div>
@@ -144,23 +161,19 @@
                                                         <th>Day</th>
                                                         <th>Start Time</th>
                                                         <th>End Time</th>
+                                                        <th>Is Active</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>03 August 2016</td>
-                                                        <td>9.30 AM</td>
-                                                        <td>5.30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><input type="radio" name="r1" id="" class='' /></td>
-                                                        <td>05 August 2016</td>
-                                                        <td>11.00 AM</td>
-                                                        <td>7.30 PM</td>
-                                                    </tr>
-
+                                                  
                                                 </table>
                                             </div>
 
+                                            <div class="box-footer clearfix">
+                                                <div class="pagination pagination-sm no-margin pull-right">
+                                                </div>
+                                                <div id="divSearchGridOverlay" class="overlay">
+                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!-- /.box -->
                                     </div>
@@ -178,67 +191,104 @@
         <div class="modal fade" id="AddEventDateModal" role="dialog">
             <div class="modal-dialog" style="width:800px">
                 <!-- Modal content-->
+                <form id="frmEventDate">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Event Date</h4>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <input type="hidden" id="hdnEvent_Date_Id" name="" />
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="txtDate" style="color: #333" class="">Date</label>
+                                        <input type="text" class="form-control input-sm" name="Event.event_date.Date" id="txtDate" value="" placeholder="Enter Date" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtStartTime" style="color: #333" class="">Start Time</label>
+                                        <input type="text" class="form-control input-sm timepicker" name="Event.event_date.Start_Time" id="txtStartTime" value="" placeholder="Enter Start Time" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtEndTime" style="color: #333" class="">End Time</label>
+                                        <input type="text" class="form-control input-sm timepicker" name="Event.event_date.End_Time" id="txtEndTime" value="" placeholder="Enter End Time" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="chkIsActive1" style="color: #333" class="">Is Active</label><br />
+                                        <input type="checkbox" class="" id="chkIsActive1" name="chkIs_Active1" />
+                                        <input type="hidden" id="hdnIs_Active1" name="" value="" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col-md-6 pull-right">
+                                    <div class="btn-group pull-right">
+                                        <button type="button" class="btn btn-success btn-sm" id="btnSaveDate">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ImageModal" role="dialog">
+            <div class="modal-dialog" style="width:700px">
+                <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Event Date</h4>
+                        <h4 class="modal-title">Images</h4>
                     </div>
-
                     <div class="modal-body">
-
+                        <input type="hidden" name="" id="hdnFileType" value="@((int)FileType.Image)" />
                         <div class="row">
+                            <div class="col-md-12" id="ShowImages">
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="txtDate" style="color: #333" class="">Date</label>
-                                    <input type="text" class="form-control input-sm" name="" id="txtDate" value="" placeholder="Enter Date" />
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtStartTime" style="color: #333" class="">Start Time</label>
-                                    <input type="text" class="form-control input-sm" name="" id="txtStartTime" value="" placeholder="Enter Start Time" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtEndTime" style="color: #333" class="">End Time</label>
-                                    <input type="text" class="form-control input-sm" name="" id="txtEndTime" value="" placeholder="Enter End Time" />
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
-                                    <input type="checkbox" class="" id="chkIsActive" name="" checked />
-                                </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="modal-footer">
                         <div class="row">
                             <div class="col-md-6 pull-right">
                                 <div class="btn-group pull-right">
-                                    <button type="button" class="btn btn-success btn-sm" id="btnSaveDate" data-dismiss="modal">Save</button>
+                                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Select Image</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
-
 
     </div>
 </div>

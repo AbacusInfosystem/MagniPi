@@ -1,9 +1,17 @@
 ﻿$(document).ready(function () {
 
-    if ($("#hdnCustomerType").val() != "True")
-    {
+    $("#Indivisual").find('.form-control').removeClass('ignore');
+    $("#Indivisual").find('.iradio-list').removeClass('ignore');
+    $("#Corporate").find('.form-control').addClass('ignore');
+
+    if ($("#hdnCustomerType").val() != "True") {
         $("#Indivisual").hide();
         $("#Corporate").show();
+        
+        $("#Indivisual").find('.form-control').addClass('ignore');
+        $("#Indivisual").find('.iradio-list').addClass('ignore');
+        $("#Corporate").find('.form-control').removeClass('ignore');
+
     }
 
     $('[name="Is_Indivisual"]').on('ifChecked', function (event) {
@@ -12,11 +20,21 @@
             $("#Indivisual").show();
             $("#Corporate").hide();
             $("#hdnCustomerType").val($(this).val());
+
+            $("#Indivisual").find('.form-control').removeClass('ignore');
+            $("#Indivisual").find('.iradio-list').removeClass('ignore');
+            $("#Corporate").find('.form-control').addClass('ignore');
+
         }
         else if ($(this).val() == "False") {
             $("#Corporate").show();
             $("#Indivisual").hide();
             $("#hdnCustomerType").val($(this).val());
+
+            $("#Indivisual").find('.form-control').addClass('ignore');
+            $("#Indivisual").find('.iradio-list').addClass('ignore');
+            $("#Corporate").find('.form-control').removeClass('ignore');
+
         }
 
     });
@@ -44,7 +62,6 @@
 
         if ($("#frmAddEditCustomer").valid()) {
 
-            //alert($("#hdnCustomerType").val());
             if ($("#hdnCustomerType").val() == "True")
             {
                 var htmlText = "";
@@ -56,7 +73,7 @@
 
                 $('#dvHidden').append(htmlText);
             }
-            
+            alert(0);
             $('#frmAddEditCustomer').attr("action", "/customer/save-customer");
             $('#frmAddEditCustomer').attr("method", "POST");
             $('#frmAddEditCustomer').submit();
@@ -65,6 +82,40 @@
 
     });
 
+
+    //$("#btnSave").click(function (event) {
+
+    //    if ($("#hdnCustomerType").val() == "True")
+    //    {
+    //        if ($("#Indivisual").valid()) {
+
+    //            var htmlText = "";
+
+    //            htmlText += "<input type='hidden' name='customer.Customer_Name' value='" + $("#txtFirstName").val() + " " + $("#txtLastName").val() + " ' />";
+    //            htmlText += "<input type='hidden' name='customer.Address' value='" + $("#txtAddress").val() + "' />";
+    //            htmlText += "<input type='hidden' name='customer.Contact' value='" + $("#txtContact").val() + "' />";
+    //            htmlText += "<input type='hidden' name='customer.Is_Active' value='" + $("#hdnIs_Active").val() + "' />";
+
+    //            $('#dvHidden').append(htmlText);
+
+    //            $('#frmAddEditCustomer').attr("action", "/customer/save-customer");
+    //            $('#frmAddEditCustomer').attr("method", "POST");
+    //            $('#frmAddEditCustomer').submit();
+
+    //        }
+    //    }
+    //    else {
+    //        if ($("#Corporate").valid()) {
+
+    //            $('#frmAddEditCustomer').attr("action", "/customer/save-customer");
+    //            $('#frmAddEditCustomer').attr("method", "POST");
+    //            $('#frmAddEditCustomer').submit();
+
+    //        }
+    //    }
+
+
+    //});
 
 
 

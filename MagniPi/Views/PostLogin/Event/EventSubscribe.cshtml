@@ -1,7 +1,7 @@
 ﻿@model MagniPi.Models.PostLogin.Event.EventViewModel
 
-<script src="~/Scripts/Modules/Event/event-attendance-event.js"></script>
-<script src="~/Scripts/Modules/Event/event-attendance-method.js"></script>
+<script src="~/Scripts/Modules/Event/event-subscribe-event.js"></script>
+<script src="~/Scripts/Modules/Event/event-subscribe-method.js"></script>
 
 <div class="content-wrapper">
 
@@ -13,20 +13,20 @@
 
         <section class="content-header">
             <h1>
-                Event Attendance
+                Event Subscriber
             </h1>
             <ol class="breadcrumb">
                 <li>Admin</li>
-                <li class="active">Event Attendance</li>
+                <li class="active">Event Subscriber</li>
             </ol>
         </section>
 
-        <form id="frmEventAttendance">
+        <form id="frmCustomerEventMapping">
             <section class="content">
 
                 <div class="row">
                     <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Event Attendance Details</h2>
+                        <h2 id="" class="page-header">Event Subscriber Details</h2>
 
                         <div class="row">
                             <div class="col-md-3">
@@ -47,27 +47,30 @@
                                                         <input type="hidden" id="hdnEvent_Name" value="@Model.Event.Event_Name" name="Event.Event_Name" class="auto-complete-label">
 
                                                         <input type="hidden" id="hdntempCust_Id" value="" name="Temp_Cust_Id" />
+
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="txtDate" style="color: #333" class="">Event Day</label>
-                                                        <select id="drpDate" class="form-control input-sm" name="EventDay">
-                                                            @*@if (Model.eventdates.Count > 0)
-                                                            {
-                                                                foreach (var item in Model.eventdates)
-                                                                {
-                                                                    <option value="@(Convert.ToDateTime(item.Day).ToString("MM/dd/yyyy"))">@(Convert.ToDateTime(item.Day).ToString("dd/MM/yyyy"))</option>
-                                                                }
-                                                            }*@
-                                                        </select>
+                                                        <label for="txtCustomer_Name" style="color: #333" class="">Add Customer</label>
+                                                        <div class="row">
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control input-sm" name="" id="txtCustomer_Name" value="" placeholder="Enter Customer Name" />
+
+                                                                <input type="hidden" id="hdnCustomer_Id" value="" name="" class="auto-complete-value" />
+                                                                <input type="hidden" id="hdnCustomer_Name" value="" name="" class="auto-complete-label">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <button type="button" id="btnAdd" class="btn btn-success btn-sm">Add</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <div class="btn btn-group">
-                                                            <button type="button" id="btnViewAttendance" class="btn btn-warning btn-sm" style="display:none;">View Attendance</button>
+                                                            <button type="button" id="btnShowMembers" class="btn btn-warning btn-sm" style="display:none;">Show members</button>
                                                         </div>
                                                     </div>
-
+                                                    
                                                     <div id="dvEventCustomers">
 
                                                     </div>
@@ -89,7 +92,7 @@
                                             <div class="col-md-12">
 
                                                 <div class="col-md-12">
-                                                    <h2 id="" class="page-header">Event Member Attendance</h2>
+                                                    <h2 id="" class="page-header">Event Member Subscription</h2>
 
                                                     <input type="hidden" id="hdnMember_Id" value="" name="customer.member.Member_Id" />
 
@@ -98,13 +101,12 @@
                                                             <div class="box box-solid">
 
                                                                 <div class="box-body table-responsive no-padding mdm-table">
-                                                                    <table class="table table-striped" id="tblEventMemberAttendance">
+                                                                    <table class="table table-striped" id="tblEventMember">
                                                                         <tr id="subhead">
+                                                                            <th></th>
                                                                             <th>Member Name</th>
-                                                                            <th>Day</th>
-                                                                            <th>Attended</th>
-                                                                            <th>Unattended</th>
-
+                                                                            <th>Contact</th>
+                                                                            
                                                                         </tr>
 
                                                                     </table>

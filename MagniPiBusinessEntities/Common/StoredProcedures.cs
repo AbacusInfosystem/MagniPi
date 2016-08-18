@@ -96,13 +96,48 @@ namespace MagniPiBusinessEntities.Common
 
         Insert_Event_Sp,
         Update_Event_Sp,
-        Get_Event_Sp,
-        Delete_Event_By_Id,
+        Get_Events_Sp,
+        Get_Event_By_Id_Sp,
+        Get_Events_By_Event_Name_And_Month_Sp,
+        Get_Events_By_Event_Name_Sp,
+        Get_Events_By_Month_Sp,
+
+        #region Event Date
+
+        Get_Event_Dates_By_Event_Id_Sp,
+        Insert_Event_Date_Sp,
+        Update_Event_Date_Sp,
+        Get_Event_Date_By_Id_Sp,
+
+        #endregion
+
+        #region Event Subscriber
+
+        Get_Event_By_Name_Autocomplete_Sp,
+        Get_Customer_Autocomplete_Sp,
+        Insert_Customer_Event_Mapping_Sp,
+        Get_Event_Customers_By_Event_Id_Sp,
+        Get_Event_Members_Sp,
+        Insert_Member_Event_Mapping_Sp,
+        Update_Member_Event_Mapping_Sp,
+        Delete_Member_Event_Mapping_By_Id_Sp,
+
+        #endregion
+
+        #region Event Attendance
+
+        Get_Event_Member_Attendance_Sp,
+        Get_Event_Dates_Sp,
+        Insert_Event_Attendance_Sp,
+        Update_Event_Attendance_Sp,
+        Delete_Event_Attendance_By_Id_Sp,
+
+        #endregion
 
         #endregion
 
 
-        
+
     }
 
 }
