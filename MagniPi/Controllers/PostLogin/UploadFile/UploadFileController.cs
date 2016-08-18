@@ -1,10 +1,12 @@
 ﻿using MagniPi.Common;
+using MagniPi.Filters;
 using MagniPi.Models.PostLogin.UploadFile;
 using MagniPiBusinessEntities.Attachment;
 using MagniPiBusinessEntities.Common;
 using MagniPiHelper.Logging;
 using MagniPiHelper.PageHelper;
 using MagniPiManager.Attachment;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,6 +17,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.UploadFile
 {
+	[SessionExpireAttribute]
     public class UploadFileController : Controller
     {
         AttachmentManager _attachmentsMan;
@@ -181,6 +184,24 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
         }
         //
 
+		[OutputCache(Duration = 30, VaryByParam = "none")]
+		public JsonResult Get_Images()
+		{
+			List<AttachmentsInfo> attachments = new List<AttachmentsInfo>();
+			
+			List<ImageFile> data = new List<ImageFile>();
+
+			try
+			{
+				data = _attachmentsMan.Get_Files_By_Type(1);
+			}
+			catch(Exception ex)
+			{
+				Logger.Error("Error : " + ex.ToString());
+			}
+
+			return Json(data, JsonRequestBehavior.AllowGet);
+		}
 
     }
 }

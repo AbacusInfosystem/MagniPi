@@ -4,6 +4,7 @@ using MagniPiBusinessEntities.Common;
 using MagniPiHelper.Logging;
 using MagniPiHelper.PageHelper;
 using MagniPiManager.Event;
+using MagniPi.Filters;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.Event
 {
+	[SessionExpireAttribute]
     public class EventController : Controller
     {
         EventManager _eventMan;
@@ -441,7 +443,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
             }
             catch (Exception ex)
-            {
+        {
                 eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
                 Logger.Error("Event Controller - Get_Event_Member_Attendance: " + ex.ToString());
@@ -457,19 +459,19 @@ namespace MagniPi.Controllers.PostLogin.Event
                 SessionInfo session = new SessionInfo();
 
                 if (Session["SessionInfo"] != null)
-                {
+        {
                     session = (SessionInfo)Session["SessionInfo"];
-                }
+        }
 
                 foreach (var item in eViewModel.Event.event_attendances)
-                {
+        {
                     item.Is_Active = true;
                     item.Updated_By = session.User_Id;
                     item.Updated_On = DateTime.Now;
                     item.Created_By = session.User_Id;
                     item.Created_On = DateTime.Now;
 
-                }
+        }
 
                 _eventMan.Save_Event_Attendance(eViewModel.Event.event_attendances);
 
@@ -477,7 +479,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
             }
             catch (Exception ex)
-            {
+        {
                 eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
                 Logger.Error("Event Controller - Save_Customer_Event_Mapping: " + ex.ToString());

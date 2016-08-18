@@ -44,5 +44,10 @@ namespace MagniPiManager.Attachment
         }
 
 
+		public List<ImageFile> Get_Files_By_Type(int File_Type)
+		{
+			return _attachmentsRepo.Get_Files_By_Type(File_Type);
+		}
+
     }
 }

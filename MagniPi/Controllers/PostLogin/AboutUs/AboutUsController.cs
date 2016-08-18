@@ -1,4 +1,5 @@
 ﻿using MagniPi.Common;
+using MagniPi.Filters;
 using MagniPi.Models.PostLogin.AboutUs;
 using MagniPiBusinessEntities.Common;
 using MagniPiHelper.Logging;
@@ -12,6 +13,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.AboutUs
 {
+	[SessionExpireAttribute]
     public class AboutUsController : Controller
     {
 

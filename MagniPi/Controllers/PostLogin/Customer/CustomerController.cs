@@ -2,6 +2,7 @@
 using MagniPi.Models.PostLogin.Customer;
 using MagniPiBusinessEntities.Common;
 using MagniPiBusinessEntities.Customer;
+using MagniPi.Filters;
 using MagniPiHelper.Logging;
 using MagniPiHelper.PageHelper;
 using MagniPiManager.Customer;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.Customer
 {
+	[SessionExpireAttribute]
     public class CustomerController : Controller
     {
         CustomerManager _customerMan;
@@ -248,7 +250,7 @@ namespace MagniPi.Controllers.PostLogin.Customer
 
             }
             catch (Exception ex)
-            {
+        {
                 cViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
                 Logger.Error("Customer Controller - Get_Customer_Member_By_Id: " + ex.ToString());
@@ -265,9 +267,9 @@ namespace MagniPi.Controllers.PostLogin.Customer
 
             try
             {
-
+               
                 customerList = _customerMan.Get_Customer_By_Name_Autocomplete(Customer_Name);
-
+               
             }
             catch(Exception ex)
             {
@@ -303,7 +305,7 @@ namespace MagniPi.Controllers.PostLogin.Customer
         //    return View();
         //}
 
-        
+
 
 
     }

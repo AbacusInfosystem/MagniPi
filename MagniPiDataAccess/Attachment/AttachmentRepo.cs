@@ -120,6 +120,27 @@ namespace MagniPiDataAccess.Attachment
             return attachments;
         }
 
+		public List<ImageFile> Get_Files_By_Type(int File_Type)
+		{
+			List<ImageFile> files = new List<ImageFile>();
+
+			List<SqlParameter> sqlParams = new List<SqlParameter>();
+
+			sqlParams.Add(new SqlParameter("@File_Type", File_Type));
+
+			DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Attachments_By_File_Type_Sp.ToString(), CommandType.StoredProcedure);
+			foreach(DataRow dr in dt.Rows)
+			{
+				files.Add(new ImageFile
+				{
+					image = "/UploadFile/Image/" + Convert.ToString(dr["Unique_Id"]),
+					thumb = "/UploadFile/Image/" + Convert.ToString(dr["Unique_Id"]),
+					folder = "Small"
+				});
+			}
+			return files;
+		}
+
 
 
     }
