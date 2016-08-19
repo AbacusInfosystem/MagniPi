@@ -3,6 +3,14 @@
 <script src="~/Scripts/Modules/Event/event-subscribe-event.js"></script>
 <script src="~/Scripts/Modules/Event/event-subscribe-method.js"></script>
 
+<style>
+    .scroll-bar {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+</style>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
@@ -88,6 +96,7 @@
                                 <div class="box box-default">
                                     <div class="box-body">
 
+                                        <input type="hidden" id="hdfCurrent_Page" value="" />
                                         <div class="row">
                                             <div class="col-md-12">
 
@@ -100,19 +109,24 @@
                                                         <div class="col-md-12">
                                                             <div class="box box-solid">
 
-                                                                <div class="box-body table-responsive no-padding mdm-table">
-                                                                    <table class="table table-striped" id="tblEventMember">
-                                                                        <tr id="subhead">
-                                                                            <th></th>
-                                                                            <th>Member Name</th>
-                                                                            <th>Contact</th>
-                                                                            
-                                                                        </tr>
+                                                                <div id="dvScroll">
+                                                                    <div class="box-body table-responsive no-padding mdm-table">
+                                                                        <table class="table table-striped" id="tblEventMember">
+                                                                            <tr id="subhead">
+                                                                                <th></th>
+                                                                                <th>Member Name</th>
+                                                                                <th>Contact</th>
 
-                                                                    </table>
+                                                                            </tr>
+
+                                                                        </table>
+                                                                        <p id="loading" style="text-align:center; display:none;">
+                                                                            <img src="~/Images/loading-small.gif" alt="Loading…" />
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
 
-                                                            </div>
+                                                                </div>
                                                             <!-- /.box -->
                                                         </div>
                                                         <!-- /.col (left) -->
@@ -136,8 +150,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                     </div>
                 </div>

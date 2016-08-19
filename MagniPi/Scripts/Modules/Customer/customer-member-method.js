@@ -16,8 +16,8 @@
 
 function Bind_Customer_Members(data) {
 
-    $('.auto-complete-value').val(data.customer.Customer_Id);
-    $('.auto-complete-label').val(data.customer.Customer_Name);
+    //$('.auto-complete-value').val(data.customer.Customer_Id);
+    //$('.auto-complete-label').val(data.customer.Customer_Name);
    
     $("#dvCustomerMember").html("");
 

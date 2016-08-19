@@ -3,6 +3,14 @@
 <script src="~/Scripts/Modules/Event/event-attendance-event.js"></script>
 <script src="~/Scripts/Modules/Event/event-attendance-method.js"></script>
 
+<style>
+    .scroll-bar {
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+</style>
+
 <div class="content-wrapper">
 
     <div class="container-fluid">
@@ -34,7 +42,7 @@
                                     <div class="box-body">
 
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            @*<div class="col-md-12">*@
 
                                                 <div class="col-md-12">
                                                     <h3 id="" class="page-header">Customer</h3>
@@ -74,7 +82,7 @@
 
                                                 </div>
 
-                                            </div>
+                                            @*</div>*@
 
                                         </div>
                                     </div>
@@ -84,7 +92,7 @@
                             <div class="col-md-9">
                                 <div class="box box-default">
                                     <div class="box-body">
-
+                                        <input type="hidden" id="hdfCurrent_Page" value="" />
                                         <div class="row">
                                             <div class="col-md-12">
 
@@ -97,19 +105,24 @@
                                                         <div class="col-md-12">
                                                             <div class="box box-solid">
 
-                                                                <div class="box-body table-responsive no-padding mdm-table">
-                                                                    <table class="table table-striped" id="tblEventMemberAttendance">
-                                                                        <tr id="subhead">
-                                                                            <th>Member Name</th>
-                                                                            <th>Day</th>
-                                                                            <th>Attended</th>
-                                                                            <th>Unattended</th>
+                                                                <div id="dvScroll">
+                                                                    <div class="box-body table-responsive no-padding mdm-table">
+                                                                        <table class="table table-striped" id="tblEventMemberAttendance">
+                                                                            <tr id="subhead">
+                                                                                <th>Member Name</th>
+                                                                                <th>Day</th>
+                                                                                <th>Attended</th>
+                                                                                <th>Unattended</th>
 
-                                                                        </tr>
+                                                                            </tr>
 
-                                                                    </table>
+                                                                        </table>
+                                                                        <p id="loading" style="text-align:center; display:none;">
+                                                                            <img src="~/Images/loading-small.gif" alt="Loading…" />
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
-
+                                                               
                                                             </div>
                                                             <!-- /.box -->
                                                         </div>

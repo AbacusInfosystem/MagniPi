@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace MagniPi.Controllers.PostLogin.Event
 {
-	[SessionExpireAttribute]
+    [SessionExpireAttribute]
     public class EventController : Controller
     {
         EventManager _eventMan;
@@ -30,7 +30,7 @@ namespace MagniPi.Controllers.PostLogin.Event
             {
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.Error("Event Controller - Search: " + ex.ToString());
 
@@ -87,7 +87,7 @@ namespace MagniPi.Controllers.PostLogin.Event
         {
             try
             {
-                
+
                 if (TempData["EventViewModel"] != null)
                 {
                     eViewModel = (EventViewModel)TempData["EventViewModel"];
@@ -101,7 +101,7 @@ namespace MagniPi.Controllers.PostLogin.Event
                     {
                         eViewModel.Event.Attachment_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + eViewModel.Event.Attachment_Type_Str + @"\" + eViewModel.Event.Attachment_Url;
                     }
-                    
+
                 }
 
             }
@@ -173,7 +173,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
                     eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -233,7 +233,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
         public JsonResult Get_Event_Date_By_Id(EventViewModel eViewModel)
         {
-            
+
             try
             {
 
@@ -246,7 +246,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
                 Logger.Error("Event Controller - Get_Event_Date_By_Id: " + ex.ToString());
             }
-           
+
             return Json(eViewModel);
         }
 
@@ -345,7 +345,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
         public JsonResult Get_Event_Customers_By_Event_Id(EventViewModel eViewModel)
         {
-            
+
             try
             {
                 eViewModel.Event.customer_event_mappings = _eventMan.Get_Event_Customers_By_Event_Id(eViewModel.Event.Event_Id);
@@ -358,17 +358,21 @@ namespace MagniPi.Controllers.PostLogin.Event
 
                 Logger.Error("Event Controller - Get_Event_Customers_By_Event_Id: " + ex.ToString());
             }
-            
+
             return Json(eViewModel);
         }
 
         public JsonResult Get_Event_Members(EventViewModel eViewModel)
         {
+            PaginationInfo pager = new PaginationInfo();
 
             try
             {
-                eViewModel.Event.member_event_mappings = _eventMan.Get_Event_Members(eViewModel.Event.customer_event_mapping.Event_Id, eViewModel.Event.customer_event_mapping.Customer_Id);
+                pager = eViewModel.Pager;
+                eViewModel.Event.member_event_mappings = _eventMan.Get_Event_Members(ref pager, eViewModel.Event.customer_event_mapping.Event_Id, eViewModel.Event.customer_event_mapping.Customer_Id);
 
+                eViewModel.Pager = pager;
+                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
             {
@@ -376,7 +380,10 @@ namespace MagniPi.Controllers.PostLogin.Event
 
                 Logger.Error("Event Controller - Get_Event_Members: " + ex.ToString());
             }
-
+            finally
+            {
+                pager = null;
+            }
             return Json(eViewModel);
         }
 
@@ -437,18 +444,26 @@ namespace MagniPi.Controllers.PostLogin.Event
 
         public JsonResult Get_Event_Member_Attendance(EventViewModel eViewModel)
         {
+            PaginationInfo pager = new PaginationInfo();
+
             try
             {
-                eViewModel.Event.event_attendances = _eventMan.Get_Event_Member_Attendance(eViewModel.Event.event_attendance.Event_Id, eViewModel.Event.event_attendance.Customer_Id, eViewModel.Event.event_attendance.Date);
+                pager = eViewModel.Pager;
+                eViewModel.Event.event_attendances = _eventMan.Get_Event_Member_Attendance(ref pager, eViewModel.Event.event_attendance.Event_Id, eViewModel.Event.event_attendance.Customer_Id, eViewModel.Event.event_attendance.Date);
 
+                eViewModel.Pager = pager;
+                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
-        {
+            {
                 eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
                 Logger.Error("Event Controller - Get_Event_Member_Attendance: " + ex.ToString());
             }
-
+            finally
+            {
+                pager = null;
+            }
             return Json(eViewModel);
         }
 
@@ -459,19 +474,19 @@ namespace MagniPi.Controllers.PostLogin.Event
                 SessionInfo session = new SessionInfo();
 
                 if (Session["SessionInfo"] != null)
-        {
+                {
                     session = (SessionInfo)Session["SessionInfo"];
-        }
+                }
 
                 foreach (var item in eViewModel.Event.event_attendances)
-        {
+                {
                     item.Is_Active = true;
                     item.Updated_By = session.User_Id;
                     item.Updated_On = DateTime.Now;
                     item.Created_By = session.User_Id;
                     item.Created_On = DateTime.Now;
 
-        }
+                }
 
                 _eventMan.Save_Event_Attendance(eViewModel.Event.event_attendances);
 
@@ -479,7 +494,7 @@ namespace MagniPi.Controllers.PostLogin.Event
 
             }
             catch (Exception ex)
-        {
+            {
                 eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
 
                 Logger.Error("Event Controller - Save_Customer_Event_Mapping: " + ex.ToString());

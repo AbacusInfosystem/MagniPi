@@ -93,9 +93,9 @@ namespace MagniPiManager.Event
             return _eventRepo.Get_Event_Customers_By_Event_Id(Event_Id);
         }
 
-        public List<MemberEventMappingInfo> Get_Event_Members(int Event_Id, int Customer_Id)
+        public List<MemberEventMappingInfo> Get_Event_Members(ref PaginationInfo pager, int Event_Id, int Customer_Id)
         {
-            return _eventRepo.Get_Event_Members(Event_Id, Customer_Id);
+            return _eventRepo.Get_Event_Members(ref pager, Event_Id, Customer_Id);
         }
 
         public void Save_Event_Members(List<MemberEventMappingInfo> member_event_mappings)
@@ -103,9 +103,9 @@ namespace MagniPiManager.Event
             _eventRepo.Save_Event_Members(member_event_mappings);
         }
 
-        public List<EventAttendanceInfo> Get_Event_Member_Attendance(int Event_Id, int Customer_Id, DateTime Date)
+        public List<EventAttendanceInfo> Get_Event_Member_Attendance(ref PaginationInfo pager, int Event_Id, int Customer_Id, DateTime Date)
         {
-            return _eventRepo.Get_Event_Member_Attendance(Event_Id, Customer_Id, Date);
+            return _eventRepo.Get_Event_Member_Attendance(ref pager, Event_Id, Customer_Id, Date);
         }
 
         public List<EventDate> Get_Event_Dates(int Event_Id)

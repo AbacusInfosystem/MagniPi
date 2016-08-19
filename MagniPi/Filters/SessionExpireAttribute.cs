@@ -16,10 +16,10 @@ namespace MagniPi.Filters
 			// check  sessions here
 			if(HttpContext.Current.Session["SessionInfo"] == null)
 			{
-				filterContext.Result = new RedirectResult("~/Home/Index");
+                filterContext.Result = new RedirectResult("~/Home/System_Error");
 				return;
 			}
-			base.OnActionExecuting(filterContext);
+            //base.OnActionExecuting(filterContext);
 		}
 	}
 }

@@ -24,6 +24,9 @@
 
     $("#btnShowMembers").click(function (event) {
 
+        $('#hdfCurrent_Page').val(0);
+        $("#tblEventMember").find("tr:gt(0)").remove();
+
         Get_Event_Members();
 
     });
@@ -39,8 +42,19 @@
         Get_Event_Customers();
 
         $("#tblEventMember").find("tr:gt(0)").remove();
+        $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
 
+    });
+
+    $('#dvScroll').scroll(function () {
+
+        if ($(this).scrollTop() == 1) {
+
+            $('#loading').show();
+            Get_Event_Members();
+
+        }
     });
 
 

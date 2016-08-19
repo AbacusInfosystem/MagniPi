@@ -378,7 +378,7 @@ namespace MagniPiDataAccess.Event
             return customereventmapping;
         }
 
-        public List<MemberEventMappingInfo> Get_Event_Members(int Event_Id, int Customer_Id)
+        public List<MemberEventMappingInfo> Get_Event_Members(ref PaginationInfo pager, int Event_Id, int Customer_Id)
         {
             List<MemberEventMappingInfo> membereventmappings = new List<MemberEventMappingInfo>();
 
@@ -387,9 +387,10 @@ namespace MagniPiDataAccess.Event
             sqlParams.Add(new SqlParameter("@Event_Id", Event_Id));
 
             DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Event_Members_Sp.ToString(), CommandType.StoredProcedure);
-            List<DataRow> drList = new List<DataRow>();
-            drList = dt.AsEnumerable().ToList();
-            foreach (DataRow dr in drList)
+            //List<DataRow> drList = new List<DataRow>();
+            //drList = dt.AsEnumerable().ToList();
+            //foreach (DataRow dr in drList)
+            foreach (DataRow dr in CommonMethods.GetRows(dt, ref pager))
             {
                 membereventmappings.Add(Get_Member_Event_Mapping_Values(dr));
             }
@@ -466,7 +467,7 @@ namespace MagniPiDataAccess.Event
             return sqlParams;
         }
 
-        public List<EventAttendanceInfo> Get_Event_Member_Attendance(int Event_Id, int Customer_Id, DateTime Date)
+        public List<EventAttendanceInfo> Get_Event_Member_Attendance(ref PaginationInfo pager, int Event_Id, int Customer_Id, DateTime Date)
         {
             List<EventAttendanceInfo> eventattendances = new List<EventAttendanceInfo>();
 
@@ -476,9 +477,10 @@ namespace MagniPiDataAccess.Event
             sqlParams.Add(new SqlParameter("@Date", Date));
 
             DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Event_Member_Attendance_Sp.ToString(), CommandType.StoredProcedure);
-            List<DataRow> drList = new List<DataRow>();
-            drList = dt.AsEnumerable().ToList();
-            foreach (DataRow dr in drList)
+            //List<DataRow> drList = new List<DataRow>();
+            //drList = dt.AsEnumerable().ToList();
+            //foreach (DataRow dr in drList)
+            foreach (DataRow dr in CommonMethods.GetRows(dt, ref pager))
             {
                 eventattendances.Add(Get_Event_Attendance_Values(dr));
             }

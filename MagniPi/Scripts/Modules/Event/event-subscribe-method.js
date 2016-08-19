@@ -108,16 +108,15 @@ function Get_Event_Members()
                 {
                     customer_event_mapping: {
 
-                        //Event_Date_Id: $('#hdnEvent_Date_Id').val(),
-
                         Event_Id: $('#hdnEvent_Id').val(),
 
                         Customer_Id: $('#hdntempCust_Id').val(),
-
                     }
-
-                }
-
+                },
+            Pager:
+                {
+                    CurrentPage: $('#hdfCurrent_Page').val(),
+                },
         }
 
     CallAjax("/event/get-member-by-customer-id/", "json", JSON.stringify(eViewModel), "POST", "application/json", false, Bind_Event_Members, "", null);
@@ -126,12 +125,13 @@ function Get_Event_Members()
 function Bind_Event_Members(data)
 {
     var htmlText = "";
-
+  
     if (data.Event.member_event_mappings.length > 0) {
         
         for (i = 0; i < data.Event.member_event_mappings.length; i++) {
 
             htmlText += "<tr>";
+            //htmlText += "<tr class='tr-event-member'>";
 
             htmlText += "<td>";
             
@@ -161,23 +161,45 @@ function Bind_Event_Members(data)
         }
 
         $("#btnSave").show();
+
+        if ($('#hdfCurrent_Page').val() == 0) {
+            $('#dvScroll').addClass('scroll-bar');
+        }
+
+        var pageNo = $('#hdfCurrent_Page').val();
+        pageNo = parseInt(pageNo) + 1;
+        $('#hdfCurrent_Page').val(pageNo);
+
     }
-    else {
+    //else {
 
-        htmlText += "<tr>";
+    //    htmlText += "<tr>";
 
-        htmlText += "<td colspan='4'> No members found.";
+    //    htmlText += "<td colspan='4'> No members found.";
 
-        htmlText += "</td>";
+    //    htmlText += "</td>";
 
-        htmlText += "</tr>";
+    //    htmlText += "</tr>";
 
+    //    $("#btnSave").hide();
+    //}
+    //$("#tblEventMember").find("tr:gt(0)").remove();
+
+    $('#tblEventMember tr:last').after(htmlText);
+    $('#loading').hide();
+
+    if ($("#tblEventMember").find("tr").length == 1) {
+        var blankHTML = "";
+
+        blankHTML += "<tr>";
+        blankHTML += "<td colspan='4'> No members found.";
+        blankHTML += "</td>";
+        blankHTML += "</tr>";
+
+        $('#tblEventMember tr:first').after(blankHTML);
+        $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }
-    $("#tblEventMember").find("tr:gt(0)").remove();
-
-    $('#tblEventMember tr:first').after(htmlText);
-
 
     $('.chk-list').iCheck({
         checkboxClass: 'icheckbox_square-green',

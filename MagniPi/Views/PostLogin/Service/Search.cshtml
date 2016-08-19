@@ -1,0 +1,102 @@
+﻿@model MagniPi.Models.PostLogin.Service.ServiceViewModel
+
+<script src="~/Scripts/Modules/Service/service-search-event.js"></script>
+<script src="~/Scripts/Modules/Service/service-search-method.js"></script>
+
+
+<div class="content-wrapper">
+
+    <div class="container-fluid">
+
+        @{Html.RenderPartial("_ServerMessage");}
+
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+            <h1>
+                Service
+            </h1>
+            <ol class="breadcrumb">
+                <li>Admin</li>
+                <li class="active">Service</li>
+            </ol>
+        </section>
+
+        <form id="frmServiceListing">
+            <section class="content">
+                <div class="row">
+                    <div id="divScrollContainer" class="col-md-12">
+                        <h2 id="" class="page-header">Services Listing</h2>
+
+                        <div class="box box-default">
+                            <div class="box-body">
+
+                                <input type="hidden" id="hdnService_Id" value="" name="service.Service_Id" />
+                                <input type="hidden" id="hdfCurrent_Page" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage" />
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="txtServiceTitle" style="color: #333" class="">Service Title</label>
+                                            <input type="text" class="form-control input-sm" name="" id="txtServiceTitle" value="" placeholder="Enter Service Title" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-footer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="btn-group">
+                                                <button type="button" id="btnSearch" class="btn btn-instagram btn-sm">Search</button>
+                                                <a href="@Url.Action("Index", "Service")" type="button" id="btnAdd" class="btn btn-success btn-sm">Add</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="btn-group pull-right">
+                                                <button type="button" id="btnEdit" class="btn btn-warning btn-sm" style="display:none">Edit</button>
+                                                <button type="button" id="btnPreview" class="btn btn-instagram btn-sm" style="display:none">Preview</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="box box-solid">
+
+                                            <div class="box-body table-responsive no-padding mdm-table">
+                                                <table class="table table-striped" id="tblService">
+                                                    <tr id="subhead">
+                                                        <th></th>
+                                                        <th>Service Title</th>
+                                                        <th>Date</th>
+                                                        <th>Is Active</th>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+
+                                            <!-- /.box-body -->
+                                            <div class="box-footer clearfix">
+                                                <div class="pagination pagination-sm no-margin pull-right">
+                                                </div>
+                                                <div id="divSearchGridOverlay" class="overlay">
+                                                    <i class="fa fa-refresh fa-spin"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                    <!-- /.col (left) -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </form>
+
+    </div>
+</div>

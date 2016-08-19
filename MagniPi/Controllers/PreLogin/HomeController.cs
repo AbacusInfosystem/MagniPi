@@ -35,27 +35,10 @@ namespace MagniPi.Controllers
             return View("Index", homeViewModel);
         }
 
-        //public ActionResult Login()
-        //{
-        //    HomeViewModel homeViewModel = new HomeViewModel();
-
-        //    try
-        //    {
-        //        if (TempData["FriendlyMessage"] != null)
-        //        {
-        //            homeViewModel.FriendlyMessage.Add((FriendlyMessage)TempData["FriendlyMessage"]);
-        //        }
-
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        Logger.Error("Error : " + ex.ToString());
-
-        //        homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
-        //    }
-
-        //    return View("Login", homeViewModel);
-        //}
+        public ActionResult System_Error()
+        {
+            return View("Error");
+        }
 
 
         public ActionResult BlogListing()

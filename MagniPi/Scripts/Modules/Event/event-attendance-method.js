@@ -84,7 +84,11 @@ function Get_Event_Members_Attendance() {
 
                     }
 
-                }
+                },
+            Pager:
+                {
+                    CurrentPage: $('#hdfCurrent_Page').val(),
+                },
 
         }
 
@@ -92,8 +96,10 @@ function Get_Event_Members_Attendance() {
 }
 
 function Bind_Event_Members_Attendance(data) {
-    var htmlText = "";
 
+    var htmlText = "";
+    var count = $("#tblEventMemberAttendance").find(".tr-attendance").length;
+    
     if (data.Event.event_attendances.length > 0) {
 
         for (i = 0; i < data.Event.event_attendances.length; i++) {
@@ -120,10 +126,10 @@ function Bind_Event_Members_Attendance(data) {
 
             if (data.Event.event_attendances[i].Event_Attendance_Id != 0)
             {
-                htmlText += "<input type='radio' name='Attendance_" + i + "' id='rAttended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' checked/>";
+                htmlText += "<input type='radio' name='Attendance_" + count + "' id='rAttended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' checked/>";
             }
             else {
-                htmlText += "<input type='radio' name='Attendance_" + i + "' id='rAttended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' />";
+                htmlText += "<input type='radio' name='Attendance_" + count + "' id='rAttended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' />";
             }
 
             htmlText += "</td>";
@@ -132,35 +138,59 @@ function Bind_Event_Members_Attendance(data) {
 
             if (data.Event.event_attendances[i].Event_Attendance_Id != 0)
             {
-                htmlText += "<input type='radio' name='Attendance_" + i + "' id='rUnattended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "'/>";
+                htmlText += "<input type='radio' name='Attendance_" + count + "' id='rUnattended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "'/>";
             }
             else {
-                htmlText += "<input type='radio' name='Attendance_" + i + "' id='rUnattended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' checked/>";
+                htmlText += "<input type='radio' name='Attendance_" + count + "' id='rUnattended' class='iradio-list' value='" + data.Event.event_attendances[i].Member_Id + "' data-date='" + newDate + "' data-atte-id='" + data.Event.event_attendances[i].Event_Attendance_Id + "' checked/>";
             }
 
             htmlText += "</td>";
 
             htmlText += "</tr>";
+
+            count++;
         }
 
         $("#btnSave").show();
+        
+        if ($('#hdfCurrent_Page').val() == 0)
+        {
+            $('#dvScroll').addClass('scroll-bar');
+        }
+
+        var pageNo = $('#hdfCurrent_Page').val();
+        pageNo = parseInt(pageNo) + 1;
+        $('#hdfCurrent_Page').val(pageNo);
     }
-    else {
+    //else {
 
-        htmlText += "<tr>";
+    //    htmlText += "<tr>";
 
-        htmlText += "<td colspan='4'> No members found.";
+    //    htmlText += "<td colspan='4'> No members found.";
 
-        htmlText += "</td>";
+    //    htmlText += "</td>";
 
-        htmlText += "</tr>";
+    //    htmlText += "</tr>";
 
+    //    $("#btnSave").hide();
+    //}
+    //$("#tblEventMemberAttendance").find("tr:gt(0)").remove();
+
+    $('#tblEventMemberAttendance tr:last').after(htmlText);
+    $('#loading').hide();
+
+    if ($("#tblEventMemberAttendance").find(".tr-attendance").length == 0) {
+        var blankHTML = "";
+
+        blankHTML += "<tr>";
+        blankHTML += "<td colspan='4'> No members found.";
+        blankHTML += "</td>";
+        blankHTML += "</tr>";
+
+        $('#tblEventMemberAttendance tr:first').after(blankHTML);
+        $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }
-    $("#tblEventMemberAttendance").find("tr:gt(0)").remove();
-
-    $('#tblEventMemberAttendance tr:first').after(htmlText);
-
 
     $('.iradio-list').iCheck({
         radioClass: 'iradio_square-green',
@@ -168,6 +198,8 @@ function Bind_Event_Members_Attendance(data) {
     });
 
     Friendly_Message(data);
+
+    
 }
 
 
