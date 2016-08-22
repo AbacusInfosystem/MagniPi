@@ -54,15 +54,37 @@
     //});
 
     //$('.scroll-bar').scroll(function () {
-    $('#dvScroll').scroll(function () {
+    //$('#dvScroll').scroll(function () {
     
-        if ($(this).scrollTop() == 1) {
+    //	alert($(this).scrollTop());
+    //    if ($(this).scrollTop() == 1) {
 
-            $('#loading').show();
-            Get_Event_Members_Attendance();
+    //        $('#loading').show();
+    //        Get_Event_Members_Attendance();
 
-        }
+    //    }
+    //});
+
+    $('#dvScroll').scroll(function () {
+    	if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight)
+    	{
+    		if (parseInt($("#hdfTotal_Pages").val()) > parseInt($("#hdfCurrent_Page").val()))
+    		{
+    			$('#loading').show();
+
+    			Get_Event_Members_Attendance();
+    		}
+    		
+    	}
     });
+    	//	alert($(this).scrollTop());
+    	//    if ($(this).scrollTop() == 1) {
+
+    	//        $('#loading').show();
+    	//        Get_Event_Members_Attendance();
+
+    	//    }
+    	//});
 
 
 });

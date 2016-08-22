@@ -106,19 +106,19 @@ function Bind_Event_Members_Attendance(data) {
 
             htmlText += "<tr class='tr-attendance'>";
 
-            htmlText += "<td>";
+            htmlText += "<td style='width:40%'>";
 
             htmlText += data.Event.event_attendances[i].Member_Name;
 
             htmlText += "</td>";
 
-            htmlText += "<td>";
+            htmlText += "<td style='width:20%'>";
 
             htmlText += ToJavaScriptDate(data.Event.event_attendances[i].Date);
 
             htmlText += "</td>";
 
-            htmlText += "<td>";
+            htmlText += "<td style='width:20%'>";
 
             var date = ToJavaScriptDate(data.Event.event_attendances[i].Date);
             var values = date.split("/");
@@ -134,7 +134,7 @@ function Bind_Event_Members_Attendance(data) {
 
             htmlText += "</td>";
 
-            htmlText += "<td>";
+            htmlText += "<td style='width:20%'>";
 
             if (data.Event.event_attendances[i].Event_Attendance_Id != 0)
             {
@@ -161,6 +161,7 @@ function Bind_Event_Members_Attendance(data) {
         var pageNo = $('#hdfCurrent_Page').val();
         pageNo = parseInt(pageNo) + 1;
         $('#hdfCurrent_Page').val(pageNo);
+        $("#hdfTotal_Pages").val(data.Pager.TotalPages);
     }
     //else {
 
@@ -176,7 +177,9 @@ function Bind_Event_Members_Attendance(data) {
     //}
     //$("#tblEventMemberAttendance").find("tr:gt(0)").remove();
 
-    $('#tblEventMemberAttendance tr:last').after(htmlText);
+	//$('#tblEventMemberAttendance tr:last').after(htmlText);
+
+    $("#tblEventMemberAttendance").append(htmlText);
     $('#loading').hide();
 
     if ($("#tblEventMemberAttendance").find(".tr-attendance").length == 0) {
@@ -187,7 +190,9 @@ function Bind_Event_Members_Attendance(data) {
         blankHTML += "</td>";
         blankHTML += "</tr>";
 
-        $('#tblEventMemberAttendance tr:first').after(blankHTML);
+    	//$('#tblEventMemberAttendance tr:first').after(blankHTML);
+
+        $('#dvScroll').append(blankHTML);
         $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }
