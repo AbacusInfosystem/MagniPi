@@ -1,77 +1,64 @@
 ﻿
-<div class="content-wrapper">
-
-    <div class="container-fluid">
-
-        @*@{Html.RenderPartial("_ServerMessage");}*@
-
-        <!-- Content Header (Page header) -->
-
-        <section class="content-header">
-            <h1>
-                Contact Us
-            </h1>
-            <ol class="breadcrumb">
-                <li>Admin</li>
-                <li class="active">Contact Us</li>
-            </ol>
-        </section>
-
-        <form id="frmContactUs">
-            <section class="content">
-                <div class="row">
-                    <div id="divScrollContainer" class="col-md-12">
-
-                        <div class="box box-default">
-                            <div class="box-body">
-
-                               <div class="row">
-                                   <div class="col-md-12">
-                                       <div class="map">
-                                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448.66556135465197!2d72.8477485322038!3d19.232477302976832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1262904bded%3A0xc0b6d2b87514b2c6!2s602+Vastu+Darshan%2C+Near+BMC+office%2C+Andheri+East%2C+Mumbai%2C+Maharashtra+400096%2C+India!5e1!3m2!1sen!2sus!4v1466748420992" width="1100" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                       </div>
-                                   </div>
-                               </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <h3>Contact Details</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum adipiscing vestibulum sapien, in ultricies tellus dignissim eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <dl>
-                                                    <dt>Address :</dt>
-                                                    <dd>Street No, Room No,</dd>
-                                                    <dd>Road Name</dd>
-                                                    <dd>City, State</dd>
-                                                    <dd>Country</dd>
-                                                    <dd>Pincode</dd>
-                                                </dl>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <dl>
-                                                    <dt>Contact :</dt>
-                                                    <dd>- Landline</dd>
-                                                    <dd>000 - 12345656</dd>
-                                                    <br />
-                                                    <dd>- Mobile</dd>
-                                                    <dd>+00 12 458654685</dd>
-                                                </dl>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="control-label">Email ID</label>
-                                                <p>sdhfiyg@sjdf.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">Contact US</h1>
+                        <p>Stay close</p>
                     </div>
                 </div>
-            </section>
-        </form>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+<section id="map-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="map">
+                @*<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448.66556135465197!2d72.8477485322038!3d19.232477302976832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1262904bded%3A0xc0b6d2b87514b2c6!2s602+Vastu+Darshan%2C+Near+BMC+office%2C+Andheri+East%2C+Mumbai%2C+Maharashtra+400096%2C+India!5e1!3m2!1sen!2sus!4v1466748420992" width="1100" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJBrUCFt7OZ0Twm0qu6xXyKccbZZjjcEY&q=19.117753,72.873702&zoom=12" width="1100" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h3>Contact Details</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum adipiscing vestibulum sapien, in ultricies tellus dignissim eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <dl>
+                            <dt>Address :</dt>
+                            <dd>Street No, Room No,</dd>
+                            <dd>Road Name</dd>
+                            <dd>City, State</dd>
+                            <dd>Country</dd>
+                            <dd>Pincode</dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-6">
+                        <dl>
+                            <dt>Contact :</dt>
+                            <dd>- Landline</dd>
+                            <dd>000 - 12345656</dd>
+                            <br />
+                            <dd>- Mobile</dd>
+                            <dd>+00 12 458654685</dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="control-label">Email ID</label>
+                        <p>sdhfiyg@sjdf.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

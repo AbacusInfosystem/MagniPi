@@ -346,14 +346,57 @@ namespace MagniPi
             routes.MapRoute(
                 name: "home-1",
                 url: "home/view-blog-details-by-id",
-                defaults: new { controller = "Home", action = "BlogDetails", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Blog_Details", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "home-2",
                 url: "home/view-service-details-by-id",
-                defaults: new { controller = "Home", action = "ServiceDetails", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Service_Details", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "home-3",
+                url: "home/get-blogs-listing",
+                defaults: new { controller = "Home", action = "Blog_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-4",
+                url: "home/get-blogs",
+                defaults: new { controller = "Home", action = "Get_Blogs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-5",
+                url: "home/get-services-listing",
+                defaults: new { controller = "Home", action = "Service_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-6",
+                url: "home/get-services",
+                defaults: new { controller = "Home", action = "Get_Services", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-7",
+                url: "home/get-about-us",
+                defaults: new { controller = "Home", action = "AboutUs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-8",
+                url: "home/get-testimonial-listing",
+                defaults: new { controller = "Home", action = "Testimonial_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-9",
+                url: "home/get-testimonials-list",
+                defaults: new { controller = "Home", action = "Get_Testimonials", id = UrlParameter.Optional }
+            );
+
 
             #endregion
 

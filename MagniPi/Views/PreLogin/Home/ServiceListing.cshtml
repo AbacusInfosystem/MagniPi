@@ -1,175 +1,57 @@
-﻿
-<div class="content-wrapper">
-
-    <div class="container-fluid">
-
-        @*@{Html.RenderPartial("_ServerMessage");}*@
-
-        <!-- Content Header (Page header) -->
-
-        <section class="content-header">
-            <h1>
-                Service
-            </h1>
-            <ol class="breadcrumb">
-                <li>Admin</li>
-                <li class="active">Service</li>
-            </ol>
-        </section>
-
-        <form id="frmServiceListing">
-            <section class="content">
-                <div class="row">
-                    <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Service Listing</h2>
-
-                        <div class="box box-default">
-                            <div class="box-body">
-
-                                <div class="service">
-
-                                    <div class="container">
-
-                                        <div class="row">
-
-                                            <div class="row">
-
-                                                <div class="col-md-10">
-
-                                                    <div class="form-group">
-                                                        <div class="article">
-
-                                                            <div class="article_head">
-
-                                                                <div class="article_title">
-
-                                                                    <div class="article_date">
-                                                                        <span>15 Jul</span><span>2016</span>
-                                                                    </div>
-
-                                                                    <h1><a class="readblog">Infrastructure Management</a></h1>
-
-                                                                    <p class="sub_head">
-
-                                                                        provided by <a href="#">User Name</a>
-
-                                                                        @*<a href="@Url.Action("BlogDatail", "Home")">with &nbsp; </a>
-                                                                            <a href="@Url.Action("BlogDatail", "Home")" style="color: #A8A8A8; ">with &nbsp; </a>*@
-
-                                                                    </p>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="article_body">
-
-                                                                <div class="row">
-
-                                                                    <div class="col-md-12 col-sm-12">
-
-
-                                                                        <h3>Transform service delivery, decision-making and business performance with proactive infrastructure management.</h3>
-                                                                        <p>
-                                                                            For an organization's information technology, infrastructure management (IM) is the management of essential operation components, such as policies, processes, equipment, data, human resources, and external contacts, for overall effectiveness. As advancements in IT infrastructure accelerate, it is critical that your IT infrastructure is aligned with your business needs.
-                                                                            With manpower limitation and budgets tight, modern organizations need new ways to reduce costs and work more efficiently. Outsourcing of infrastructure services is one increasingly popular option.
-                                                                        </p>
-
-                                                                        <a href="@Url.Action("Index", "Service")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
-
-                                                                        <a href="#" id="btnDelete" class="btn btn-instagram btn-sm">Delete</a>
-
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-
-                                                <div class="col-md-2">
-
-                                                    <a href="@Url.Action("Index", "Service")" class="btn btn-success btn-sm">Add New Service</a>
-
-                                                    @*<h4>Archives</h4>*@
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-10">
-
-                                                <div class="form-group">
-                                                    <div class="article">
-
-                                                        <div class="article_head">
-
-
-                                                            <div class="article_title">
-
-                                                                <div class="article_date">
-                                                                    <span>15 Jul</span><span>2016</span>
-                                                                </div>
-
-                                                                <h1><a class="readblog">Infrastructure Management</a></h1>
-
-                                                                <p class="sub_head">
-
-                                                                    provided by <a href="#">User Name</a>
-
-                                                                    @*<a href="@Url.Action("BlogDatail", "Home")">with &nbsp; </a>
-                        <a href="@Url.Action("BlogDatail", "Home")" style="color: #A8A8A8; ">with &nbsp; </a>*@
-
-                                                                </p>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="article_body">
-
-                                                            <div class="row">
-
-                                                                <div class="col-md-12 col-sm-12">
-
-                                                                    <h3>Transform service delivery, decision-making and business performance with proactive infrastructure management.</h3>
-                                                                    <p>
-                                                                        For an organization's information technology, infrastructure management (IM) is the management of essential operation components, such as policies, processes, equipment, data, human resources, and external contacts, for overall effectiveness. As advancements in IT infrastructure accelerate, it is critical that your IT infrastructure is aligned with your business needs.
-                                                                        With manpower limitation and budgets tight, modern organizations need new ways to reduce costs and work more efficiently. Outsourcing of infrastructure services is one increasingly popular option.
-                                                                    </p>
-
-                                                                    <a href="@Url.Action("Index", "Service")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>
-
-                                                                    <a href="#" id="btnDelete" class="btn btn-instagram btn-sm">Delete</a>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
+﻿@model MagniPi.Models.PreLogin.HomeViewModel
+
+<script src="~/Scripts/Modules/Home/service-list-event.js"></script>
+<script src="~/Scripts/Modules/Home/service-list-method.js"></script>
+
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">Service</h1>
+                        <p>Service Listing</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@{Html.RenderPartial("_ServerMessage");}*@
+
+<section class="padding-top">
+    <div class="container">
+
+        <form id="frmServiceList">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+
+                    <input type="hidden" value="" id="hdnService_Id" name="service.Service_Id" />
+                    <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
+
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter Title" class="form-control" name="name" id="txtTitle">
+                        </div>
+                        <div class="search" id="dvSearch">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div id="dvServiceList">
+
+                    </div>
+
+                    <p id="loading" style="text-align:center; display:none;">
+                        <img src="~/Images/loading-small.gif" alt="Loading…" />
+                    </p>
+
+                </div>
+
+            </div>
         </form>
 
     </div>
-</div>
+</section>

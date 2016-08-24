@@ -64,7 +64,8 @@ namespace MagniPiDataAccess.Blog
             DataTable dt = _sqlRepo.ExecuteDataTable(null, StoredProcedures.Get_Blogs_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt, ref Pager))
             {
-                blogs.Add(Get_Blog_Values(dr));
+                //blogs.Add(Get_Blog_Values(dr));
+                blogs.Add(Get_Blog_Values_By_Id(dr));
             }
             return blogs;
         }
@@ -81,7 +82,8 @@ namespace MagniPiDataAccess.Blog
             DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Blogs_By_Month_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt, ref Pager))
             {
-                blogs.Add(Get_Blog_Values(dr));
+                //blogs.Add(Get_Blog_Values(dr));
+                blogs.Add(Get_Blog_Values_By_Id(dr));
             }
             return blogs;
         }
@@ -103,23 +105,23 @@ namespace MagniPiDataAccess.Blog
             return blog;
         }
 
-        private BlogInfo Get_Blog_Values(DataRow dr)
-        {
-            BlogInfo blog = new BlogInfo();
+        //private BlogInfo Get_Blog_Values(DataRow dr)
+        //{
+        //    BlogInfo blog = new BlogInfo();
 
-            blog.Blog_Id = Convert.ToInt32(dr["Blog_Id"]);
-            blog.Title = Convert.ToString(dr["Title"]);
-            blog.Blog_Template = Convert.ToString(dr["Blog_Template"]);
-            blog.Header_Image = Convert.ToInt32(dr["Header_Image"]);
-            blog.Alternative_Text = Convert.ToString(dr["Alternative_Text"]);
-            blog.Is_Active = Convert.ToBoolean(dr["Is_Active"]);
-            blog.Created_By = Convert.ToInt32(dr["Created_By"]);
-            blog.Updated_By = Convert.ToInt32(dr["Updated_By"]);
-            blog.Created_On = Convert.ToDateTime(dr["Created_On"]);
-            blog.Updated_On = Convert.ToDateTime(dr["Updated_On"]);
+        //    blog.Blog_Id = Convert.ToInt32(dr["Blog_Id"]);
+        //    blog.Title = Convert.ToString(dr["Title"]);
+        //    blog.Blog_Template = Convert.ToString(dr["Blog_Template"]);
+        //    blog.Header_Image = Convert.ToInt32(dr["Header_Image"]);
+        //    blog.Alternative_Text = Convert.ToString(dr["Alternative_Text"]);
+        //    blog.Is_Active = Convert.ToBoolean(dr["Is_Active"]);
+        //    blog.Created_By = Convert.ToInt32(dr["Created_By"]);
+        //    blog.Updated_By = Convert.ToInt32(dr["Updated_By"]);
+        //    blog.Created_On = Convert.ToDateTime(dr["Created_On"]);
+        //    blog.Updated_On = Convert.ToDateTime(dr["Updated_On"]);
 
-            return blog;
-        }
+        //    return blog;
+        //}
 
         private BlogInfo Get_Blog_Values_By_Id(DataRow dr)
         {

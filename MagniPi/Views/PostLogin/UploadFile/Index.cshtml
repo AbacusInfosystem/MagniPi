@@ -97,7 +97,7 @@
                                                             <tr>
                                                                 <td><input type="radio" name="r1" id="@item.Attachment_Id" class=''/></td>
                                                                 <td>
-                                                                    <img src="@(ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + item.File_Type + @"\" + item.Unique_Id)" style="height:50px;width:50px;" />
+                                                                    <img src="@(ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + item.File_Type_Str + @"\" + item.Unique_Id)" style="height:50px;width:50px;" />
                                                                 </td>
                                                                 <td>@item.File_Name</td>
                                                                 <td id="Unique_@item.Attachment_Id">@item.Unique_Id</td>
@@ -112,7 +112,7 @@
 
                                             <!-- /.box-body -->
                                             <div class="box-footer clearfix">
-                                                <input type="hidden" id="hdfCurrentPage" name="@Model.Pager.CurrentPage" />
+                                                <input type="hidden" id="hdfCurrentPage" name="Pager.CurrentPage" value="@Model.Pager.CurrentPage"/>
                                                 <div class="pagination pagination-sm no-margin pull-right">
                                    
                                                         @if (Model.attachments != null && Model.attachments.Count > 0)

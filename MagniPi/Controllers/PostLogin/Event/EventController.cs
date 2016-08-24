@@ -372,7 +372,7 @@ namespace MagniPi.Controllers.PostLogin.Event
                 eViewModel.Event.member_event_mappings = _eventMan.Get_Event_Members(ref pager, eViewModel.Event.customer_event_mapping.Event_Id, eViewModel.Event.customer_event_mapping.Customer_Id);
 
                 eViewModel.Pager = pager;
-                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
+                //eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
             {
@@ -452,7 +452,7 @@ namespace MagniPi.Controllers.PostLogin.Event
                 eViewModel.Event.event_attendances = _eventMan.Get_Event_Member_Attendance(ref pager, eViewModel.Event.event_attendance.Event_Id, eViewModel.Event.event_attendance.Customer_Id, eViewModel.Event.event_attendance.Date);
 
                 eViewModel.Pager = pager;
-                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
+                //eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
             {

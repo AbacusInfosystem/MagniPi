@@ -1,86 +1,63 @@
 ﻿@model MagniPi.Models.PreLogin.HomeViewModel
 
-<div class="content-wrapper">
-
-    <div class="container-fluid">
-
-        @*@{Html.RenderPartial("_ServerMessage");}*@
-
-        <!-- Content Header (Page header) -->
-
-        <section class="content-header">
-            <h1>
-                Blog
-            </h1>
-            <ol class="breadcrumb">
-                <li>Admin</li>
-                <li class="active">Blog</li>
-            </ol>
-        </section>
-
-        <form id="frmBlogDetails">
-            <section class="content">
-                <div class="row">
-                    <div id="divScrollContainer" class="col-md-12">
-                        <h2 id="" class="page-header">Blog Details</h2>
-
-                        <div class="box box-default">
-                            <div class="box-body">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-
-                                        <div class="article">
-                                            <div class="article_head">
-                                                <div class="article_date">
-                                                    <span>@(Model.blog.Created_On == null ? "" : Convert.ToDateTime(Model.blog.Created_On).ToString("dd-MM-yyyy"))</span>
-                                                    
-                                                </div>
-                                                <div class="article_title">
-
-                                                    <h2 class="readblog">@Model.blog.Title</h2>
-
-                                                    <p class="sub_head">Posted by <a href="#">@Model.blog.User_Name</a> </p>
-
-                                                </div>
-                                            </div>
-                                            <div class="article_body">
-                                                <div class="row">
-                                                    <div class="col-md-12" style="text-align:center">
-
-                                                        <a href="@Model.blog.Header_Image_Url">
-                                                            <img src="@Model.blog.Header_Image_Url" style="height:250px; width:250px" />
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-
-                                                <p>@Html.Raw(Model.blog.Blog_Template)</p>
-
-                                                <div class="row">
-
-                                                    <div class="col-md-12">
-
-                                                        @*<a href="@Url.Action("Index", "Blog")" id="btnEdit" class="btn btn-warning btn-sm">Edit</a>*@
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">Blog</h1>
+                        <p>Blog Details</p>
                     </div>
                 </div>
-            </section>
-        </form>
-
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
+@*@{Html.RenderPartial("_ServerMessage");}*@
+
+<section class="padding-top" id="blog-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="single-blog blog-details two-column">
+                            <div class="post-thumb">
+                                @*<a href="#"><img alt="Header Image" class="img-responsive" src="@Model.blog.Header_Image_Url"></a>*@
+                                <img alt="Header Image" class="img-responsive" src="@Model.blog.Header_Image_Url">
+                                <div class="post-overlay">
+                                    <span class="uppercase"><a href="#">@(Convert.ToDateTime(Model.blog.Created_On).ToString("dd"))  <br><small>@(Convert.ToDateTime(Model.blog.Created_On).ToString("MMM"))</small></a></span>
+                                </div>
+                            </div>
+                            <div class="post-content overflow">
+                                <h2 class="post-title bold"><a href="#">@Model.blog.Title</a></h2>
+                                <h3 class="post-author"><a href="#">Posted by @Model.blog.User_Name</a></h3>
+                                <p>
+                                    @Html.Raw(Model.blog.Blog_Template)
+                                </p>
+                                @*<div class="post-bottom overflow">
+                                    <ul class="nav navbar-nav post-nav">
+                                        <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+                                    </ul>
+                                </div>*@
+                                @*<div class="blog-share">
+                                    <span class="st_facebook_hcount" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-facebook-counter" style="background-image: url(&quot;http://w.sharethis.com/images/facebook_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+                                    <span class="st_twitter_hcount" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-twitter-counter" style="background-image: url(&quot;http://w.sharethis.com/images/twitter_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+                                    <span class="st_linkedin_hcount" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-linkedin-counter" style="background-image: url(&quot;http://w.sharethis.com/images/linkedin_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+                                    <span class="st_pinterest_hcount" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-pinterest-counter" style="background-image: url(&quot;http://w.sharethis.com/images/pinterest_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+                                    <span class="st_email_hcount" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-email-counter" style="background-image: url(&quot;http://w.sharethis.com/images/email_counter.png&quot;);">&nbsp;</span><span class="stArrow"><span class="stButton_gradient stHBubble" style="display: inline-block;"><span class="stBubble_hcount">0</span></span></span></span></span></span>
+                                </div>*@
+                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

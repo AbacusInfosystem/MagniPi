@@ -83,3 +83,23 @@ function Bind_Images() {
     });
 
 }
+
+//function Get_Date_Month(value)
+//{
+   
+//    var date = ToJavaScriptDate(value);
+//    var values = date.split("/");
+//    //var newDate = values[1] + "/" + values[0] + "/" + values[2];
+
+//    //var d = new Date(value)
+//    //alert(d);
+//    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+//    //alert(date);
+//    //var d = new Date(date)
+    
+//    var m = monthNames.valueOf(values[1]);
+//    alert(m);
+
+//    return monthNames[d.getMonth()];
+//    alert(monthNames[d.getMonth()]);
+//}
