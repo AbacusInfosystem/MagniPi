@@ -103,7 +103,7 @@ namespace MagniPi.Common
 
             #endregion
 
-            #region Customer
+            #region Event
 
             FriendlyMessage EVT01 = new FriendlyMessage("EVT01", MessageType.Success, "Event added successfully.");
             hash.Add("EVT01", EVT01);
@@ -125,6 +125,9 @@ namespace MagniPi.Common
 
             FriendlyMessage EVT07 = new FriendlyMessage("EVT07", MessageType.Success, "Event attendance saved successfully.");
             hash.Add("EVT07", EVT07);
+
+            FriendlyMessage EVT08 = new FriendlyMessage("EVT08", MessageType.Success, "Customer removed successfully.");
+            hash.Add("EVT08", EVT08);
 
             #endregion
 

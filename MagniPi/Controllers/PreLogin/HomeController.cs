@@ -20,7 +20,6 @@ namespace MagniPi.Controllers
     public class HomeController : Controller
     {
 
-
         public ActionResult Index()
         {
             HomeViewModel homeViewModel = new HomeViewModel();
@@ -46,7 +45,6 @@ namespace MagniPi.Controllers
         {
             return View("Error");
         }
-
 
         public ActionResult Blog_Listing(HomeViewModel homeViewModel)
         {

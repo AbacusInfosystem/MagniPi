@@ -234,7 +234,7 @@ namespace MagniPi
 
             #endregion
 
-            #region Customer
+            #region Event
 
             routes.MapRoute(
                 name: "event-1",
@@ -338,6 +338,11 @@ namespace MagniPi
                defaults: new { controller = "Event", action = "Save_Event_Attendance", id = UrlParameter.Optional }
            );
 
+            routes.MapRoute(
+               name: "event-18",
+               url: "event/remove-event-customer-by-id",
+               defaults: new { controller = "Event", action = "Detete_Customer_Event", id = UrlParameter.Optional }
+           );
 
             #endregion
 

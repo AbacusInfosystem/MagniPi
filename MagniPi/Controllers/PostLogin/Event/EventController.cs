@@ -503,7 +503,25 @@ namespace MagniPi.Controllers.PostLogin.Event
             return Json(eViewModel);
         }
 
+        public JsonResult Detete_Customer_Event(int customer_Event_Mapping_Id)
+        {
+            EventViewModel eViewModel = new EventViewModel();
 
+            try
+            {
+                _eventMan.Detete_Customer_Event_By_Id(customer_Event_Mapping_Id);
+                eViewModel.FriendlyMessage.Add(MessageStore.Get("EVT08"));
+
+            }
+            catch (Exception ex)
+            {
+                eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+
+                Logger.Error("Event Controller - Save_Event_Date: " + ex.ToString());
+            }
+
+            return Json(eViewModel);
+        }
 
         //public ActionResult AssignEvent()
         //{

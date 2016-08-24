@@ -192,7 +192,7 @@ function Bind_Event_Members_Attendance(data) {
 
     	//$('#tblEventMemberAttendance tr:first').after(blankHTML);
 
-        $('#dvScroll').append(blankHTML);
+        $('#tblEventMemberAttendance').append(blankHTML);
         $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }

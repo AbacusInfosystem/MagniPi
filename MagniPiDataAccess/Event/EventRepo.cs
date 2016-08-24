@@ -579,7 +579,13 @@ namespace MagniPiDataAccess.Event
             return sqlParams;
         }
 
+        public void Detete_Customer_Event_By_Id(int customer_Event_Mapping_Id)
+        {
+            List<SqlParameter> sqlParams = new List<SqlParameter>();
+            sqlParams.Add(new SqlParameter("@Customer_Event_Mapping_Id", customer_Event_Mapping_Id));
 
+            _sqlRepo.ExecuteNonQuery(sqlParams, StoredProcedures.Delete_Customer_Event_Mapping_By_Id_Sp.ToString(), CommandType.StoredProcedure);
+        }
 
 
     }

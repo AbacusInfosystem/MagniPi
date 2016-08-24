@@ -53,6 +53,8 @@ function Bind_Event_Customers(data) {
     });
 
     $("#btnShowMembers").hide();
+    $("#btnRemoveCustomer").hide();
+
     Friendly_Message(data);
 
 }
@@ -131,8 +133,7 @@ function Bind_Event_Members(data)
         for (i = 0; i < data.Event.member_event_mappings.length; i++) {
 
             htmlText += "<tr>";
-            //htmlText += "<tr class='tr-event-member'>";
-
+            
             htmlText += "<td>";
             
             if (data.Event.member_event_mappings[i].Member_Event_Mapping_Id != 0)
@@ -169,26 +170,14 @@ function Bind_Event_Members(data)
         var pageNo = $('#hdfCurrent_Page').val();
         pageNo = parseInt(pageNo) + 1;
         $('#hdfCurrent_Page').val(pageNo);
+        $("#hdfTotal_Pages").val(data.Pager.TotalPages);
 
     }
-    //else {
-
-    //    htmlText += "<tr>";
-
-    //    htmlText += "<td colspan='4'> No members found.";
-
-    //    htmlText += "</td>";
-
-    //    htmlText += "</tr>";
-
-    //    $("#btnSave").hide();
-    //}
-    //$("#tblEventMember").find("tr:gt(0)").remove();
-
-    $('#tblEventMember tr:last').after(htmlText);
+   
+    $("#tblEventMember").append(htmlText);
     $('#loading').hide();
 
-    if ($("#tblEventMember").find("tr").length == 1) {
+    if ($("#tblEventMember").find("tr").length == 0) {
         var blankHTML = "";
 
         blankHTML += "<tr>";
@@ -196,7 +185,9 @@ function Bind_Event_Members(data)
         blankHTML += "</td>";
         blankHTML += "</tr>";
 
-        $('#tblEventMember tr:first').after(blankHTML);
+        //$('#tblEventMember tr:first').after(blankHTML);
+
+        $('#tblEventMember').append(blankHTML);
         $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }
@@ -209,7 +200,6 @@ function Bind_Event_Members(data)
     Friendly_Message(data);
 }
 
-//
 function Save_Event_Members()
 {
 
@@ -256,4 +246,21 @@ function Get_Values_Of_Member_List()
 function Event_Member_CallBack(data)
 {
     Friendly_Message(data);
+}
+
+
+function Remove_Event_Customer()
+{
+    $.ajax({
+        type: "POST",
+        url: '/event/remove-event-customer-by-id',
+        data: { customer_Event_Mapping_Id: $("#hdnCust_Event_Id").val() },
+        success: function (data) {
+
+            $("#tblEventMember").html("");
+            Get_Event_Customers();
+            Friendly_Message(data);
+
+        }
+    });
 }

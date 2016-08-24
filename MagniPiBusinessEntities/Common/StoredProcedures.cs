@@ -121,6 +121,7 @@ namespace MagniPiBusinessEntities.Common
         Insert_Member_Event_Mapping_Sp,
         Update_Member_Event_Mapping_Sp,
         Delete_Member_Event_Mapping_By_Id_Sp,
+        Delete_Customer_Event_Mapping_By_Id_Sp,
 
         #endregion
 

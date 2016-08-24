@@ -118,6 +118,11 @@ namespace MagniPiManager.Event
             _eventRepo.Save_Event_Attendance(eventattendances);
         }
 
+        public void Detete_Customer_Event_By_Id(int customer_Event_Mapping_Id)
+        {
+            _eventRepo.Detete_Customer_Event_By_Id(customer_Event_Mapping_Id);
+        }
+
 
     }
 }
