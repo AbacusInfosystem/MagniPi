@@ -6,7 +6,7 @@
                   CurrentPage: $('#hdfCurrent_Page').val(),
               },
       }
-
+    
     CallAjax("/home/get-testimonials-list/", "json", JSON.stringify(homeViewModel), "POST", "application/json", false, Bind_Testimonials, "", null);
 }
 
@@ -18,21 +18,26 @@ function Bind_Testimonials(data) {
        
         for (i = 0; i < data.testimonials.length; i++) {
 
-            htmlText += "<div class='row testimonial'>";
+            htmlText += "<div class='media testimonial-media' id='" + data.testimonials[i].Testimonial_Id + "'>";
 
-            htmlText += "<div class='col-md-2 col-sm-2'>";
+            //if (i % 2 == 0) {
+            //    htmlText += "<div class='pull-right'>";
+            //}
+            //else {
+            //    htmlText += "<div class='pull-left'>";
+            //}
+            
+            htmlText += "<div class='pull-left'>";
 
-            htmlText += "<img src='" + data.testimonials[i].Author_Image_Url + "' style='height:180px;width:180px;'>";
+            htmlText += "<img alt='' src='" + data.testimonials[i].Author_Image_Url + "' style='height:120px; width:120px; border: 1px solid;'>";
 
             htmlText += "</div>";
 
-            htmlText += "<div class='col-md-10 col-sm-10'>";
+            htmlText += "<div class='media-body'>";
 
-            htmlText += "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + data.testimonials[i].Content + "</p>";
+            htmlText += "<blockquote>" + data.testimonials[i].Content + "</blockquote>";
 
-            htmlText += "<h4>" + data.testimonials[i].Author_Name + "</h4>";
-
-            htmlText += "<h5>Blue Bottle keffiyeh<br>Sartorial locavore Schlitz ennui</h5>";
+            htmlText += "<h3><a href='#'>- " + data.testimonials[i].Author_Name + "</a></h3>";
 
             htmlText += "</div>";
 
@@ -40,12 +45,13 @@ function Bind_Testimonials(data) {
             
         }
     }
-
+    
     if ($('#hdfCurrent_Page').val() == 0) {
         $("#dvTestimonial").append(htmlText);
+
     }
     else {
-        $('.testimonial:last').after(htmlText);
+        $('.testimonial-media:last').after(htmlText);
     }
 
     var pageNo = $('#hdfCurrent_Page').val();

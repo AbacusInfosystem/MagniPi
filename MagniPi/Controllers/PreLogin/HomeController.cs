@@ -185,7 +185,7 @@ namespace MagniPi.Controllers
                 TestimonialManager _testimonialMan = new TestimonialManager();
 
                 pager = homeViewModel.Pager;
-
+               
                 homeViewModel.testimonials = _testimonialMan.Get_Testimonials(ref pager);
 
                 foreach (var item in homeViewModel.testimonials)

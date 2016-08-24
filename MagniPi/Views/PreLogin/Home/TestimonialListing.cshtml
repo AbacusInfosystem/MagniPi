@@ -1,5 +1,8 @@
 ﻿@model MagniPi.Models.PreLogin.HomeViewModel
 
+<script src="~/Scripts/Modules/Home/testimonial-list-event.js"></script>
+<script src="~/Scripts/Modules/Home/testimonial-list-method.js"></script>
+
 <section id="page-breadcrumb">
     <div class="vertical-center sun">
         <div class="container">
@@ -15,27 +18,33 @@
     </div>
 </section>
 
-<section data-wow-delay="300ms" data-wow-duration="1000ms" class="padding wow fadeIn animated" id="company-information" style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeIn;">
+<section id="testimonial">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                
+        <br />
+        <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
+
+        <div id="testimonial-container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="testimonial" id="dvTestimonial">
+
+                    </div>
+
+                    <p id="loading" style="text-align:center; display:none;">
+                        <img src="~/Images/loading-small.gif" alt="Loading…" />
+                    </p>
+
+                </div>
             </div>
         </div>
+
+        <div class="padding"></div>
+
     </div>
-
-    <div class="container">
-        <div class="col-md-12">
-
-            <div id="dvTestimonial">
-
-            </div>
-
-           
-        </div>
-    </div>
-
 </section>
+
+
 
 
 

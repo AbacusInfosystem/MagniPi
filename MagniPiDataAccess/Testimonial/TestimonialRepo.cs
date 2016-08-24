@@ -65,7 +65,8 @@ namespace MagniPiDataAccess.Testimonial
             DataTable dt = _sqlRepo.ExecuteDataTable(null, StoredProcedures.Get_Testimonials_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt, ref Pager))
             {
-                testimonials.Add(Get_Testimonial_Values(dr));
+                //testimonials.Add(Get_Testimonial_Values(dr));
+                testimonials.Add(Get_Testimonial_Values_By_Id(dr));
             }
             return testimonials;
         }
