@@ -47,8 +47,7 @@ function Bind_Blogs(data) {
             var date = ToJavaScriptDate(data.blogs[i].Created_On);
             var values = date.split("/");
             
-            //htmlText += "<span class='uppercase'><a href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>" + values[0] + " <br><small>" + Get_Date_Month(data.blogs[i].Created_On) + "</small></a></span>";
-            htmlText += "<span class='uppercase'><a href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
+            htmlText += "<span class='uppercase'><a href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "'>" + values[0] + " <br><small>" + Get_Date_Month_Name(values[1]) + "</small></a></span>";
 
             htmlText += "</div>";
 
@@ -95,6 +94,8 @@ function Bind_Blogs(data) {
     $('#loading').hide();
 
 }
+
+
 
 
 //function ViewBlogDwtails(Id) {

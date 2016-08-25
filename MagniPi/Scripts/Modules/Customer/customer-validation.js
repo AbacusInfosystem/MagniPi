@@ -25,6 +25,8 @@
 
             "customer.Contact": { required: true, digits: true },
 
+            "customer.Email": { required: true, email: true },
+
         },
         messages: {
 
@@ -47,6 +49,8 @@
             "customer.Address": { required: "Required field." },
 
             "customer.Contact": { required: "Required field.", digits: "Enter valid contact." },
+
+            "customer.Email": { required: "Required field." },
 
         }
     });

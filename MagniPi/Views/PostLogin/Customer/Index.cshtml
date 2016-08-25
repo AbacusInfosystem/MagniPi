@@ -203,6 +203,12 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label for="txt_Email" style="color: #333" class="">Email</label>
+                                                            <input type="text" class="form-control input-sm" name="customer.Email" id="txt_Email" value="@Model.customer.Email" placeholder="Enter Email" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
                                                             <label for="chkIsActive" style="color: #333" class="">Is Active</label><br />
                                                             @if (Model.customer.Is_Active)
                                                             {

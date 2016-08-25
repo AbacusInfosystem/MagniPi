@@ -84,22 +84,23 @@ function Bind_Images() {
 
 }
 
-//function Get_Date_Month(value)
-//{
-   
-//    var date = ToJavaScriptDate(value);
-//    var values = date.split("/");
-//    //var newDate = values[1] + "/" + values[0] + "/" + values[2];
 
-//    //var d = new Date(value)
-//    //alert(d);
-//    var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-//    //alert(date);
-//    //var d = new Date(date)
-    
-//    var m = monthNames.valueOf(values[1]);
-//    alert(m);
+function Get_Date_Month_Name(mon) {
 
-//    return monthNames[d.getMonth()];
-//    alert(monthNames[d.getMonth()]);
-//}
+    var month = new Array();
+    month[0] = "Jan";
+    month[1] = "Feb";
+    month[2] = "Mar";
+    month[3] = "Apr";
+    month[4] = "May";
+    month[5] = "Jun";
+    month[6] = "Jul";
+    month[7] = "Aug";
+    month[8] = "Sep";
+    month[9] = "Oct";
+    month[10] = "Nov";
+    month[11] = "Dec";
+
+    var n = month[(parseInt(mon) - 1)];
+    return n;
+}

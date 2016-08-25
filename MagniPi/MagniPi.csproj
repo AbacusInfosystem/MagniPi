@@ -1203,6 +1203,7 @@
     <Content Include="FrontContent\images\services\2.png" />
     <Content Include="FrontContent\images\services\3.png" />
     <Content Include="FrontContent\images\services\4.png" />
+    <Content Include="FrontContent\images\under.png" />
     <Content Include="FrontContent\js\audio.min.js" />
     <Content Include="FrontContent\js\audiojs.swf" />
     <Content Include="FrontContent\js\bootstrap.min.js" />
