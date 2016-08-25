@@ -27,6 +27,7 @@ namespace MagniPiBusinessEntities.Event
 
             event_attendances = new List<EventAttendanceInfo>();
 
+            eventdates = new List<EventDate>();
 
         }
 
@@ -99,6 +100,8 @@ namespace MagniPiBusinessEntities.Event
         public EventAttendanceInfo event_attendance { get; set; }
 
         public List<EventAttendanceInfo> event_attendances { get; set; }
+
+        public List<EventDate> eventdates { get; set; }
 
     }
 

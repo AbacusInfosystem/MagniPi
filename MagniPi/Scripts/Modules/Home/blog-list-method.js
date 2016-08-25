@@ -36,7 +36,7 @@ function Bind_Blogs(data) {
 
             htmlText += "<div class='post-thumb'>";
 
-            htmlText += "<a href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>";
+            htmlText += "<a href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "'>";
              
             htmlText += "<img alt='' class='img-responsive' src='" + data.blogs[i].Header_Image_Url + "' style='border: 1px solid; border-color:black; height:200px; width:380px' />";
 
@@ -48,7 +48,7 @@ function Bind_Blogs(data) {
             var values = date.split("/");
             
             //htmlText += "<span class='uppercase'><a href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>" + values[0] + " <br><small>" + Get_Date_Month(data.blogs[i].Created_On) + "</small></a></span>";
-            htmlText += "<span class='uppercase'><a href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
+            htmlText += "<span class='uppercase'><a href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
 
             htmlText += "</div>";
 
@@ -58,11 +58,11 @@ function Bind_Blogs(data) {
 
             htmlText += "<h2 class='post-title bold'><a href='#'>" + data.blogs[i].Title + "</a></h2>";
 
-            htmlText += "<h3 class='post-author'><a href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>Posted by " + data.blogs[i].User_Name + "</a></h3>";
+            htmlText += "<h3 class='post-author'><a href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "'>Posted by " + data.blogs[i].User_Name + "</a></h3>";
 
             htmlText += "<p>" + data.blogs[i].Blog_Template + "</p>";
 
-            htmlText += "<a class='read-more' href='#' onclick='ViewBlogDwtails(" + data.blogs[i].Blog_Id + ")'>View More</a>";
+            htmlText += "<a class='read-more' href='/home/view-blog-details-by-id/" + data.blogs[i].Blog_Id + "' >View More</a>";
 
             htmlText += "</div>";
 
@@ -97,12 +97,12 @@ function Bind_Blogs(data) {
 }
 
 
-function ViewBlogDwtails(Id) {
+//function ViewBlogDwtails(Id) {
 
-    $("#hdnBlogId").val(Id);
+//    $("#hdnBlogId").val(Id);
 
-    $('#frmBlogList').attr("action", "/home/view-blog-details-by-id");
-    $('#frmBlogList').attr("method", "POST");
-    $('#frmBlogList').submit();
+//    $('#frmBlogList').attr("action", "/home/view-blog-details-by-id");
+//    $('#frmBlogList').attr("method", "POST");
+//    $('#frmBlogList').submit();
 
-}
+//}

@@ -275,7 +275,6 @@ namespace MagniPiDataAccess.Event
             return eventdate;
         }
 
-
         //autocomplete
         public List<AutocompleteInfo> Get_Event_By_Name_Autocomplete(string Event_Name)
         {
@@ -585,6 +584,21 @@ namespace MagniPiDataAccess.Event
             sqlParams.Add(new SqlParameter("@Customer_Event_Mapping_Id", customer_Event_Mapping_Id));
 
             _sqlRepo.ExecuteNonQuery(sqlParams, StoredProcedures.Delete_Customer_Event_Mapping_By_Id_Sp.ToString(), CommandType.StoredProcedure);
+        }
+
+        //for front
+        public List<EventInfo> Get_Up_Comming_Events(ref PaginationInfo pager)
+        {
+            List<EventInfo> events = new List<EventInfo>();
+
+            DataTable dt = _sqlRepo.ExecuteDataTable(null, StoredProcedures.Get_Up_Comming_Events_Sp.ToString(), CommandType.StoredProcedure);
+            foreach (DataRow dr in CommonMethods.GetRows(dt, ref pager))
+            {
+                events.Add(Get_Event_Values_By_Id(dr));
+            }
+
+            return events;
+
         }
 
 

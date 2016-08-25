@@ -69,11 +69,12 @@
                 htmlText += "<input type='hidden' name='customer.Customer_Name' value='" + $("#txtFirstName").val() + " " + $("#txtLastName").val() + " ' />";
                 htmlText += "<input type='hidden' name='customer.Address' value='" + $("#txtAddress").val() + "' />";
                 htmlText += "<input type='hidden' name='customer.Contact' value='" + $("#txtContact").val() + "' />";
+                htmlText += "<input type='hidden' name='customer.Email' value='" + $("#txtEmail").val() + "' />";
                 htmlText += "<input type='hidden' name='customer.Is_Active' value='" + $("#hdnIs_Active").val() + "' />";
 
                 $('#dvHidden').append(htmlText);
             }
-            alert(0);
+            
             $('#frmAddEditCustomer').attr("action", "/customer/save-customer");
             $('#frmAddEditCustomer').attr("method", "POST");
             $('#frmAddEditCustomer').submit();

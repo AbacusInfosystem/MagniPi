@@ -101,6 +101,7 @@ namespace MagniPiBusinessEntities.Common
         Get_Events_By_Event_Name_And_Month_Sp,
         Get_Events_By_Event_Name_Sp,
         Get_Events_By_Month_Sp,
+        Get_Up_Comming_Events_Sp,
 
         #region Event Date
 

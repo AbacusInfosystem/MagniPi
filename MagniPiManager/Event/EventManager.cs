@@ -123,6 +123,10 @@ namespace MagniPiManager.Event
             _eventRepo.Detete_Customer_Event_By_Id(customer_Event_Mapping_Id);
         }
 
+        public List<EventInfo> Get_Up_Comming_Events(ref PaginationInfo pager)
+        {
+            return _eventRepo.Get_Up_Comming_Events(ref pager);
+        }
 
     }
 }

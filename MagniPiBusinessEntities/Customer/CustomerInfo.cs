@@ -30,6 +30,8 @@ namespace MagniPiBusinessEntities.Customer
 
         public string Contact { get; set; }
 
+        public string Email { get; set; }
+
         public bool Is_Indivisual { get; set; }
 
         public bool Is_Active { get; set; }

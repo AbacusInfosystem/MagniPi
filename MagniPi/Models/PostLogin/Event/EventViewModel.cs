@@ -22,7 +22,7 @@ namespace MagniPi.Models.PostLogin.Event
 
             Filter = new Event_Filter();
 
-            eventdates = new List<EventDate>();
+            //eventdates = new List<EventDate>();
 
         }
 
@@ -36,7 +36,7 @@ namespace MagniPi.Models.PostLogin.Event
 
         public Event_Filter Filter { get; set; }
 
-        public List<EventDate> eventdates { get; set; }
+        //public List<EventDate> eventdates { get; set; }
 
     }
 

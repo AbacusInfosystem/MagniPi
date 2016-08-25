@@ -5,6 +5,7 @@ using MagniPiHelper.Logging;
 using MagniPiHelper.PageHelper;
 using MagniPiManager.AboutUs;
 using MagniPiManager.Blog;
+using MagniPiManager.Event;
 using MagniPiManager.Service;
 using MagniPiManager.Testimonial;
 using System;
@@ -135,15 +136,17 @@ namespace MagniPi.Controllers
             return Json(homeViewModel);
         }
 
-        public ActionResult Blog_Details(HomeViewModel homeViewModel)
+        public ActionResult Blog_Details(int Blog_Id)
         {
+            HomeViewModel homeViewModel = new HomeViewModel();
+
             try
             {
-                if (homeViewModel.blog.Blog_Id != 0)
+                if (Blog_Id != 0)
                 {
                     BlogManager _blogMan = new BlogManager();
 
-                    homeViewModel.blog = _blogMan.Get_Blog_By_Id(homeViewModel.blog.Blog_Id);
+                    homeViewModel.blog = _blogMan.Get_Blog_By_Id(Blog_Id);
 
                     homeViewModel.blog.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.blog.File_Type_Str + @"\" + homeViewModel.blog.Header_Image_Url;
                 }
@@ -301,15 +304,17 @@ namespace MagniPi.Controllers
             return Json(homeViewModel);
         }
 
-        public ActionResult Service_Details(HomeViewModel homeViewModel)
+        public ActionResult Service_Details(int Service_Id)
         {
+            HomeViewModel homeViewModel = new HomeViewModel();
+
             try
             {
-                if (homeViewModel.service.Service_Id != 0)
+                if (Service_Id != 0)
                 {
                     ServiceManager _serviceMan = new ServiceManager();
 
-                    homeViewModel.service = _serviceMan.Get_Service_By_Id(homeViewModel.service.Service_Id);
+                    homeViewModel.service = _serviceMan.Get_Service_By_Id(Service_Id);
 
                     homeViewModel.service.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.service.File_Type_Str + @"\" + homeViewModel.service.Header_Image_Url;
                 }
@@ -323,6 +328,86 @@ namespace MagniPi.Controllers
             }
 
             return View("ServiceDetails", homeViewModel);
+        }
+
+        public ActionResult Event_Listing(HomeViewModel homeViewModel)
+        {
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                Logger.Error("Home Controller - Event_Listing: " + ex.ToString());
+
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+            }
+
+            return View("EventListing", homeViewModel);
+        }
+
+        public JsonResult Get_Events(HomeViewModel homeViewModel)
+        {
+            PaginationInfo pager = new PaginationInfo();
+
+            try
+            {
+                EventManager _eventMan = new EventManager();
+
+                pager = homeViewModel.Pager;
+
+                pager.PageSize = 9;
+
+                homeViewModel.events = _eventMan.Get_Up_Comming_Events(ref pager);
+
+                foreach (var item in homeViewModel.events)
+                {
+                    item.Attachment_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + item.Attachment_Type_Str + @"\" + item.Attachment_Url;
+                }
+
+                homeViewModel.Pager = pager;
+
+            }
+            catch (Exception ex)
+            {
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+
+                Logger.Error("Home Controller - Get_Events: " + ex.ToString());
+            }
+            finally
+            {
+                pager = null;
+            }
+
+            return Json(homeViewModel);
+        }
+
+        public ActionResult Event_Details(int Event_Id)
+        {
+            HomeViewModel homeViewModel = new HomeViewModel();
+            try
+            {
+                if (Event_Id != 0)
+                {
+                    EventManager _eventMan = new EventManager();
+
+                    homeViewModel.Event = _eventMan.Get_Event_By_Id(Event_Id);
+
+                    homeViewModel.Event.Attachment_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.Event.Attachment_Type_Str + @"\" + homeViewModel.Event.Attachment_Url;
+
+                    homeViewModel.Event.eventdates = _eventMan.Get_Event_Dates(Event_Id);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Home Controller - Event_Details: " + ex.ToString());
+
+                homeViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+            }
+
+            return View("EventDetails", homeViewModel);
         }
 
 		public ActionResult Home()

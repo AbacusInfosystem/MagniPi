@@ -34,7 +34,7 @@ function Bind_Services(data) {
 
             htmlText += "<div class='post-thumb'>";
 
-            htmlText += "<a href='#' onclick='ViewServiceDwtails(" + data.services[i].Service_Id + ")'>";
+            htmlText += "<a href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "'>";
 
             htmlText += "<img alt='' class='img-responsive' src='" + data.services[i].Header_Image_Url + "' style='border: 1px solid; border-color:black; height:200px; width:380px' />";
 
@@ -45,7 +45,7 @@ function Bind_Services(data) {
             var date = ToJavaScriptDate(data.services[i].Created_On);
             var values = date.split("/");
 
-            htmlText += "<span class='uppercase'><a href='#' onclick='ViewBlogDwtails(" + data.services[i].Service_Id + ")'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
+            htmlText += "<span class='uppercase'><a href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
 
             htmlText += "</div>";
 
@@ -55,11 +55,11 @@ function Bind_Services(data) {
 
             htmlText += "<h2 class='post-title bold'><a href='#'>" + data.services[i].Title + "</a></h2>";
 
-            htmlText += "<h3 class='post-author'><a href='#' onclick='ViewServiceDwtails(" + data.services[i].Service_Id + ")'>Posted by " + data.services[i].User_Name + "</a></h3>";
+            htmlText += "<h3 class='post-author'><a href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "'>Posted by " + data.services[i].User_Name + "</a></h3>";
             
             htmlText += "<p>" + data.services[i].Service_Template + "</p>";
 
-            htmlText += "<a class='read-more' href='#' onclick='ViewServiceDwtails(" + data.services[i].Service_Id + ")'>View More</a>";
+            htmlText += "<a class='read-more' href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "' >View More</a>";
 
             htmlText += "</div>";
 
@@ -92,12 +92,12 @@ function Bind_Services(data) {
 }
 
 
-function ViewServiceDwtails(Id) {
+//function ViewServiceDwtails(Id) {
 
-    $("#hdnService_Id").val(Id);
+//    $("#hdnService_Id").val(Id);
 
-    $('#frmServiceList').attr("action", "/home/view-service-details-by-id");
-    $('#frmServiceList').attr("method", "POST");
-    $('#frmServiceList').submit();
+//    $('#frmServiceList').attr("action", "/home/view-service-details-by-id");
+//    $('#frmServiceList').attr("method", "POST");
+//    $('#frmServiceList').submit();
 
-}
+//}

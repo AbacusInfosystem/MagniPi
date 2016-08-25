@@ -350,14 +350,14 @@ namespace MagniPi
 
             routes.MapRoute(
                 name: "home-1",
-                url: "home/view-blog-details-by-id",
-                defaults: new { controller = "Home", action = "Blog_Details", id = UrlParameter.Optional }
+                url: "home/view-blog-details-by-id/{Blog_Id}",
+                defaults: new { controller = "Home", action = "Blog_Details", Blog_Id = UrlParameter.Optional, id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "home-2",
-                url: "home/view-service-details-by-id",
-                defaults: new { controller = "Home", action = "Service_Details", id = UrlParameter.Optional }
+                url: "home/view-service-details-by-id/{Service_Id}",
+                defaults: new { controller = "Home", action = "Service_Details", Service_Id = UrlParameter.Optional, id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
@@ -400,6 +400,24 @@ namespace MagniPi
                 name: "home-9",
                 url: "home/get-testimonials-list",
                 defaults: new { controller = "Home", action = "Get_Testimonials", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-10",
+                url: "home/get-event-listing",
+                defaults: new { controller = "Home", action = "Event_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-11",
+                url: "home/get-events",
+                defaults: new { controller = "Home", action = "Get_Events", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-12",
+                url: "home/view-event-details-by-id/{Event_Id}",
+                defaults: new { controller = "Home", action = "Event_Details", Event_Id=UrlParameter.Optional, id = UrlParameter.Optional }
             );
 
 

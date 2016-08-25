@@ -349,7 +349,7 @@ namespace MagniPi.Controllers.PostLogin.Event
             try
             {
                 eViewModel.Event.customer_event_mappings = _eventMan.Get_Event_Customers_By_Event_Id(eViewModel.Event.Event_Id);
-                eViewModel.eventdates = _eventMan.Get_Event_Dates(eViewModel.Event.Event_Id);
+                eViewModel.Event.eventdates = _eventMan.Get_Event_Dates(eViewModel.Event.Event_Id);
 
             }
             catch (Exception ex)

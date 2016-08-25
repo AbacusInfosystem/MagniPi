@@ -1,0 +1,62 @@
+﻿@model MagniPi.Models.PreLogin.HomeViewModel
+
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">Event</h1>
+                        <p>Event Details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@{Html.RenderPartial("_ServerMessage");}*@
+
+<section class="padding-top" id="event-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="single-blog blog-details two-column">
+                            <div class="post-thumb">
+                                <img alt="Header Image" class="img-responsive" src="@Model.Event.Attachment_Url">
+                                <div class="post-overlay">
+                                    <span class="uppercase"><a href="#">@(Convert.ToDateTime(Model.Event.Created_On).ToString("dd"))  <br><small>@(Convert.ToDateTime(Model.Event.Created_On).ToString("MMM"))</small></a></span>
+                                </div>
+                            </div>
+                            <div class="post-content overflow">
+                                <h2 class="post-title bold"><a href="#">@Model.Event.Event_Name</a></h2>
+                                @*<h3 class="post-author"><a href="#">Posted by @Model.Event.User_Name</a></h3>*@
+                               
+                                <p>Event Type : &nbsp;&nbsp;@Model.Event.Event_Type_Str</p>
+                                
+                                <p>Address : &nbsp;&nbsp;@Model.Event.Location</p>
+
+                                <p>Date : &nbsp;&nbsp;
+                                    @if (Model.Event.eventdates.Count > 0)
+                                    {
+                                        foreach (var item in Model.Event.eventdates)
+                                        {
+                                            <ul>
+                                                <li>@(Convert.ToDateTime(item.Day).ToString("dd MMM yyyy"))</li>
+                                            </ul>
+                                        }
+                                    }
+                                </p>
+                                <p>About Event : &nbsp;&nbsp;@Model.Event.Description</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

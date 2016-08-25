@@ -1,0 +1,57 @@
+﻿@model MagniPi.Models.PreLogin.HomeViewModel
+
+<script src="~/Scripts/Modules/Home/event-list-event.js"></script>
+<script src="~/Scripts/Modules/Home/event-list-method.js"></script>
+
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">Event</h1>
+                        <p>Event Listing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*@{Html.RenderPartial("_ServerMessage");}*@
+
+<section class="padding-top" id="event">
+    <div class="container">
+
+        <form id="frmEventList">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+
+                    <input type="hidden" value="" id="hdnEvent_Id" name="Event.Event_Id" />
+                    <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
+
+                    @*<div class="row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter Month" class="form-control" name="name" id="txtMonth">
+                        </div>
+                        <div class="search" id="dvSearch">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>*@
+                    <br />
+
+                    <div id="dvEventList">
+
+                    </div>
+
+                    <p id="loading" style="text-align:center; display:none;">
+                        <img src="~/Images/loading-small.gif" alt="Loading…" />
+                    </p>
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</section>

@@ -2,6 +2,7 @@
 using MagniPiBusinessEntities.AboutUs;
 using MagniPiBusinessEntities.Blog;
 using MagniPiBusinessEntities.Common;
+using MagniPiBusinessEntities.Event;
 using MagniPiBusinessEntities.Service;
 using MagniPiBusinessEntities.Testimonial;
 using System;
@@ -31,6 +32,10 @@ namespace MagniPi.Models.PreLogin
 
             testimonials = new List<TestimonialInfo>();
 
+            events = new List<EventInfo>();
+
+            Event = new EventInfo();
+
 
             Filter = new Home_Filter();
 
@@ -52,6 +57,10 @@ namespace MagniPi.Models.PreLogin
         public AboutUsInfo aboutus { get; set; }
 
         public List<TestimonialInfo> testimonials { get; set; }
+
+        public List<EventInfo> events { get; set; }
+
+        public EventInfo Event { get; set; }
 
 
         public Home_Filter Filter { get; set; }
