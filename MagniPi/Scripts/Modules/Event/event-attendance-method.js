@@ -21,13 +21,13 @@ function Bind_Event_Customers(data) {
     var drpHTML = "";
     $("#drpDate").html('');
 
-    for (i = 0; i < data.eventdates.length; i++) {
+    for (i = 0; i < data.Event.eventdates.length; i++) {
 
-        var date = ToJavaScriptDate(data.eventdates[i].Day);
+        var date = ToJavaScriptDate(data.Event.eventdates[i].Day);
         var values = date.split("/");
         var newDate = values[1] + "/" + values[0] + "/" + values[2];
 
-        drpHTML += "<option value='" + newDate + "' >" + ToJavaScriptDate(data.eventdates[i].Day) + "</option>";
+        drpHTML += "<option value='" + newDate + "' >" + ToJavaScriptDate(data.Event.eventdates[i].Day) + "</option>";
     }
     //
 
@@ -192,7 +192,7 @@ function Bind_Event_Members_Attendance(data) {
 
     	//$('#tblEventMemberAttendance tr:first').after(blankHTML);
 
-        $('#dvScroll').append(blankHTML);
+        $('#tblEventMemberAttendance').append(blankHTML);
         $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
     }

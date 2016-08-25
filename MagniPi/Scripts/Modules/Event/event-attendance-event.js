@@ -16,8 +16,10 @@
     $("#btnViewAttendance").click(function (event) {
         
         $('#hdfCurrent_Page').val(0);
-        $("#tblEventMemberAttendance").find("tr:gt(0)").remove();
-
+        //$("#tblEventMemberAttendance").find("tr:gt(0)").remove();
+        $("#tblEventMemberAttendance").html("");
+        
+        console.log($("#tblEventMemberAttendance").html());
         Get_Event_Members_Attendance();
 
 
@@ -27,7 +29,8 @@
 
         Get_Event_Customers();
 
-        $("#tblEventMemberAttendance").find("tr:gt(0)").remove();
+        //$("#tblEventMemberAttendance").find("tr:gt(0)").remove();
+        $("#tblEventMemberAttendance").html("");
         $('#dvScroll').removeClass('scroll-bar');
         $("#btnSave").hide();
 
@@ -65,18 +68,7 @@
     //    }
     //});
 
-    $('#dvScroll').scroll(function () {
-    	if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight)
-    	{
-    		if (parseInt($("#hdfTotal_Pages").val()) > parseInt($("#hdfCurrent_Page").val()))
-    		{
-    			$('#loading').show();
-
-    			Get_Event_Members_Attendance();
-    		}
-    		
-    	}
-    });
+    
     	//	alert($(this).scrollTop());
     	//    if ($(this).scrollTop() == 1) {
 
@@ -87,5 +79,23 @@
     	//});
 
 
+
+
+
+    $('#dvScroll').scroll(function () {
+
+        //if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+        if ($(this).scrollTop() == 1) {
+            if (parseInt($("#hdfTotal_Pages").val()) > parseInt($("#hdfCurrent_Page").val())) {
+
+                //console.log("Total pages : " + $("#hdfTotal_Pages").val());
+                //console.log("Current Page : " + $("#hdfCurrent_Page").val());
+                $('#loading').show();
+
+                Get_Event_Members_Attendance();
+            }
+        }
+
+    });
 });
 

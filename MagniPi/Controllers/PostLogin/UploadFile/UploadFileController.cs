@@ -171,7 +171,7 @@ namespace MagniPi.Controllers.PostLogin.UploadFile
 
             try
             {
-                //pager = ufViewModel.Pager;
+                pager.IsPagingRequired = false;
                 attachments = _attachmentsMan.Get_Attachment_By_Type(ref pager, File_Type);
 
             }

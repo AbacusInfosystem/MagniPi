@@ -64,7 +64,8 @@ namespace MagniPiDataAccess.Service
             DataTable dt = _sqlRepo.ExecuteDataTable(null, StoredProcedures.Get_Services_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt, ref Pager))
             {
-                services.Add(Get_Service_Values(dr));
+                //services.Add(Get_Service_Values(dr));
+                services.Add(Get_Service_Values_By_Id(dr));
             }
             return services;
         }
@@ -79,7 +80,8 @@ namespace MagniPiDataAccess.Service
             DataTable dt = _sqlRepo.ExecuteDataTable(sqlParams, StoredProcedures.Get_Services_By_Sertice_Title_Sp.ToString(), CommandType.StoredProcedure);
             foreach (DataRow dr in CommonMethods.GetRows(dt, ref Pager))
             {
-                services.Add(Get_Service_Values(dr));
+                //services.Add(Get_Service_Values(dr));
+                services.Add(Get_Service_Values_By_Id(dr));
             }
             return services;
         }

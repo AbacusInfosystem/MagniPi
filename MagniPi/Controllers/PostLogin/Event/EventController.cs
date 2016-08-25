@@ -349,7 +349,7 @@ namespace MagniPi.Controllers.PostLogin.Event
             try
             {
                 eViewModel.Event.customer_event_mappings = _eventMan.Get_Event_Customers_By_Event_Id(eViewModel.Event.Event_Id);
-                eViewModel.eventdates = _eventMan.Get_Event_Dates(eViewModel.Event.Event_Id);
+                eViewModel.Event.eventdates = _eventMan.Get_Event_Dates(eViewModel.Event.Event_Id);
 
             }
             catch (Exception ex)
@@ -372,7 +372,7 @@ namespace MagniPi.Controllers.PostLogin.Event
                 eViewModel.Event.member_event_mappings = _eventMan.Get_Event_Members(ref pager, eViewModel.Event.customer_event_mapping.Event_Id, eViewModel.Event.customer_event_mapping.Customer_Id);
 
                 eViewModel.Pager = pager;
-                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
+                //eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
             {
@@ -452,7 +452,7 @@ namespace MagniPi.Controllers.PostLogin.Event
                 eViewModel.Event.event_attendances = _eventMan.Get_Event_Member_Attendance(ref pager, eViewModel.Event.event_attendance.Event_Id, eViewModel.Event.event_attendance.Customer_Id, eViewModel.Event.event_attendance.Date);
 
                 eViewModel.Pager = pager;
-                eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
+                //eViewModel.Pager.PageHtmlString = PageHelper.NumericPager("javascript:PageMore({0})", eViewModel.Pager.TotalRecords, eViewModel.Pager.CurrentPage + 1, eViewModel.Pager.PageSize, 10, true);
             }
             catch (Exception ex)
             {
@@ -503,7 +503,25 @@ namespace MagniPi.Controllers.PostLogin.Event
             return Json(eViewModel);
         }
 
+        public JsonResult Detete_Customer_Event(int customer_Event_Mapping_Id)
+        {
+            EventViewModel eViewModel = new EventViewModel();
 
+            try
+            {
+                _eventMan.Detete_Customer_Event_By_Id(customer_Event_Mapping_Id);
+                eViewModel.FriendlyMessage.Add(MessageStore.Get("EVT08"));
+
+            }
+            catch (Exception ex)
+            {
+                eViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
+
+                Logger.Error("Event Controller - Save_Event_Date: " + ex.ToString());
+            }
+
+            return Json(eViewModel);
+        }
 
         //public ActionResult AssignEvent()
         //{

@@ -1360,6 +1360,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Modules\AboutUs\about-us-event.js" />
     <Content Include="Scripts\Modules\AboutUs\about-us-validation.js" />
+    <Content Include="Scripts\Modules\Home\blog-list-event.js" />
     <Content Include="Scripts\Modules\Blog\blog-event.js" />
     <Content Include="Scripts\Modules\Blog\blog-method.js" />
     <Content Include="Scripts\Modules\Blog\blog-search-event.js" />
@@ -1382,6 +1383,13 @@
     <Content Include="Scripts\Modules\Event\event-subscribe-event.js" />
     <Content Include="Scripts\Modules\Event\event-subscribe-method.js" />
     <Content Include="Scripts\Modules\Event\event-validation.js" />
+    <Content Include="Scripts\Modules\Home\blog-list-method.js" />
+    <Content Include="Scripts\Modules\Home\event-list-event.js" />
+    <Content Include="Scripts\Modules\Home\event-list-method.js" />
+    <Content Include="Scripts\Modules\Home\service-list-event.js" />
+    <Content Include="Scripts\Modules\Home\service-list-method.js" />
+    <Content Include="Scripts\Modules\Home\testimonial-list-event.js" />
+    <Content Include="Scripts\Modules\Home\testimonial-list-method.js" />
     <Content Include="Scripts\Modules\Service\service-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-event.js" />
     <Content Include="Scripts\Modules\Service\service-search-method.js" />
@@ -1465,6 +1473,8 @@
     <Content Include="Views\PostLogin\Testimonial\Search.cshtml" />
     <Content Include="Views\PostLogin\Customer\AddCustomerMember.cshtml" />
     <Content Include="Views\PostLogin\Event\EventSubscribe.cshtml" />
+    <Content Include="Views\PreLogin\Home\EventListing.cshtml" />
+    <Content Include="Views\PreLogin\Home\EventDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

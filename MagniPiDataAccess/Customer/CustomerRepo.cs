@@ -61,6 +61,7 @@ namespace MagniPiDataAccess.Customer
             sqlParams.Add(new SqlParameter("@Description", customer.Description));
             sqlParams.Add(new SqlParameter("@Address", customer.Address));
             sqlParams.Add(new SqlParameter("@Contact", customer.Contact));
+            sqlParams.Add(new SqlParameter("@Email", customer.Email));
             sqlParams.Add(new SqlParameter("@Is_Indivisual", customer.Is_Indivisual));
             sqlParams.Add(new SqlParameter("@Is_Active", customer.Is_Active));
 
@@ -143,6 +144,7 @@ namespace MagniPiDataAccess.Customer
             customer.Description = Convert.ToString(dr["Description"]);
             customer.Address = Convert.ToString(dr["Address"]);
             customer.Contact = Convert.ToString(dr["Contact"]);
+            customer.Email = Convert.ToString(dr["Email"]);
             customer.Is_Indivisual = Convert.ToBoolean(dr["Is_Indivisual"]);
             customer.Is_Active = Convert.ToBoolean(dr["Is_Active"]);
             customer.Created_By = Convert.ToInt32(dr["Created_By"]);

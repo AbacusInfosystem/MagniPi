@@ -74,11 +74,15 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <div class="btn btn-group">
-                                                            <button type="button" id="btnShowMembers" class="btn btn-warning btn-sm" style="display:none;">Show members</button>
+                                                        <div class="btn btn-group ">
+                                                            <button type="button" id="btnShowMembers" class="btn btn-warning btn-sm pull-left" style="display:none;">Show members</button>
+                                                        </div>
+                                                        <div class="btn btn-group ">
+                                                            <button type="button" id="btnRemoveCustomer" class="btn btn-danger btn-sm pull-right" style="display:none;">Remove</button>
                                                         </div>
                                                     </div>
-                                                    
+                                                    <input type="hidden" id="hdnCust_Event_Id" value="" name="Cust_Event_Id" />
+
                                                     <div id="dvEventCustomers">
 
                                                     </div>
@@ -97,6 +101,8 @@
                                     <div class="box-body">
 
                                         <input type="hidden" id="hdfCurrent_Page" value="" />
+                                        <input type="hidden" id="hdfTotal_Pages" value="" />
+
                                         <div class="row">
                                             <div class="col-md-12">
 
@@ -109,14 +115,23 @@
                                                         <div class="col-md-12">
                                                             <div class="box box-solid">
 
-                                                                <div id="dvScroll">
+                                                               
                                                                     <div class="box-body table-responsive no-padding mdm-table">
-                                                                        <table class="table table-striped" id="tblEventMember">
+                                                                        @*<table class="table table-striped" id="tblEventMember">*@
+                                                                        <table class="table table-striped">
                                                                             <tr id="subhead">
-                                                                                <th></th>
-                                                                                <th>Member Name</th>
-                                                                                <th>Contact</th>
+                                                                                <th style="width:20%"></th>
+                                                                                <th style="width:50%">Member Name</th>
+                                                                                <th style="width:30%">Contact</th>
 
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td colspan="3">
+                                                                                    <div id="dvScroll">
+                                                                                        <table class="table table-striped" id="tblEventMember"></table>
+                                                                                    </div>
+                                                                                </td>
                                                                             </tr>
 
                                                                         </table>
@@ -124,7 +139,7 @@
                                                                             <img src="~/Images/loading-small.gif" alt="Loading…" />
                                                                         </p>
                                                                     </div>
-                                                                </div>
+                                                                
 
                                                                 </div>
                                                             <!-- /.box -->

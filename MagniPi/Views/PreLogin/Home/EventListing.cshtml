@@ -1,7 +1,7 @@
 ﻿@model MagniPi.Models.PreLogin.HomeViewModel
 
-<script src="~/Scripts/Modules/Home/service-list-event.js"></script>
-<script src="~/Scripts/Modules/Home/service-list-method.js"></script>
+<script src="~/Scripts/Modules/Home/event-list-event.js"></script>
+<script src="~/Scripts/Modules/Home/event-list-method.js"></script>
 
 <section id="page-breadcrumb">
     <div class="vertical-center sun">
@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="action">
                     <div class="col-sm-12">
-                        <h1 class="title">Service</h1>
-                        <p>Service Listing</p>
+                        <h1 class="title">Event</h1>
+                        <p>Event Listing</p>
                     </div>
                 </div>
             </div>
@@ -20,27 +20,27 @@
 
 @*@{Html.RenderPartial("_ServerMessage");}*@
 
-<section class="padding-top">
+<section class="padding-top" id="event">
     <div class="container">
 
-        <form id="frmServiceList">
+        <form id="frmEventList">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
 
-                    <input type="hidden" value="" id="hdnService_Id" name="service.Service_Id" />
+                    <input type="hidden" value="" id="hdnEvent_Id" name="Event.Event_Id" />
                     <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
 
-                    <div class="row">
+                    @*<div class="row">
                         <div class="form-group">
-                            <input type="text" placeholder="Enter Title" class="form-control" name="name" id="txtTitle">
+                            <input type="text" placeholder="Enter Month" class="form-control" name="name" id="txtMonth">
                         </div>
                         <div class="search" id="dvSearch">
                             <i class="fa fa-search"></i>
                         </div>
-                    </div>
+                    </div>*@
                     <br />
 
-                    <div id="dvServiceList">
+                    <div id="dvEventList">
 
                     </div>
 

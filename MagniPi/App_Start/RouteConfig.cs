@@ -234,7 +234,7 @@ namespace MagniPi
 
             #endregion
 
-            #region Customer
+            #region Event
 
             routes.MapRoute(
                 name: "event-1",
@@ -338,6 +338,11 @@ namespace MagniPi
                defaults: new { controller = "Event", action = "Save_Event_Attendance", id = UrlParameter.Optional }
            );
 
+            routes.MapRoute(
+               name: "event-18",
+               url: "event/remove-event-customer-by-id",
+               defaults: new { controller = "Event", action = "Detete_Customer_Event", id = UrlParameter.Optional }
+           );
 
             #endregion
 
@@ -345,15 +350,76 @@ namespace MagniPi
 
             routes.MapRoute(
                 name: "home-1",
-                url: "home/view-blog-details-by-id",
-                defaults: new { controller = "Home", action = "BlogDetails", id = UrlParameter.Optional }
+                url: "home/view-blog-details-by-id/{Blog_Id}",
+                defaults: new { controller = "Home", action = "Blog_Details", Blog_Id = UrlParameter.Optional, id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "home-2",
-                url: "home/view-service-details-by-id",
-                defaults: new { controller = "Home", action = "ServiceDetails", id = UrlParameter.Optional }
+                url: "home/view-service-details-by-id/{Service_Id}",
+                defaults: new { controller = "Home", action = "Service_Details", Service_Id = UrlParameter.Optional, id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "home-3",
+                url: "home/get-blogs-listing",
+                defaults: new { controller = "Home", action = "Blog_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-4",
+                url: "home/get-blogs",
+                defaults: new { controller = "Home", action = "Get_Blogs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-5",
+                url: "home/get-services-listing",
+                defaults: new { controller = "Home", action = "Service_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-6",
+                url: "home/get-services",
+                defaults: new { controller = "Home", action = "Get_Services", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-7",
+                url: "home/get-about-us",
+                defaults: new { controller = "Home", action = "AboutUs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-8",
+                url: "home/get-testimonial-listing",
+                defaults: new { controller = "Home", action = "Testimonial_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-9",
+                url: "home/get-testimonials-list",
+                defaults: new { controller = "Home", action = "Get_Testimonials", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-10",
+                url: "home/get-event-listing",
+                defaults: new { controller = "Home", action = "Event_Listing", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-11",
+                url: "home/get-events",
+                defaults: new { controller = "Home", action = "Get_Events", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "home-12",
+                url: "home/view-event-details-by-id/{Event_Id}",
+                defaults: new { controller = "Home", action = "Event_Details", Event_Id=UrlParameter.Optional, id = UrlParameter.Optional }
+            );
+
 
             #endregion
 

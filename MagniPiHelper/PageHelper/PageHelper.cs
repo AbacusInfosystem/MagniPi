@@ -125,8 +125,10 @@ namespace MagniPiHelper.PageHelper
 
                 //Kaushik Jehtva Add Below code 11/06/2012
                 //string linkFormat = "<a href=\"{0}\">{1}</a>";
-                string startul = "<ul>";
-                string endul = "</ul>";
+                //string startul = "<ul>";
+                //string endul = "</ul>";
+                string startul = "";
+                string endul = "";
                 string linkFormat = "<li><a href=\"{0}\">{1}</a></li>";
                 //End Comment 11/06/2012
 

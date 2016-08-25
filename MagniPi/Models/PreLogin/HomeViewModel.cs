@@ -1,6 +1,10 @@
 ﻿using MagniPi.Common;
+using MagniPiBusinessEntities.AboutUs;
 using MagniPiBusinessEntities.Blog;
+using MagniPiBusinessEntities.Common;
+using MagniPiBusinessEntities.Event;
 using MagniPiBusinessEntities.Service;
+using MagniPiBusinessEntities.Testimonial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +18,62 @@ namespace MagniPi.Models.PreLogin
         {
             FriendlyMessage = new List<FriendlyMessage>();
 
+            Pager = new PaginationInfo();
+
             blog = new BlogInfo();
 
+            blogs = new List<BlogInfo>();
+
             service = new ServiceInfo();
+
+            services = new List<ServiceInfo>();
+
+            aboutus = new AboutUsInfo();
+
+            testimonials = new List<TestimonialInfo>();
+
+            events = new List<EventInfo>();
+
+            Event = new EventInfo();
+
+
+            Filter = new Home_Filter();
 
 
         }
 
         public List<FriendlyMessage> FriendlyMessage { get; set; }
 
+        public PaginationInfo Pager { get; set; }
+
         public BlogInfo blog { get; set; }
+
+        public List<BlogInfo> blogs { get; set; }
 
         public ServiceInfo service { get; set; }
 
+        public List<ServiceInfo> services { get; set; }
+
+        public AboutUsInfo aboutus { get; set; }
+
+        public List<TestimonialInfo> testimonials { get; set; }
+
+        public List<EventInfo> events { get; set; }
+
+        public EventInfo Event { get; set; }
+
+
+        public Home_Filter Filter { get; set; }
 
     }
+
+    public class Home_Filter
+    {
+        
+        public string Blog_Month { get; set; }
+
+        public string Service_Title { get; set; }
+
+    }
+
 }
