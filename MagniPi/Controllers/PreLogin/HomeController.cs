@@ -49,6 +49,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Blog_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Title = "MagniPi | Blogs";
+
             //PaginationInfo pager = new PaginationInfo();
 
             try
@@ -151,6 +153,8 @@ namespace MagniPi.Controllers
                     homeViewModel.blog.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.blog.File_Type_Str + @"\" + homeViewModel.blog.Header_Image_Url;
                 }
 
+				ViewBag.Title = homeViewModel.blog.Title + " - MagniPi";
+
             }
             catch(Exception ex)
             {
@@ -164,6 +168,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Testimonial_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Title = "MagniPi | Testimonial";
+
             try
             {
 
@@ -213,6 +219,8 @@ namespace MagniPi.Controllers
 
         public ActionResult AboutUs(HomeViewModel homeViewModel)
         {
+			ViewBag.Title = "MagniPi | About us";
+
             AboutUsManager _aboutusMan = new AboutUsManager();
 
             try
@@ -237,6 +245,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Service_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Title = "MagniPi | Services";
+
             try
             {
 
@@ -319,6 +329,7 @@ namespace MagniPi.Controllers
                     homeViewModel.service.Header_Image_Url = ConfigurationManager.AppSettings["Upload_Image_Path"].ToString() + @"\" + homeViewModel.service.File_Type_Str + @"\" + homeViewModel.service.Header_Image_Url;
                 }
 
+				ViewBag.Title = homeViewModel.service.Title + " - MagniPi";
             }
             catch (Exception ex)
             {
@@ -332,6 +343,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Event_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Title = "MagniPi | Events";
+
             try
             {
 
@@ -384,6 +397,7 @@ namespace MagniPi.Controllers
 
         public ActionResult Event_Details(int Event_Id)
         {
+
             HomeViewModel homeViewModel = new HomeViewModel();
             try
             {
@@ -399,6 +413,8 @@ namespace MagniPi.Controllers
 
                 }
 
+				ViewBag.Title = homeViewModel.Event.Event_Name + " - MagniPi";
+
             }
             catch (Exception ex)
             {
@@ -412,6 +428,8 @@ namespace MagniPi.Controllers
 
 		public ActionResult Home()
 		{
+			ViewBag.Title = "MagniPi | Home";
+
 			return View();
 		}
 

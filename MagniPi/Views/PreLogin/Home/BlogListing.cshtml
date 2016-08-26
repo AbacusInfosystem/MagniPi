@@ -20,7 +20,7 @@
 
 @*@{Html.RenderPartial("_ServerMessage");}*@
 
-<section class="padding-top" id="blog">
+<section class="padding-top-sm"  id="blog">
     <div class="container">
 
         <form id="frmBlogList">
@@ -31,12 +31,23 @@
                     <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
 
                     <div class="row">
-                        <div class="form-group">
+						<div class="col-md-offset-8 col-md-4">
+							<div class="form-group">
+								<div class="input-group input-group-sm">
+									<input type="text" placeholder="Enter Month" class="form-control input-sm" name="name" id="txtMonth">
+									<span class="input-group-btn">
+										<button id="dvSearch" type="button" class="btn btn-info btn-flat lookup-btn"><span class="fa fa-search"></span></button>
+									</span>
+								</div>
+							</div>
+						</div>
+
+                        @*<div class="form-group">
                              <input type="text" placeholder="Enter Month" class="form-control" name="name" id="txtMonth">
                         </div>
                         <div class="search" id="dvSearch">
                             <i class="fa fa-search"></i>
-                        </div>
+                        </div>*@
                     </div>
                     <br />                    
 
