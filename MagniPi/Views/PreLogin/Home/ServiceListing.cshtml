@@ -20,7 +20,7 @@
 
 @*@{Html.RenderPartial("_ServerMessage");}*@
 
-<section class="padding-top">
+<section class="padding-top-sm">
     <div class="container">
 
         <form id="frmServiceList">
@@ -31,12 +31,24 @@
                     <input type="hidden" id="hdfCurrent_Page" value="@Model.Pager.CurrentPage" />
 
                     <div class="row">
-                        <div class="form-group">
+
+						<div class="col-md-offset-8 col-md-4">
+							<div class="form-group">
+								<div class="input-group input-group-sm">
+									<input type="text" placeholder="Enter title" class="form-control input-sm" name="name" id="txtTitle">
+									<span class="input-group-btn">
+										<button id="dvSearch" type="button" class="btn btn-info btn-flat lookup-btn"><span class="fa fa-search"></span></button>
+									</span>
+								</div>
+							</div>
+						</div>
+
+                        @*<div class="form-group">
                             <input type="text" placeholder="Enter Title" class="form-control" name="name" id="txtTitle">
                         </div>
                         <div class="search" id="dvSearch">
                             <i class="fa fa-search"></i>
-                        </div>
+                        </div>*@
                     </div>
                     <br />
 
