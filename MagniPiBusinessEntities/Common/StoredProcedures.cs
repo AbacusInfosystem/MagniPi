@@ -75,6 +75,13 @@ namespace MagniPiBusinessEntities.Common
         Get_Customers_By_Contact_Sp,
         Get_Customer_By_Name_Autocomplete_Sp,
 
+        #region Send Email
+
+        Get_Customer_To_Send_Mails_Sp,
+        Update_Registration_Mail_Send_Flag_Sp,
+
+        #endregion
+
         #region Member
 
         Insert_Member_Sp,
@@ -102,6 +109,15 @@ namespace MagniPiBusinessEntities.Common
         Get_Events_By_Event_Name_Sp,
         Get_Events_By_Month_Sp,
         Get_Up_Comming_Events_Sp,
+
+        #region Send Email
+
+        Get_Members_To_Send_Thank_You_Mail_Sp,
+        Update_Thank_You_Mail_Send_Flag_Sp,
+        Get_Members_To_Send_Reminder_Mail_Sp,
+        Update_Reminder_Send_Flag_Sp,
+
+        #endregion
 
         #region Event Date
 

@@ -1,4 +1,5 @@
 ﻿using MagniPiBusinessEntities.Common;
+using MagniPiBusinessEntities.Worker;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,7 +9,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MagniPiRepo.Common
+namespace MagniPiDataAccess.Common
 {
     public static class CommonMethods
     {
@@ -40,45 +41,45 @@ namespace MagniPiRepo.Common
         }
 
 
-        public static void SendMail(string to_Email_Id, string cc_Email_Id, string subject, string body)
+        public static void SendMail(SendEmailInfo sendEmail)
         {
             MailMessage mail = new MailMessage();
 
             SmtpClient SmtpServer = new SmtpClient();
 
-            if (!string.IsNullOrEmpty(to_Email_Id))
+            if (!string.IsNullOrEmpty(sendEmail.To_Email_Id))
             {
-                if (to_Email_Id.Contains(','))
+                if (sendEmail.To_Email_Id.Contains(','))
                 {
-                    foreach (var item in to_Email_Id.Split(','))
+                    foreach (var item in sendEmail.To_Email_Id.Split(','))
                     {
                         mail.To.Add(item);
                     }
                 }
                 else
                 {
-                    mail.To.Add(to_Email_Id);
+                    mail.To.Add(sendEmail.To_Email_Id);
                 }
             }
 
-            if (!string.IsNullOrEmpty(cc_Email_Id))
+            if (!string.IsNullOrEmpty(sendEmail.CC_Email_Id))
             {
-                if (cc_Email_Id.Contains(','))
+                if (sendEmail.CC_Email_Id.Contains(','))
                 {
-                    foreach (var item in cc_Email_Id.Split(','))
+                    foreach (var item in sendEmail.CC_Email_Id.Split(','))
                     {
                         mail.CC.Add(item);
                     }
                 }
                 else
                 {
-                    mail.CC.Add(cc_Email_Id);
+                    mail.CC.Add(sendEmail.CC_Email_Id);
                 }
             }
 
-            mail.Subject = subject;
+            mail.Subject = sendEmail.Subject;
 
-            mail.Body = body;
+            mail.Body = sendEmail.Body;
 
             mail.IsBodyHtml = true;
 

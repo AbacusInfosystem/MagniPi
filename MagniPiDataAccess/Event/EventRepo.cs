@@ -7,7 +7,7 @@ using MagniPiBusinessEntities.Event;
 using System.Data.SqlClient;
 using System.Data;
 using MagniPiBusinessEntities.Common;
-using MagniPiRepo.Common;
+using MagniPiDataAccess.Common;
 
 namespace MagniPiDataAccess.Event
 {
@@ -600,6 +600,8 @@ namespace MagniPiDataAccess.Event
             return events;
 
         }
+
+        
 
 
     }

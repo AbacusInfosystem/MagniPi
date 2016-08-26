@@ -1,7 +1,7 @@
 ﻿using MagniPiBusinessEntities.Attachment;
 using MagniPiBusinessEntities.Common;
 using MagniPiDataAccess.Utilities;
-using MagniPiRepo.Common;
+using MagniPiDataAccess.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

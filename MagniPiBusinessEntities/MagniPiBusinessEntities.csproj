@@ -60,7 +60,10 @@
     <Compile Include="Service\ServiceInfo.cs" />
     <Compile Include="Testimonial\TestimonialInfo.cs" />
     <Compile Include="User\UsersInfo.cs" />
+    <Compile Include="Worker\MemberEventInfo.cs" />
+    <Compile Include="Worker\SendEmailInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

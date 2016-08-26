@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MagniPiBusinessEntities">
+      <HintPath>..\Libraries\MagniPiBusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="MagniPiDataAccess">
+      <HintPath>..\Libraries\MagniPiDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="MagniPiHelper">
       <HintPath>..\Libraries\MagniPiHelper.dll</HintPath>
     </Reference>
@@ -65,7 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Log4Net.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">

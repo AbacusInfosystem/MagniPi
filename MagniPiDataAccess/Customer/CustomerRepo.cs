@@ -1,8 +1,9 @@
 ﻿using MagniPiBusinessEntities.Common;
 using MagniPiBusinessEntities.Customer;
 using MagniPiBusinessEntities.Event;
+using MagniPiBusinessEntities.Worker;
 using MagniPiDataAccess.Utilities;
-using MagniPiRepo.Common;
+using MagniPiDataAccess.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
