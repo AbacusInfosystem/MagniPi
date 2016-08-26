@@ -40,6 +40,7 @@ namespace MagniPiDataAccess.Customer
 
         public void Update_Customer(CustomerInfo customer)
         {
+           
             _sqlRepo.ExecuteNonQuery(Set_Values_In_Customer(customer), StoredProcedures.Update_Customer_Sp.ToString(), CommandType.StoredProcedure);
 
             if (customer.Is_Indivisual)
@@ -329,6 +330,8 @@ namespace MagniPiDataAccess.Customer
             }
             return autoList;
         }
+
+        
 
 
     }

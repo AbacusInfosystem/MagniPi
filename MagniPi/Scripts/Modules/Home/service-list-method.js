@@ -45,7 +45,7 @@ function Bind_Services(data) {
             var date = ToJavaScriptDate(data.services[i].Created_On);
             var values = date.split("/");
 
-            htmlText += "<span class='uppercase'><a href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "'>" + values[0] + " <br><small>" + values[1] + "</small></a></span>";
+            htmlText += "<span class='uppercase'><a href='/home/view-service-details-by-id/" + data.services[i].Service_Id + "'>" + values[0] + " <br><small>" + Get_Date_Month_Name(values[1]) + "</small></a></span>";
 
             htmlText += "</div>";
 
