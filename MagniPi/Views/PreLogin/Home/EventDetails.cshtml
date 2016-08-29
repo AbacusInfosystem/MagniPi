@@ -17,46 +17,52 @@
 
 @*@{Html.RenderPartial("_ServerMessage");}*@
 
-<section class="padding-top" id="event-details">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="single-blog blog-details two-column">
-                            <div class="post-thumb">
-                                <img alt="Header Image" class="img-responsive" src="@Model.Event.Attachment_Url">
-                                <div class="post-overlay">
-                                    <span class="uppercase"><a href="#">@(Convert.ToDateTime(Model.Event.Created_On).ToString("dd"))  <br><small>@(Convert.ToDateTime(Model.Event.Created_On).ToString("MMM"))</small></a></span>
-                                </div>
-                            </div>
-                            <div class="post-content overflow">
-                                <h2 class="post-title bold"><a href="#">@Model.Event.Event_Name</a></h2>
-                                @*<h3 class="post-author"><a href="#">Posted by @Model.Event.User_Name</a></h3>*@
-                               
-                                <p>Event Type : &nbsp;&nbsp;@Model.Event.Event_Type_Str</p>
-                                
-                                <p>Address : &nbsp;&nbsp;@Model.Event.Location</p>
 
-                                <p>Date : &nbsp;&nbsp;
-                                    @if (Model.Event.eventdates.Count > 0)
+
+ <section id="portfolio-information" class="padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="@Model.Event.Attachment_Url" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <div class="project-name overflow">
+                        <h2 class="bold">@Model.Event.Event_Name </h2>
+                        <ul class="nav navbar-nav navbar-default">
+                            @*<li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
+                            <li><a href="#"><i class="fa fa-tag"></i>Branding</a></li>*@
+
+							@if (Model.Event.eventdates.Count > 0)
                                     {
                                         foreach (var item in Model.Event.eventdates)
                                         {
-                                            <ul>
-                                                <li>@(Convert.ToDateTime(item.Day).ToString("dd MMM yyyy"))</li>
-                                            </ul>
+											<li><a href="#"><i class="fa fa-clock-o"></i>@(Convert.ToDateTime(item.Day).ToString("dd MMM yyyy"))</a></li>	
+                                            
                                         }
                                     }
-                                </p>
-                                <p>About Event : &nbsp;&nbsp;@Model.Event.Description</p>
-                                
-                            </div>
-                        </div>
+
+                        </ul>
                     </div>
+                    <div class="project-info overflow">
+                        <h3>Event Description</h3>
+                        <p>@Model.Event.Description</p>
+                    </div>
+                    
+					<div class="client overflow">
+                        <h3>Event Type : </h3>
+						 <ul class="nav navbar-nav navbar-default">
+                            <li><a href="#"><i class="fa fa-bolt"></i>@Model.Event.Event_Type_Str</a></li>
+                        </ul>
+                    </div>
+
+					<div class="client overflow">
+                        <h3>Event Address : </h3>
+						<ul class="nav navbar-nav navbar-default">
+                            <li><a href="#"><i class="fa fa-map-marker"></i>@Model.Event.Location</a></li>
+                        </ul>
+                    </div>
+                    
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>

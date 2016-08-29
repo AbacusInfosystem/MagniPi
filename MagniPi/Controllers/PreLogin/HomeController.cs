@@ -49,6 +49,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Blog_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Page = "Blog";
+
 			ViewBag.Title = "MagniPi | Blogs";
 
             //PaginationInfo pager = new PaginationInfo();
@@ -140,6 +142,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Blog_Details(int Blog_Id)
         {
+			ViewBag.Page = "Blog";
+
             HomeViewModel homeViewModel = new HomeViewModel();
 
             try
@@ -168,6 +172,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Testimonial_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Page = "Testimonial";
+
 			ViewBag.Title = "MagniPi | Testimonial";
 
             try
@@ -219,6 +225,8 @@ namespace MagniPi.Controllers
 
         public ActionResult AboutUs(HomeViewModel homeViewModel)
         {
+			ViewBag.Page = "AboutUs";
+
 			ViewBag.Title = "MagniPi | About us";
 
             AboutUsManager _aboutusMan = new AboutUsManager();
@@ -240,11 +248,17 @@ namespace MagniPi.Controllers
 
         public ActionResult ContactUs()
         {
+			ViewBag.Page = "ContactUs";
+
+			ViewBag.Title = "MagniPi | Contact us";
+
             return View();
         }
 
         public ActionResult Service_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Page = "Service";
+
 			ViewBag.Title = "MagniPi | Services";
 
             try
@@ -316,6 +330,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Service_Details(int Service_Id)
         {
+			ViewBag.Page = "Service";
+
             HomeViewModel homeViewModel = new HomeViewModel();
 
             try
@@ -343,6 +359,8 @@ namespace MagniPi.Controllers
 
         public ActionResult Event_Listing(HomeViewModel homeViewModel)
         {
+			ViewBag.Page = "Event";
+
 			ViewBag.Title = "MagniPi | Events";
 
             try
@@ -397,6 +415,7 @@ namespace MagniPi.Controllers
 
         public ActionResult Event_Details(int Event_Id)
         {
+			ViewBag.Page = "Event";
 
             HomeViewModel homeViewModel = new HomeViewModel();
             try
@@ -428,6 +447,8 @@ namespace MagniPi.Controllers
 
 		public ActionResult Home()
 		{
+			ViewBag.Page = "Home";
+
 			ViewBag.Title = "MagniPi | Home";
 
 			return View();

@@ -32,13 +32,70 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/Home/Home">Home</a></li>
-                        <li><a href="/home/get-testimonial-listing">Testimonials </a></li>                    
-                        <li><a href="/home/get-blogs-listing">Blogs</a></li>
-                        <li><a href="/home/get-services-listing">Services </a></li>                         
-                        <li><a href="/home/get-event-listing">Events</a></li>     
-						<li><a href="/home/get-about-us">About Us</a></li>
-                        <li><a href="/Home/ContactUs">Contact Us</a></li>               
+						@if(ViewBag.Page == "Home")
+						{
+							<li class="active"><a href="/Home/Home">Home</a></li>
+						}
+						else
+						{
+							<li ><a href="/Home/Home">Home</a></li>
+						}
+
+						@if(ViewBag.Page == "Testimonial")
+						{
+							<li class="active"><a href="/home/get-testimonial-listing">Testimonials </a></li>     
+						}
+						else
+						{
+							<li><a href="/home/get-testimonial-listing">Testimonials </a></li>     
+						}
+
+						@if(ViewBag.Page == "Blog")
+						{
+							<li class="active"><a href="/home/get-blogs-listing">Blogs</a></li>   
+						}
+						else
+						{
+							<li><a href="/home/get-blogs-listing">Blogs</a></li>
+						}
+
+						@if(ViewBag.Page == "Service")
+						{
+							  <li class="active"><a href="/home/get-services-listing">Services </a></li>       
+						}
+						else
+						{
+							  <li><a href="/home/get-services-listing">Services </a></li>       
+						}
+                                       
+                       @if(ViewBag.Page == "Event")
+						{
+							  <li class="active"><a href="/home/get-event-listing">Events</a></li>        
+						}
+						else
+						{
+							  <li><a href="/home/get-event-listing">Events</a></li>      
+						}
+                         
+						@if(ViewBag.Page == "AboutUs")
+						{
+							 <li class="active"><a href="/home/get-about-us">About Us</a></li>       
+						}
+						else
+						{
+							 <li><a href="/home/get-about-us">About Us</a></li>
+						}               
+                        
+						@if(ViewBag.Page == "ContactUs")
+						{
+							  <li class="active"><a href="/Home/ContactUs">Contact Us</a></li>               
+						}
+						else
+						{
+							 <li><a href="/Home/ContactUs">Contact Us</a></li>           
+						}  
+						
+                           
                     </ul>
                 </div>
                 @*<div class="search">
