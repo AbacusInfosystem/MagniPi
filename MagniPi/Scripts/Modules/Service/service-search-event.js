@@ -22,7 +22,7 @@
 
         $("#frmServiceListing").attr("target", "_blank");
 
-        $('#frmServiceListing').attr("action", "/home/view-service-details-by-id");
+        $('#frmServiceListing').attr("action", "/home/view-service-details-by-id/" + $("#hdnService_Id").val());
         $('#frmServiceListing').attr("method", "POST");
         $('#frmServiceListing').submit();
 

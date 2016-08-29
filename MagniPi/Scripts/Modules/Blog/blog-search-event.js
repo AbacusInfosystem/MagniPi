@@ -36,8 +36,8 @@
     $("#btnPreview").click(function (event) {
 
         $("#frmBlogListing").attr("target", "_blank");
-
-        $('#frmBlogListing').attr("action", "/home/view-blog-details-by-id");
+    	
+        $('#frmBlogListing').attr("action", "/home/view-blog-details-by-id/" + $("#hdnBlogId").val());
         $('#frmBlogListing').attr("method", "POST");
         $('#frmBlogListing').submit();
 

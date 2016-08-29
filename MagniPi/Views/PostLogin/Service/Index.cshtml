@@ -149,23 +149,49 @@
 
 <script>
 
-    CKEDITOR.replace('service.Service_Template', {
-        "extraPlugins": 'imagebrowser',
-        "imageBrowser_listUrl": "/UploadFile/Image.json",
-        toolbar: [
-          ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
-          ['Scayt'],
-          ['Image'],
-          ['Maximize'],
-            '/',
-          ['Bold', 'Italic'],
-          ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
-          ['Format']
-        ],
-        allowedContent:
-    'img[!src,alt,width,height]{float};' + // Note no {width,height}
-    'h1 h2 div'
-    });
+	CKEDITOR.replace('service.Service_Template', {
+
+		"extraPlugins": 'imagebrowser',
+		"imageBrowser_listUrl": "/UploadFile/Get_Images",
+		"extraPlugins": "videodetector",
+
+		toolbar: [
+
+			['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
+
+			['VideoDetector'],
+
+			['Image'],
+
+			['Bold', 'Italic'],
+
+			['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+
+			['Format'],
+
+			['Maximize'],
+		],
+
+		allowedContent: true
+	});
+
+    //CKEDITOR.replace('service.Service_Template', {
+    //    "extraPlugins": 'imagebrowser',
+    //    "imageBrowser_listUrl": "/UploadFile/Image.json",
+    //    toolbar: [
+    //      ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
+    //      ['Scayt'],
+    //      ['Image'],
+    //      ['Maximize'],
+    //        '/',
+    //      ['Bold', 'Italic'],
+    //      ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+    //      ['Format']
+    //    ],
+    //    allowedContent:
+    //'img[!src,alt,width,height]{float};' + // Note no {width,height}
+    //'h1 h2 div'
+    //});
 
     CKEDITOR.replace('service.Service_Template');
 

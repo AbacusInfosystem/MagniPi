@@ -920,6 +920,12 @@
     <Content Include="Content\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
     <Content Include="Content\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
     <Content Include="Content\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Content\ckeditor\plugins\videodetector\dialogs\videoDialog.js" />
+    <Content Include="Content\ckeditor\plugins\videodetector\icons\icon_black.png" />
+    <Content Include="Content\ckeditor\plugins\videodetector\icons\icon_white.png" />
+    <Content Include="Content\ckeditor\plugins\videodetector\icons\videodetector.svg" />
+    <Content Include="Content\ckeditor\plugins\videodetector\plugin.js" />
+    <Content Include="Content\ckeditor\plugins\videodetector\videodetector.css" />
     <Content Include="Content\ckeditor\plugins\video\dialogs\video.js" />
     <Content Include="Content\ckeditor\plugins\video\docs\install.html" />
     <Content Include="Content\ckeditor\plugins\video\docs\styles.css" />
