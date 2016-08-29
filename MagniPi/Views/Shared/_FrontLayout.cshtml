@@ -45,6 +45,7 @@
 @*<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow7.js"></script>*@
 @*<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow18.js"></script>*@
 <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow26.js"></script>
+	<script src="~/Scripts/jquery.sticky.js"></script>
 	
 </head><!--/head-->
 
@@ -67,3 +68,10 @@
 </body>
 
 </html>
+
+<script>
+	$(document).ready(function ()
+	{
+		$("#sticker").sticky({ topSpacing: 0,zIndex:5000 });
+	});
+</script>
