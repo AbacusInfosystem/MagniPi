@@ -152,27 +152,59 @@
 
 <script>
 
-    CKEDITOR.replace('blog.Blog_Template', {
-        "extraPlugins": 'imagebrowser',
-        //"imageBrowser_listUrl": "/BlogListingImages/" + $("#hdnUserID").val() + ".json",
-    	//"imageBrowser_listUrl": "/UploadFile/Image.json",
-        "imageBrowser_listUrl":"/UploadFile/Get_Images",
-        toolbar: [
-          ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
-          ['Scayt'],
-          ['Image'],
-          ['Maximize'],
-            '/',
-          ['Bold', 'Italic'],
-          ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
-          ['Format']
-        ],
-        allowedContent:
-    'img[!src,alt,width,height]{float};' + // Note no {width,height}
-    'h1 h2 div'
-    });
+	CKEDITOR.replace('blog.Blog_Template', {
 
-    CKEDITOR.replace('blog.Blog_Template');
+		"extraPlugins": 'imagebrowser',
+		"imageBrowser_listUrl": "/UploadFile/Get_Images",
+		"extraPlugins" : "videodetector",
+
+		toolbar: [
+
+			['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
+
+			['VideoDetector'],
+
+			['Scayt'],
+
+			['Image'],
+
+			['Bold', 'Italic'],
+
+			['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+
+			['Format'],
+
+			['Maximize'],
+		],
+
+		allowedContent:true
+		   //'img[!src,alt,width,height]{float};' + // Note no {width,height}
+		   //'h1 h2 div'
+	});
+
+    //CKEDITOR.replace('blog.Blog_Template', {
+    //    "extraPlugins": 'imagebrowser',
+    //    //"imageBrowser_listUrl": "/BlogListingImages/" + $("#hdnUserID").val() + ".json",
+    //	//"imageBrowser_listUrl": "/UploadFile/Image.json",
+    //    "imageBrowser_listUrl": "/UploadFile/Get_Images",
+        
+    //    //toolbar: [
+	//	//	['VideoDetector'],
+    //    //  ['Cut', 'Copy', 'Paste', 'SpellChecker', 'Undo', 'Redo'],
+    //    //  ['Scayt'],
+    //    //  ['Image'],
+    //    //  ['Maximize'],
+    //    //    '/',
+    //    //  ['Bold', 'Italic'],
+    //    //  ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+    //    //  ['Format']
+    //    //],
+    ////    allowedContent:
+    ////'img[!src,alt,width,height]{float};' + // Note no {width,height}
+    ////'h1 h2 div'
+    //});
+
+   CKEDITOR.replace('blog.Blog_Template');
 
 
 </script>

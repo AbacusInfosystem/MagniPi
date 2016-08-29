@@ -9,7 +9,8 @@ CKEDITOR.editorConfig = function (config) {
     // For complete reference see:
     // http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
-    // The toolbar groups arrangement, optimized for two toolbar rows.
+	// The toolbar groups arrangement, optimized for two toolbar rows.
+
     config.toolbarGroups = [
 		{ name: 'clipboard', groups: ['clipboard', 'undo'] },
 		{ name: 'editing', groups: ['find', 'selection', 'spellchecker'] },
@@ -25,7 +26,10 @@ CKEDITOR.editorConfig = function (config) {
 		{ name: 'styles' },
 		{ name: 'colors' },
 		{ name: 'about' }
-    ];
+	];
+
+	config.extraPlugins = 'videodetector';
+	//config.toolbar = ['VideoDetector'];
 
     // Remove some buttons provided by the standard plugins, which are
     // not needed in the Standard(s) toolbar.
