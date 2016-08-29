@@ -15,30 +15,28 @@ namespace MagniPiEmailWorker
         /// </summary>
         static void Main()
         {
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[] 
-            //{ 
-            //    new MagniPiEmailService() 
-            //};
-            //ServiceBase.Run(ServicesToRun);
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[] 
+            { 
+                new MagniPiEmailService() 
+            };
+            ServiceBase.Run(ServicesToRun);
 
-            try
-            {
-                MagniPiEmailService sv = new MagniPiEmailService();
+            //try
+            //{
+            //    MagniPiEmailService sv = new MagniPiEmailService();
 
-                //sv.Send_Mail();
+            //    sv.Send_Customer_Registration_Mail();
 
-                sv.Send_Customer_Registration_Mail();
+            //    sv.Send_Reminder_Email();
 
-                sv.Send_Reminder_Email();
+            //    sv.Send_Thank_You_Email();
 
-                sv.Send_Thank_You_Email();
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("--Exception: " + ex.InnerException.ToString());
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Logger.Error("--Exception: " + ex.InnerException.ToString());
+            //}
         }
     }
 }
