@@ -926,12 +926,6 @@
     <Content Include="Content\ckeditor\plugins\videodetector\icons\videodetector.svg" />
     <Content Include="Content\ckeditor\plugins\videodetector\plugin.js" />
     <Content Include="Content\ckeditor\plugins\videodetector\videodetector.css" />
-    <Content Include="Content\ckeditor\plugins\video\dialogs\video.js" />
-    <Content Include="Content\ckeditor\plugins\video\docs\install.html" />
-    <Content Include="Content\ckeditor\plugins\video\docs\styles.css" />
-    <Content Include="Content\ckeditor\plugins\video\images\icon.png" />
-    <Content Include="Content\ckeditor\plugins\video\images\placeholder.png" />
-    <Content Include="Content\ckeditor\plugins\video\plugin.js" />
     <Content Include="Content\ckeditor\plugins\wsc\dialogs\ciframe.html" />
     <Content Include="Content\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
     <Content Include="Content\ckeditor\plugins\wsc\dialogs\wsc.css" />
@@ -1349,8 +1343,8 @@
     <Content Include="FrontContent\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="FrontContent\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="FrontContent\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\MagniPi.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Images\default.jpg" />
     <Content Include="Scripts\generic-methods.js" />
     <Content Include="Scripts\generic.autocomplete.js" />
     <Content Include="Scripts\generic.custom.validation.js" />
@@ -1413,12 +1407,16 @@
     <Content Include="Scripts\Modules\Testimonial\testimonial-validation.js" />
     <Content Include="Scripts\Modules\UploadFile\upload-file-event.js" />
     <Content Include="Scripts\Modules\UploadFile\upload-file-validation.js" />
-    <Content Include="UploadFile\Image\146fcfec-627b-4fbc-ab04-20f338f84214.jpg" />
-    <Content Include="UploadFile\Image\4cb4bdc1-965f-41e1-9fca-8d17212740e1.jpg" />
-    <Content Include="UploadFile\Image\8f9820f9-c020-49a6-8eda-b8601dfc7408.jpg" />
-    <Content Include="UploadFile\Image\98e8a926-10d3-4927-8300-dc0671a478d7.png" />
-    <Content Include="UploadFile\Image\a8deb493-b999-48b9-8d7e-2c0da229a67c.png" />
-    <Content Include="UploadFile\Image\b32bf071-141f-4a11-a9a9-e019927ea2de.jpg" />
+    <Content Include="UploadFile\Image\1d9f5160-daf1-45c5-87aa-d0c6920db523.jpg" />
+    <Content Include="UploadFile\Image\1ee1e7db-b60e-4752-8b8d-a5fe0c2c0f18.jpg" />
+    <Content Include="UploadFile\Image\3e5be4bd-ae1b-447d-8b6f-83cb77a67710.jpg" />
+    <Content Include="UploadFile\Image\43f6c5eb-0a8d-4dc0-8334-0df79a5c1df9.jpg" />
+    <Content Include="UploadFile\Image\5ac92778-ff72-43f7-90de-17e1502e6d3e.jpg" />
+    <Content Include="UploadFile\Image\5f65719d-13c9-41c6-aa80-8a350ec10976.jpg" />
+    <Content Include="UploadFile\Image\746f5af5-5d08-4a91-9062-348192cdf5fa.jpg" />
+    <Content Include="UploadFile\Image\8050d39f-39b2-4955-8fd3-94b6b5b855d0.jpg" />
+    <Content Include="UploadFile\Image\b7c207ee-ddae-4eda-a09d-580ec9243018.jpg" />
+    <Content Include="UploadFile\Image\cfb66d97-a760-4733-8958-f8fdc49ab18c.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

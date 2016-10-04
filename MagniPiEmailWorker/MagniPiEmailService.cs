@@ -249,7 +249,7 @@ namespace MagniPiEmailWorker
                 htmlString.Append("</p>");
 
                 htmlString.Append("<p>");
-                htmlString.Append("You are succefully registered.");
+                htmlString.Append("You are succefully registered at MagniPi.");
                 htmlString.Append("</p>");
 
                 htmlString.Append("<br />");

@@ -6,12 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@ViewBag.Title</title>
-    <link href="/FrontContent/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/FrontContent/css/font-awesome.min.css" rel="stylesheet">
+
+    @*<link href="/FrontContent/css/bootstrap.min.css" rel="stylesheet">
     <link href="/FrontContent/css/animate.min.css" rel="stylesheet"> 
+	<link href="/FrontContent/css/responsive.css" rel="stylesheet">*@
+
+    <link href="/FrontContent/css/font-awesome.min.css" rel="stylesheet">
     <link href="/FrontContent/css/lightbox.css" rel="stylesheet"> 
-	<link href="/FrontContent/css/main.css" rel="stylesheet">
-	<link href="/FrontContent/css/responsive.css" rel="stylesheet">
+    <link href="/FrontContent/css/main.css" rel="stylesheet">
+
+    @Styles.Render("~/FrontContent/allstyles")
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -23,35 +27,30 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-    <script type="text/javascript" src="/FrontContent/js/jquery.js"></script>
+    @*<script type="text/javascript" src="/FrontContent/js/jquery.js"></script>
     <script type="text/javascript" src="/FrontContent/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/FrontContent/js/lightbox.min.js"></script>
     <script type="text/javascript" src="/FrontContent/js/wow.min.js"></script>
-    <script type="text/javascript" src="/FrontContent/js/main.js"></script>   
+    <script type="text/javascript" src="/FrontContent/js/main.js"></script>*@   
+
+    @Scripts.Render("~/FrontContent/javascript")
 
     <link href="~/Content/AdminLTE/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <script src="/Content/AdminLTE/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
 
     <script src="/Scripts/generic.ajax.js"></script>
 
-    @*<script src="~/Scripts/generic.autocomplete.js"></script>
-    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />*@
-
     <script src="~/Scripts/generic.message.js"></script>
     <script src="~/Scripts/generic-methods.js"></script>
 
-	
-@*<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow201.js"></script>*@
-@*<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow7.js"></script>*@
-@*<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow18.js"></script>*@
-<script type="text/javascript" src="http://arrow.scrolltotop.com/arrow26.js"></script>
+    <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow26.js"></script>
 	<script src="~/Scripts/jquery.sticky.js"></script>
 	
 </head><!--/head-->
 
 <body>
 
-	
+    
 
 	 @{Html.RenderPartial("_FrontHeader");}
 

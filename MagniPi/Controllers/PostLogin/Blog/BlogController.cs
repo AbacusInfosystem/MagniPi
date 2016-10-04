@@ -82,6 +82,11 @@ namespace MagniPi.Controllers.PostLogin.Blog
         {
             try
             {
+                if (TempData["BlogViewModel"] != null)
+                {
+                    bViewModel = (BlogViewModel)TempData["BlogViewModel"];
+                }
+
                 if(bViewModel.blog.Blog_Id != 0)
                 {
                     bViewModel.blog = _blogMan.Get_Blog_By_Id(bViewModel.blog.Blog_Id);
@@ -138,7 +143,9 @@ namespace MagniPi.Controllers.PostLogin.Blog
                 bViewModel.FriendlyMessage.Add(MessageStore.Get("SYS01"));
             }
 
-            return View("Index", bViewModel);
+            //return View("Index", bViewModel);
+            TempData["BlogViewModel"] = bViewModel;
+            return RedirectToAction("Index", "Blog");
         }
 
 
